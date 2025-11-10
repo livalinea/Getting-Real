@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Phoenix"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1000" Width="1400">
+        Title="MainWindow" Height="1000" Width="1200">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
@@ -25,7 +25,9 @@
                 <GradientStop Color="#FFFF956F" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Image x:Name="logo" HorizontalAlignment="Left" Height="210" Margin="1116,95,0,0" VerticalAlignment="Top" Width="255" Grid.Row="1"/>
+        <Image x:Name="logo" HorizontalAlignment="Left" Height="230" Margin="912,40,0,0" VerticalAlignment="Top" Width="268" Grid.Row="1" Opacity="0.8" Source="/Billeder/logo judo.jpg">
+
+        </Image>
 
     </Grid>
 </Window>

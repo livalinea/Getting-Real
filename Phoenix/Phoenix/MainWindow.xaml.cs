@@ -25,5 +25,6 @@ namespace Phoenix
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
         }
 
+       
     }
 }
