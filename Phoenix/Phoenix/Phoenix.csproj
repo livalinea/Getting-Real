@@ -8,4 +8,21 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Billeder\logo judo.jpg" />
+    <None Remove="logo judo.jpg" />
+    <None Remove="logo judo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Billeder\logo judo.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="logo judo.jpg" />
+    <Resource Include="logo judo.png" />
+  </ItemGroup>
+
 </Project>
