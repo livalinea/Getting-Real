@@ -417,3 +417,7 @@ FodyWeavers.xsd
 *.msm
 *.msp
 *.cache
+Phoenix/Phoenix/obj/Debug/net8.0-windows/Phoenix.AssemblyInfo.cs
+Phoenix/Phoenix/obj/Debug/net8.0-windows/Phoenix.AssemblyInfoInputs.cache
+Phoenix/Phoenix/obj/Debug/net8.0-windows/Phoenix.assets.cache
+Phoenix/Phoenix/obj/Debug/net8.0-windows/Phoenix.GeneratedMSBuildEditorConfig.editorconfig
