@@ -96,8 +96,6 @@ namespace Phoenix
 			set { role = value; }
 		}
 
-		//jfeijfiejf
-
 		public ClubMember()		
 		{
 
