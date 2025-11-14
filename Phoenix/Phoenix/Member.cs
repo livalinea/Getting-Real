@@ -14,8 +14,8 @@ namespace Phoenix
         AsCoach,
         //andre roller?
 
-    }
-    internal class ClubMember
+	}
+    internal class Member
     {
         public int MemberID { get; }
         private string name;

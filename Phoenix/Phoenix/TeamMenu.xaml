@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="Phoenix.TeamMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Phoenix"
+             
+        mc:Ignorable="d"
+        MinHeight="480" MinWidth="720">
+    
+    
+    <!--Height="500" Width="700">-->
+        <!--Title="TeamMenu"--> 
+    
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="134*"/>
+            <ColumnDefinition Width="567*"/>
+        </Grid.ColumnDefinitions>
+        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform Angle="-90" CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#FFFDE2CE"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        
+        <Rectangle Height="58" VerticalAlignment="Top" Grid.ColumnSpan="2">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFFFDEBC"/>
+                    <GradientStop Color="#FFFF8D66" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        
+        <Label Content="Hold" HorizontalAlignment="Left" VerticalAlignment="Top"
+               FontSize="36" FontWeight="Bold" Foreground="White" Grid.Column="1" Margin="170,0,0,0"/>
+        
+        <Button Content="⟵" Click="BackButton_Click" Foreground="#FFC12E2E" Margin="24,-13,58,414" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="72" FontFamily="Arial Black"/>
+
+
+
+        <Button Content="Motorik og Krea" Width="200" Height="60" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Arial Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,182,0,0" FontWeight="Bold" Grid.Column="1" Click="Button_Click"/>
+        <Button Content="Puslinge" Width="200" Height="60" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Arial Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="246,182,0,0" Grid.Column="1" Click="Button_Click"/>
+        <Button Content="Junior" Width="200" Height="58" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Arial Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,273,0,0" Grid.Column="1" Click="Button_Click"/>
+        <Button Content="Senior" Width="200" Height="59" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Arial Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="246,272,0,0" RenderTransformOrigin="0.565,0.516" Grid.Column="1" Click="Button_Click"/>
+        <Button Content="BJJ" Width="200" Height="59" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Arial Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,366,0,0" Grid.Column="1" Click="Button_Click"/>
+
+        <Image x:Name="logo"  Source="/Billeder/logo judo.jpg" Width="120" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Opacity="0.8" Grid.Column="1"/>
+        <TextBlock HorizontalAlignment="Left" Margin="82,100,0,0" TextWrapping="Wrap" Text="Vælg det ønskede hold" VerticalAlignment="Top" Height="29" Width="330" Foreground="#FFA30B0B" FontSize="24" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" Grid.Column="1"/>
+
+    </Grid>
+</UserControl>

@@ -417,6 +417,5 @@ FodyWeavers.xsd
 *.msm
 *.msp
 
-# User added items
+# User added
 obj
-
