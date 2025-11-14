@@ -6,14 +6,15 @@
         xmlns:local="clr-namespace:Phoenix"
              
         mc:Ignorable="d"
-        Height="500" Width="700">
-    
-    
+        MinHeight="480" MinWidth="720">
+
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="134*"/>
-            <ColumnDefinition Width="567*"/>
-        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <LinearGradientBrush.RelativeTransform>
@@ -28,7 +29,28 @@
                 <GradientStop Color="White" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Rectangle Height="58" VerticalAlignment="Top" Grid.ColumnSpan="2">
+
+        <!-- header -->
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFFFDEBC"/>
+                    <GradientStop Color="#FFFF8D66" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <TextBlock x:Name="TeamTitle" Text="Placeholder" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" Foreground="White"/>
+        </Grid>
+
+        <!--<Rectangle Height="58" VerticalAlignment="Top" Grid.ColumnSpan="2">
             <Rectangle.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <LinearGradientBrush.RelativeTransform>
@@ -43,13 +65,27 @@
                     <GradientStop Color="#FFFF8D66" Offset="1"/>
                 </LinearGradientBrush>
             </Rectangle.Fill>
-        </Rectangle>
-        <Label x:Name="TitleTeam" Content="Placeholder" HorizontalAlignment="Left" VerticalAlignment="Top" 
-               FontSize="36" FontWeight="Bold" Foreground="White" Grid.Column="1" Margin="112,0,0,0" TextInput="Label_TextInput"/>
-        <Button Content="⟵" Click="BackButton_Click" Foreground="#FFC12E2E" Margin="24,-13,58,414" BorderBrush="{x:Null}" Background="{x:Null}" FontSize="72" FontFamily="Arial Black"/>
+        </Rectangle>-->
+        
+        
+        <!--<Label x:Name="TitleTeam" Content="Placeholder" HorizontalAlignment="Left" VerticalAlignment="Top" 
+               FontSize="36" FontWeight="Bold" Foreground="White" Grid.Column="1" Margin="112,0,0,0" TextInput="Label_TextInput"/>-->
+        
+        
+        <!--Foreground="#FFC12E2E"-->
+        
+        <!-- back button -->
+        <Button Click="BackButton" Background="Transparent" BorderThickness="0" Margin="40,0,0,0" Height="40" Width="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
+        </Button>
 
+        <!-- lower rest w/ logo -->
+        <Grid Grid.Row="2" >
+            <Image x:Name="logo"  Source="/Billeder/logo judo.jpg" Height="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10" Opacity="0.8"/>
+        </Grid>
 
-        <Image x:Name="logo"  Source="/Billeder/logo judo.jpg" Width="120" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Opacity="0.8" Grid.Column="1"/>
+        <!--<Image x:Name="logo" Grid.Row="1" Source="/Billeder/logo judo.jpg" Width="120" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Opacity="0.8" Grid.Column="1"/>-->
+        
         <TextBlock HorizontalAlignment="Left" Margin="82,100,0,0" TextWrapping="Wrap" Text="Vælg det ønskede hold" VerticalAlignment="Top" Height="29" Width="330" Foreground="#FFA30B0B" FontSize="24" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" Grid.Column="1"/>
 
     </Grid>

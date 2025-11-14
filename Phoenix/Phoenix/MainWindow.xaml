@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
         xmlns:local="clr-namespace:Phoenix"
         mc:Ignorable="d" 
-        Title="MainWindow" Height="759" Width="1296"
+        Title="PheonixJudo" Height="759" Width="1296"
         MinHeight="519" MinWidth="736"
         WindowStartupLocation="CenterScreen">
     <Grid>

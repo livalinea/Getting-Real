@@ -78,7 +78,7 @@
 
         <!-- lower rest w/ logo -->
         <Grid Grid.Row="2" >
-            <Image x:Name="logo"  Source="/Billeder/logo judo.jpg" Width="115" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10" Opacity="0.8"/>
+            <Image x:Name="logo"  Source="/Billeder/logo judo.jpg" Height="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10" Opacity="0.8"/>
         </Grid>
 
         <!--<Rectangle>

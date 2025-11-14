@@ -21,25 +21,26 @@ namespace Phoenix
     {
         private MainWindow mainWindow;
 
-        public TeamMenu()
+        public TeamMenu(MainWindow mW)
         {
             InitializeComponent();
 
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
-            
+            mainWindow = mW;
         }
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-           MainWindow mainWindow = new MainWindow();
-           mainWindow.Show();
+           mainWindow.ShowMainMenu();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //MainWindow mW = (MainWindow)Application.Current.MainWindow; 
             string holdnavn = (sender as Button).Content.ToString();
-            TeamViewer teamViewer = new TeamViewer(holdnavn);
+            mainWindow.ShowTeamViewer(holdnavn);
+            //mainWindow = new TeamViewer(holdnavn);
 
         }
     }

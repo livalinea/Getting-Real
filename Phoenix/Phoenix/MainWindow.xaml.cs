@@ -17,38 +17,49 @@ namespace Phoenix
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainMenu mainMenu;
+        private TeamMenu teamMenu;
+        //private TeamViewer teamViewer;
+
+
         public MainWindow()
         {
             InitializeComponent();
 
+            mainMenu = new MainMenu();
+            teamMenu = new TeamMenu(this);
+
             ShowMainMenu();
 
-            //MainMenu mainMenu = new MainMenu();
             //var test = new MainMenu();
             //MessageBox.Show(test.ToString());
         }
 
         public void ShowMainMenu()
         {
-            MainContent.Content = new MainMenu();
-
+            MainContent.Content = mainMenu;
         }
 
         public void ShowTeamMenu()
         {
+            MainContent.Content = teamMenu;
+        }
 
-            MainContent.Content = new TeamMenu();
-            
+
+        public void ShowTeamViewer(string holdnavn)
+        {
+            var teamViewer = new TeamViewer(holdnavn, this);
+            MainContent.Content = teamViewer;
         }
 
         public void ShowMemberMenu()
         {
-            //MainContent.Content = new MemberMenu();
+            //MainContent.Content = new MemberMenu(this);
         }
 
         public void ShowContingentMenu()
         {
-            //MainContent.Content = new ContingentMenu();
+            //MainContent.Content = new ContingentMenu(this);
         }
     }
 }

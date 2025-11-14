@@ -9,15 +9,17 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="Billeder\BackArrow.png" />
 		<None Remove="Billeder\logo judo.jpg" />
 		<None Remove="logo judo.jpg" />
 		<None Remove="logo judo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="Billeder\logo judo.jpg">
+		<Resource Include="Billeder\BackArrow.png" />
+		<Resource Include="Billeder\logo judo.jpg">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
+		</Resource>
 	</ItemGroup>
 
 	<ItemGroup>
