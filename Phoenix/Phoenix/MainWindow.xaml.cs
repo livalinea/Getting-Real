@@ -21,17 +21,34 @@ namespace Phoenix
         {
             InitializeComponent();
 
-            MainContent.Content = new MainMenu();
-            
+            ShowMainMenu();
+
             //MainMenu mainMenu = new MainMenu();
             //var test = new MainMenu();
             //MessageBox.Show(test.ToString());
         }
 
-        private void NavigateToTeam(object sender, RoutedEventArgs e)
+        public void ShowMainMenu()
         {
-            TeamMenu teamMenu = new TeamMenu();
+            MainContent.Content = new MainMenu();
+
+        }
+
+        public void ShowTeamMenu()
+        {
+
+            MainContent.Content = new TeamMenu();
             
+        }
+
+        public void ShowMemberMenu()
+        {
+            //MainContent.Content = new MemberMenu();
+        }
+
+        public void ShowContingentMenu()
+        {
+            //MainContent.Content = new ContingentMenu();
         }
     }
 }

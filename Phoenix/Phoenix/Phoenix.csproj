@@ -26,10 +26,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="UIs\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Page Include="App.xaml" />
 		<!--<Page Include="MainWindow.xaml" />
 		<Page Include="MainManu.xaml" />
