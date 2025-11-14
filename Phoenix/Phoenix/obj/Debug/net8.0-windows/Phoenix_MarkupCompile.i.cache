@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\lival\OneDrive\Projekter\Getting-Real\Phoenix\Phoenix\obj\Debug\net8.0-windows\
+C:\Users\GubbiKing\Documents\Datamatiker DMOE25\1. Semester\Getting Real\Getting-Real\Phoenix\Phoenix\obj\Debug\net8.0-windows\
 Phoenix
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-C:\Users\lival\OneDrive\Projekter\Getting-Real\Phoenix\Phoenix\App.xaml
-3-1682756127
+C:\Users\GubbiKing\Documents\Datamatiker DMOE25\1. Semester\Getting Real\Getting-Real\Phoenix\Phoenix\App.xaml
+41630370614
 1-934072051
-12559147320
+13897200311
 198-2136442823
-MainWindow.xaml;TeamMenu.xaml;TeamViewer.xaml;
+MainMenu.xaml;MainWindow.xaml;TeamMenu.xaml;TeamViewer.xaml;
 
-False
+True
 

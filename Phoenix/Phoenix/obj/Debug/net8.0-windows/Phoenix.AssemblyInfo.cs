@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Phoenix")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f3a75539096090733546bfa8b4008b7aaa90c98")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0fe93fd087282f81b9a38a8f6787ac16b39b90b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Phoenix")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Phoenix")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -15,27 +15,32 @@ using System.Windows.Shapes;
 namespace Phoenix
 {
     /// <summary>
-    /// Interaction logic for TeamMenu.xaml
+    /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class TeamMenu : UserControl
+    public partial class MainMenu : UserControl
     {
-        public TeamMenu()
+        public MainMenu()
         {
             InitializeComponent();
+
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
-    }
+            
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-           MainWindow mainWindow = new MainWindow();
-           mainWindow.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void TeamMenu_Button(object sender, RoutedEventArgs e)
         {
-            string holdnavn = (sender as Button).Content.ToString();
-            TeamViewer teamViewer = new TeamViewer(holdnavn);
+
+        }
+
+        private void MemberMenu_Button(Object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ContingentMenu_Button(Object sender, RoutedEventArgs e)
+        {
 
         }
     }

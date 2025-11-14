@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Phoenix
 {
-    internal class MasterRepository
+    internal class UtilityRepository
     {
     }
 }

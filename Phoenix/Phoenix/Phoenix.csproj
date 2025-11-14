@@ -1,28 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UseWPF>true</UseWPF>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Billeder\logo judo.jpg" />
-    <None Remove="logo judo.jpg" />
-    <None Remove="logo judo.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Billeder\logo judo.jpg" />
+		<None Remove="logo judo.jpg" />
+		<None Remove="logo judo.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="Billeder\logo judo.jpg">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="Billeder\logo judo.jpg">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
-  <ItemGroup>
-    <Resource Include="logo judo.jpg" />
-    <Resource Include="logo judo.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<Resource Include="logo judo.jpg" />
+		<Resource Include="Billeder\logo judo.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="UIs\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Include="App.xaml" />
+		<!--<Page Include="MainWindow.xaml" />
+		<Page Include="MainManu.xaml" />
+		<Page Include="TeamMenu.xaml" />
+		<Page Include="TeamViewer.xaml" />-->
+	</ItemGroup>
 
 </Project>

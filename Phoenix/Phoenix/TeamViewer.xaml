@@ -1,11 +1,14 @@
-﻿<Window x:Class="Phoenix.TeamViewer"
+﻿<UserControl x:Class="Phoenix.TeamViewer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Phoenix"
+             
         mc:Ignorable="d"
-        Title="TeamViewer" Height="500" Width="700">
+        Height="500" Width="700">
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="134*"/>
@@ -50,4 +53,4 @@
         <TextBlock HorizontalAlignment="Left" Margin="82,100,0,0" TextWrapping="Wrap" Text="Vælg det ønskede hold" VerticalAlignment="Top" Height="29" Width="330" Foreground="#FFA30B0B" FontSize="24" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" Grid.Column="1"/>
 
     </Grid>
-</Window>
+</UserControl>

@@ -13,7 +13,7 @@ namespace Phoenix
 		AsCoach,
 
 	}
-    internal class ClubMember
+    internal class Member
     {
         public int MemberID { get; }
 		private string name;
@@ -96,7 +96,7 @@ namespace Phoenix
 			set { role = value; }
 		}
 
-		public ClubMember()		
+		public Member()		
 		{
 
         }

@@ -17,13 +17,13 @@ namespace Phoenix
     /// <summary>
     /// Interaction logic for TeamViewer.xaml
     /// </summary>
-    public partial class TeamViewer : Window
+    public partial class TeamViewer : UserControl
     {
         public TeamViewer(string holdnavn)
         {
             InitializeComponent();
             TitleTeam.Content = holdnavn;
-            this.Title = holdnavn;
+            //this.Title = holdnavn;
         }
 
         private void Label_TextInput(object sender, TextCompositionEventArgs e)
@@ -34,8 +34,8 @@ namespace Phoenix
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
             TeamMenu teamMenu = new TeamMenu();
-            teamMenu.Show();
-            this.Close();
+            //teamMenu.Show();
+            //this.Close();
         }
     }
 }
