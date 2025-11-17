@@ -117,7 +117,7 @@ namespace Phoenix
             set { role = value; }
         }
 
-        public ClubMember(int memberID, string name, DateTime birthDate, string address, string mail, string rank, bool judoPass, Team teamType, double weight, ClubRole role)
+        public Member(int memberID, string name, DateTime birthDate, string address, string mail, string rank, bool judoPass, Team teamType, double weight, ClubRole role)
         {
             MemberID = memberID;
             Name = name;
