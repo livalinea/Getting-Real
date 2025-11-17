@@ -14,6 +14,7 @@
 		<None Remove="Billeder\phoenix_logo.png" />
 		<None Remove="logo judo.jpg" />
 		<None Remove="logo judo.png" />
+		<None Remove="Untitled.ico" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -24,6 +25,8 @@
 	<ItemGroup>
 		<Resource Include="logo judo.jpg" />
 		<Resource Include="Billeder\logo judo.png" />
+		<Resource Include="Billeder\icon_phoenix.ico" />
+		<Resource Include="Billeder\icon_transparent.ico" />
 	</ItemGroup>
 
 	<ItemGroup>

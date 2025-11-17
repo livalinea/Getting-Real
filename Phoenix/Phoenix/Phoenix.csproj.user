@@ -5,6 +5,9 @@
     <Compile Update="MainMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MemberMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="TeamMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
