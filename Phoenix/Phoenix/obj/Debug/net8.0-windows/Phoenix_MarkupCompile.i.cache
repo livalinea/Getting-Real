@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\lival\OneDrive\Projekter\Getting-Real\Phoenix\Phoenix\App.xaml
-41630370614
+51246122604
 
-13897200311
+14-489163768
 198-2136442823
-MainMenu.xaml;MainWindow.xaml;TeamMenu.xaml;TeamViewer.xaml;
+AddTeamMember.xaml;MainMenu.xaml;MainWindow.xaml;TeamMenu.xaml;TeamViewer.xaml;
 
-False
+True
 

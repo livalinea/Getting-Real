@@ -52,6 +52,12 @@ namespace Phoenix
             MainContent.Content = teamViewer;
         }
 
+        public void ShowAddTeamMember(string holdnavn)
+        {
+            var addTeamMember = new AddTeamMember(holdnavn, this);
+            MainContent.Content = addTeamMember;
+        }
+
         public void ShowMemberMenu()
         {
             //MainContent.Content = new MemberMenu(this);
