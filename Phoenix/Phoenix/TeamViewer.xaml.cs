@@ -48,7 +48,8 @@ namespace Phoenix
 
         private void Editorremove_Click(object sender, RoutedEventArgs e)
         {
-            
+            mainWindow.ShowAddTeamMember(holdnavn: TeamTitle.Text);
+
         }
     }
 }

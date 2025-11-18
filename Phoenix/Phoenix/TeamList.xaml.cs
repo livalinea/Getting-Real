@@ -14,11 +14,13 @@ using System.Windows.Shapes;
 
 namespace Phoenix
 {
-    
-    public partial class AddTeamMember : UserControl
+    /// <summary>
+    /// Interaction logic for TeamList.xaml
+    /// </summary>
+    public partial class TeamList : Window
     {
         MainWindow mainWindow;
-        public AddTeamMember(string holdnavn, MainWindow mW)
+        public TeamList(string holdnavn, MainWindow mW)
         {
             InitializeComponent();
 
@@ -32,9 +34,8 @@ namespace Phoenix
         {
             mainWindow.ShowTeamMenu();
             //teamMenu.Show();
-            //this.Close();
-        }
 
-       
+
+        }
     }
 }
