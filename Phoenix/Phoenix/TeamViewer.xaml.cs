@@ -51,5 +51,10 @@ namespace Phoenix
             mainWindow.ShowAddTeamMember(holdnavn: TeamTitle.Text);
 
         }
+
+        private void SeeList_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.ShowTeamList(holdnavn: TeamTitle.Text);
+        }
     }
 }

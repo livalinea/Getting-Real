@@ -35,6 +35,9 @@ namespace Phoenix
             //this.Close();
         }
 
-       
+        private void Searchfield_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Searchfield.Text = "";
+        }
     }
 }

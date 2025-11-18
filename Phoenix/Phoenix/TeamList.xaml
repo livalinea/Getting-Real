@@ -77,30 +77,28 @@
         </Grid>
 
         <!-- VENSTRE SIDE (liste + søg) -->
-        <StackPanel Grid.Row="1" Grid.Column="0" Margin="20,20,20,0" Grid.ColumnSpan="2">
-            <TextBlock Text="Medlemsliste"
-                       FontFamily="Franklin Gothic Demi"
-                       FontWeight="Bold"
-                       Foreground="#FFA30B0B"
-                       FontSize="20"/>
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="20,20,105,50" Grid.ColumnSpan="2" Grid.RowSpan="2">
+
+            <TextBlock Text="Medlemsliste" FontFamily="Franklin Gothic Demi" FontWeight="Bold" Foreground="#FFA30B0B"  FontSize="20" Height="27" Width="308" HorizontalAlignment="Center"/>
+            
 
             <Grid Margin="10,10,0,10" Width="400" Height="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="400*"/>
                     <ColumnDefinition Width="60*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="Searchfield"  HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" Padding="5,0,30,0" FontSize="14" Text="Søg efter navn" Margin="-135,2,10,-2" TextChanged="Searchfield_TextChanged"/>
-                <Button x:Name="SearchButton" Content="🔍" Height="24" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" Cursor="Hand" RenderTransformOrigin="1.09,0.662" HorizontalAlignment="Left" Width="24" Margin="314,0,0,0"/>
+                <TextBox x:Name="Searchfield"  HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" Padding="5,0,30,0" FontSize="14" Text="Søg efter navn" Margin="-83,2,10,-2" Grid.ColumnSpan="2" IsMouseDirectlyOverChanged="Searchfield_IsMouseDirectlyOverChanged" />
+                <Button x:Name="SearchButton" Content="🔍" Height="24" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" Cursor="Hand" RenderTransformOrigin="1.09,0.662" HorizontalAlignment="Left" Width="24" Margin="18,0,0,0" Grid.Column="1"/>
             </Grid>
 
             <ListView x:Name="HoldMedlemListe"
-                      Height="200">
+                      Height="281" Width="564" >
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MemberID}" Width="50"/>
                         <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding Name}" Width="100"/>
                         <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
-                        <GridViewColumn Header="Vælg" Width="80"/>
+                        <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding TeamType}" Width="80"/>
                     </GridView>
                 </ListView.View>
             </ListView>

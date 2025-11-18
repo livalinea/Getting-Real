@@ -93,7 +93,7 @@
             <TextBox x:Name="asCoach" HorizontalAlignment="Left" Margin="240,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
             <Label Content="Vælg ønsket handling" HorizontalAlignment="Left" Margin="471,19,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" Background="Transparent" Foreground="#FFA30B0B" FontSize="18"/>
             <Button x:Name="Editorremove"  Content="Tilføj/fjern medlemmer" HorizontalAlignment="Left" Margin="471,75,0,0" VerticalAlignment="Top" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Click="Editorremove_Click"/>
-            <Button x:Name="SeeList" Content="Se medlemsliste" HorizontalAlignment="Left" Margin="471,226,0,0" VerticalAlignment="Top" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
+            <Button x:Name="SeeList" Content="Se medlemsliste" HorizontalAlignment="Left" Margin="471,226,0,0" VerticalAlignment="Top" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Click="SeeList_Click"/>
 
         </Grid>
 

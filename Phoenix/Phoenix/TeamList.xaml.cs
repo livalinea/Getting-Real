@@ -17,7 +17,7 @@ namespace Phoenix
     /// <summary>
     /// Interaction logic for TeamList.xaml
     /// </summary>
-    public partial class TeamList : Window
+    public partial class TeamList : UserControl
     {
         MainWindow mainWindow;
         public TeamList(string holdnavn, MainWindow mW)
@@ -36,6 +36,11 @@ namespace Phoenix
             //teamMenu.Show();
 
 
+        }
+
+        private void Searchfield_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            Searchfield.Text = "";
         }
     }
 }

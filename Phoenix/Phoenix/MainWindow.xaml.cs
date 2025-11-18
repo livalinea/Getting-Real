@@ -58,6 +58,12 @@ namespace Phoenix
             MainContent.Content = addTeamMember;
         }
 
+        public void ShowTeamList(string holdnavn)
+        {
+            var teamList = new TeamList(holdnavn, this);
+            MainContent.Content = teamList;
+        }
+
         public void ShowMemberMenu()
         {
             //MainContent.Content = new MemberMenu(this);

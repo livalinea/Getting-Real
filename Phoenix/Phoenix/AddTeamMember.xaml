@@ -88,7 +88,7 @@
                     <ColumnDefinition Width="200*"/>
                     <ColumnDefinition Width="60*"/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="Searchfield"  HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" Padding="5,0,30,0" FontSize="14" Text="Søg efter navn" Margin="-59,0,-14,0" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="Searchfield"  HorizontalContentAlignment="Left" VerticalContentAlignment="Bottom" Padding="5,0,30,0" FontSize="14" Text="Søg efter navn" Margin="-59,0,-14,0" Grid.ColumnSpan="2" IsMouseDirectlyOverChanged="Searchfield_IsMouseDirectlyOverChanged" />
                 <Button x:Name="SearchButton" Content="🔍" Height="24" Background="Transparent" BorderBrush="Transparent" VerticalAlignment="Center" Cursor="Hand" RenderTransformOrigin="1.09,0.662" HorizontalAlignment="Left" Width="24" Grid.Column="1" Margin="27,0,0,0"/>
             </Grid>
 
@@ -120,7 +120,7 @@
                     Background="#FF906048"
                     Foreground="#FFF4F4F4"
                     BorderBrush="{x:Null}"
-                    FontFamily="Franklin Gothic Book" FontSize="18" Click="AddToteam_Click"/>
+                    FontFamily="Franklin Gothic Book" FontSize="18" />
 
             <Button x:Name="RemoveFromTeam"
                     Content="Fjern fra hold"
