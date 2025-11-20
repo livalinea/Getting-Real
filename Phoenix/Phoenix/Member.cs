@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
@@ -14,7 +15,7 @@ namespace Phoenix
         AsCoach,
         //andre roller?
 
-	}
+    }
     internal class Member
     {
         public int MemberID { get; }
@@ -33,7 +34,7 @@ namespace Phoenix
             {
                 var today = DateTime.Today;
                 int age = today.Year - BirthDate.Year;
-                if (today < BirthDate.AddYears(age))
+                if (today.Month <= birthDate.Month || today.Day < birthDate.Day)
                     age--;
                 return age;
             }
@@ -104,17 +105,14 @@ namespace Phoenix
         }
         private double weight;
 
-        public double Weight
-        {
-            get { return weight; }
-            set { weight = value; }
-        }
-        private ClubRole role;
+        public double Weight { get { return weight; } set { weight = value; } }
 
-        public ClubRole Role
+        private ClubRole role;
+        public ClubRole Role { get { return role; } set { role = value; } }
+
+        public Member()
         {
-            get { return role; }
-            set { role = value; }
+
         }
 
         public Member(int memberID, string name, DateTime birthDate, string address, string mail, string rank, bool judoPass, Team teamType, double weight, ClubRole role)
@@ -144,6 +142,7 @@ namespace Phoenix
 
             RegDate = DateTime.Now.Date;
         }
+
 
 
 
