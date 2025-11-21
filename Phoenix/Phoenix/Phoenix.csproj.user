@@ -5,7 +5,10 @@
     <Compile Update="AddMemberInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="AddMembers.xaml.cs">
+    <Compile Update="SeMemebersInfo.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ShowMember.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="AddTeamMember.xaml.cs">

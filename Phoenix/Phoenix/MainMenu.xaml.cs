@@ -39,7 +39,8 @@ namespace Phoenix
 
         private void MemberMenu_Button(Object sender, RoutedEventArgs e)
         {
-
+            var mW = (MainWindow)Application.Current.MainWindow;
+            mW.ShowMemberMenu();
         }
 
         private void ContingentMenu_Button(Object sender, RoutedEventArgs e)
