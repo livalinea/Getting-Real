@@ -5,7 +5,7 @@
     <Compile Update="MainMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TeamMenu.xaml.cs">
+    <Compile Update="View\TeamMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
