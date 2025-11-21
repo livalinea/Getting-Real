@@ -19,6 +19,8 @@ namespace Phoenix
     {
         private MainMenu mainMenu;
         private TeamMenu teamMenu;
+        private ShowMember showMember;
+        private AddMemberInfo addMemberInfo;
         //private TeamViewer teamViewer;
 
 
@@ -28,6 +30,8 @@ namespace Phoenix
 
             mainMenu = new MainMenu();
             teamMenu = new TeamMenu(this);
+            showMember = new ShowMember(this);
+            addMemberInfo = new AddMemberInfo();
 
             ShowMainMenu();
 
@@ -60,7 +64,12 @@ namespace Phoenix
 
         public void ShowMemberMenu()
         {
-            //MainContent.Content = new MemberMenu(this);
+           
+            MainContent.Content = showMember;
+        }
+        public void ShowAddMemberInfo()
+        {
+            MainContent.Content = addMemberInfo;
         }
 
         public void ShowContingentMenu()

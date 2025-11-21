@@ -17,9 +17,9 @@ namespace Phoenix
     /// <summary>
     /// Interaction logic for SeMemebersInfo.xaml
     /// </summary>
-    public partial class SeMemebersInfo : Window
+    public partial class SeMembersInfo : UserControl
     {
-        public SeMemebersInfo()
+        public SeMembersInfo()
         {
             InitializeComponent();
         }

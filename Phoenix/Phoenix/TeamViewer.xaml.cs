@@ -12,43 +12,43 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Phoenix
+namespace Phoenix;
+
+/// <summary>
+/// Interaction logic for TeamViewer.xaml
+/// </summary>
+public partial class TeamViewer : UserControl
 {
-    /// <summary>
-    /// Interaction logic for TeamViewer.xaml
-    /// </summary>
-    public partial class TeamViewer : UserControl
+    MainWindow mainWindow;
+
+    public TeamViewer(string holdnavn, MainWindow mW)
     {
-        MainWindow mainWindow;
+        InitializeComponent();
 
-        public TeamViewer(string holdnavn, MainWindow mW)
-        {
-            InitializeComponent();
+        string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
+        logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
 
-            string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
-            logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
-
-            TeamTitle.Text = holdnavn;
-            mainWindow = mW;
-            //mainWindow = mW;
-            //this.Title = holdnavn;
-        }
-
-        private void Label_TextInput(object sender, TextCompositionEventArgs e)
-        {
-
-        }
-
-        private void BackButton(object sender, RoutedEventArgs e)
-        {
-            mainWindow.ShowTeamMenu();
-            //teamMenu.Show();
-            //this.Close();
-        }
-
-        private void Editorremove_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
+        TeamTitle.Text = holdnavn;
+        mainWindow = mW;
+        //mainWindow = mW;
+        //this.Title = holdnavn;
     }
+
+    private void Label_TextInput(object sender, TextCompositionEventArgs e)
+    {
+
+    }
+
+    private void BackButton(object sender, RoutedEventArgs e)
+    {
+        mainWindow.ShowTeamMenu();
+        //teamMenu.Show();
+        //this.Close();
+    }
+
+    private void Editorremove_Click(object sender, RoutedEventArgs e)
+    {
+
+    }
+}
 }

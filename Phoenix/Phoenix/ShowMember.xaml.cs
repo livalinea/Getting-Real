@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -17,16 +18,26 @@ namespace Phoenix
     /// <summary>
     /// Interaction logic for ShowMember.xaml
     /// </summary>
-    public partial class ShowMember : Window
+    public partial class ShowMember : UserControl
     {
-        public ShowMember()
+        MainWindow mainWindow;
+        public ShowMember(MainWindow mW)
         {
             InitializeComponent();
+
+        string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
+        logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
+            mainWindow = mW;
         }
 
-        private void InitializeComponent()
+        private void BackButton(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            mainWindow.ShowMainMenu();
+        }
+
+        private void Editorremove_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.ShowAddMemberInfo();
         }
     }
 }
