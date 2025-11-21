@@ -42,5 +42,7 @@ namespace Phoenix
         {
             Searchfield.Text = "";
         }
+
+        
     }
 }
