@@ -96,9 +96,9 @@
             <Label x:Name="Weight" Content="Vægt:" HorizontalAlignment="Left" Margin="403,137,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24" RenderTransformOrigin="0.514,1.209"/>
             <Label x:Name="JudoPass" Content="Judopas:" HorizontalAlignment="Left" Margin="403,175,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24" RenderTransformOrigin="0.514,1.209"/>
 
-            <TextBox x:Name="FirstnamField" HorizontalAlignment="Left" Margin="209,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
-            <TextBox x:Name="LastnameField" HorizontalAlignment="Left" Margin="209,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
-            <TextBox x:Name="BirthDateField" HorizontalAlignment="Left" Margin="209,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="FirstnamField" HorizontalAlignment="Left" Margin="140,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="LastnameField" HorizontalAlignment="Left" Margin="163,101,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="BirthDateField" HorizontalAlignment="Left" Margin="162,140,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
             <TextBox x:Name="AdressField" HorizontalAlignment="Left" Margin="209,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
             <TextBox x:Name="EmailField" HorizontalAlignment="Left" Margin="209,210,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
 
