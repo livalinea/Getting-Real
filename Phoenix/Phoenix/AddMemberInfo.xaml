@@ -113,6 +113,7 @@
             <TextBox x:Name="RankField" HorizontalAlignment="Left" Margin="488,111,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
             <TextBox x:Name="WeightField" HorizontalAlignment="Left" Margin="488,147,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>
             <TextBox x:Name="JudoPassField" HorizontalAlignment="Left" Margin="501,185,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="JudoPassField_Copy" HorizontalAlignment="Left" Margin="501,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="47" FontFamily="Franklin Gothic Book" FontSize="16"/>
 
 
 
