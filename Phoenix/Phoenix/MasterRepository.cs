@@ -15,5 +15,35 @@ namespace Phoenix
             void Update(ClubMember ClubMember);
             int Read(int MemberID); //DUnno
         }
-    }
+
+
+        public class MemberRepository : IRepository {
+            public MemberRepository() {
+                
+            }
+
+            //get all
+            public /*List?*/ gettAll()
+            {
+                
+            }
+            //Get by id/name???
+            public ID getbyId()
+            {
+
+            }
+
+
+            public void Add(ClubMember ClubMember) {
+                //Add Member = instance???
+            }
+            public void Delete(ClubMember ClubMember)
+            {
+
+            }
+            public void Update(ClubMember ClubMember)
+            {
+
+            }
+        }
 }
