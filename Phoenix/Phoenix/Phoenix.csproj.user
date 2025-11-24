@@ -14,9 +14,6 @@
     <Compile Update="TeamList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TeamMenu.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="TeamPayment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
