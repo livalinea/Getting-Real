@@ -14,7 +14,7 @@ using System.Windows.Shapes;
 
 namespace Phoenix
 {
-    
+
     public partial class AddTeamMember : UserControl
     {
         MainWindow mainWindow;

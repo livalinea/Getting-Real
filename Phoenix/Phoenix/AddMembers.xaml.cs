@@ -17,11 +17,13 @@ namespace Phoenix
     /// <summary>
     /// Interaction logic for AddMembers.xaml
     /// </summary>
-    public partial class AddMembers : Window
+    public partial class AddMembers : UserControl
     {
         public AddMembers()
         {
             InitializeComponent();
-        }
+        }   
+
+
     }
 }
