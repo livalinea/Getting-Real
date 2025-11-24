@@ -2,10 +2,22 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="AddTeamMember.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MainMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\TeamMenu.xaml.cs">
+    <Compile Update="PaymentMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TeamList.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TeamMenu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="TeamPayment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

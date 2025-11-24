@@ -15,13 +15,12 @@ using System.Windows.Shapes;
 namespace Phoenix
 {
     /// <summary>
-    /// Interaction logic for TeamViewer.xaml
+    /// Interaction logic for TeamList.xaml
     /// </summary>
-    public partial class TeamViewer : UserControl
+    public partial class TeamList : UserControl
     {
         MainWindow mainWindow;
-
-        public TeamViewer(string holdnavn, MainWindow mW)
+        public TeamList(string holdnavn, MainWindow mW)
         {
             InitializeComponent();
 
@@ -30,31 +29,20 @@ namespace Phoenix
 
             TeamTitle.Text = holdnavn;
             mainWindow = mW;
-            //mainWindow = mW;
-            //this.Title = holdnavn;
         }
-
-        private void Label_TextInput(object sender, TextCompositionEventArgs e)
-        {
-
-        }
-
         private void BackButton(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowTeamMenu();
             //teamMenu.Show();
-            //this.Close();
+
+
         }
 
-        private void Editorremove_Click(object sender, RoutedEventArgs e)
+        private void Searchfield_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            mainWindow.ShowAddTeamMember(holdnavn: TeamTitle.Text);
-
+            Searchfield.Text = "";
         }
 
-        private void SeeList_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.ShowTeamList(holdnavn: TeamTitle.Text);
-        }
+        
     }
 }

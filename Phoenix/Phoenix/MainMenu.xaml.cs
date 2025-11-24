@@ -45,6 +45,8 @@ namespace Phoenix
         private void ContingentMenu_Button(Object sender, RoutedEventArgs e)
         {
 
+            var mw = (MainWindow)Application.Current.MainWindow;
+            mw.ShowPaymentMenu();
         }
     }
 }

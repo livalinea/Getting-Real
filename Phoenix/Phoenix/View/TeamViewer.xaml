@@ -14,7 +14,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <LinearGradientBrush.RelativeTransform>
@@ -66,14 +66,14 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>-->
-        
-        
+
+
         <!--<Label x:Name="TitleTeam" Content="Placeholder" HorizontalAlignment="Left" VerticalAlignment="Top" 
                FontSize="36" FontWeight="Bold" Foreground="White" Grid.Column="1" Margin="112,0,0,0" TextInput="Label_TextInput"/>-->
-        
-        
+
+
         <!--Foreground="#FFC12E2E"-->
-        
+
         <!-- back button -->
         <Button Click="BackButton" Background="Transparent" BorderThickness="0" Margin="40,0,0,0" Height="40" Width="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
@@ -82,11 +82,26 @@
         <!-- lower rest w/ logo -->
         <Grid Grid.Row="2" >
             <Image x:Name="logo"  Source="/Billeder/logo judo.jpg" Height="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10" Opacity="0.8"/>
+            <Label Content="Oplysninger om holdet" HorizontalAlignment="Left" Margin="24,19,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" Background="Transparent" Foreground="#FFA30B0B" FontSize="18"/>
+            <Label Content="Holdtype:" HorizontalAlignment="Left" Margin="30,69,0,0" Grid.Row="1" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24"/>
+            <Label Content="Antal medlemmer:" HorizontalAlignment="Left" Margin="30,131,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24"/>
+            <Label Content="Træner:" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24"/>
+            <Label Content="Hjælpetræner:" HorizontalAlignment="Left" Margin="30,286,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24" RenderTransformOrigin="0.514,1.209"/>
+            <TextBox x:Name="TeamType" HorizontalAlignment="Left" Margin="240,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="Members" HorizontalAlignment="Left" Margin="240,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="Coach" HorizontalAlignment="Left" Margin="240,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="asCoach" HorizontalAlignment="Left" Margin="240,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <Label Content="Vælg ønsket handling" HorizontalAlignment="Left" Margin="471,19,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" Background="Transparent" Foreground="#FFA30B0B" FontSize="18"/>
+            <Button x:Name="Editorremove"  Content="Tilføj/fjern medlemmer" HorizontalAlignment="Left" Margin="471,75,0,0" VerticalAlignment="Top" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Click="Editorremove_Click"/>
+            <Button x:Name="SeeList" Content="Se medlemsliste" HorizontalAlignment="Left" Margin="471,226,0,0" VerticalAlignment="Top" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Click="SeeList_Click"/>
+
         </Grid>
 
         <!--<Image x:Name="logo" Grid.Row="1" Source="/Billeder/logo judo.jpg" Width="120" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20" Opacity="0.8" Grid.Column="1"/>-->
-        
+
         <TextBlock HorizontalAlignment="Left" Margin="82,100,0,0" TextWrapping="Wrap" Text="Vælg det ønskede hold" VerticalAlignment="Top" Height="29" Width="330" Foreground="#FFA30B0B" FontSize="24" FontFamily="Arial Rounded MT Bold" FontWeight="Bold" Grid.Column="1"/>
+
+
 
     </Grid>
 </UserControl>

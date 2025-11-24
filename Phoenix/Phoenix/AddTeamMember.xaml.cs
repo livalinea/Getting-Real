@@ -14,14 +14,11 @@ using System.Windows.Shapes;
 
 namespace Phoenix
 {
-    /// <summary>
-    /// Interaction logic for TeamViewer.xaml
-    /// </summary>
-    public partial class TeamViewer : UserControl
+    
+    public partial class AddTeamMember : UserControl
     {
         MainWindow mainWindow;
-
-        public TeamViewer(string holdnavn, MainWindow mW)
+        public AddTeamMember(string holdnavn, MainWindow mW)
         {
             InitializeComponent();
 
@@ -30,15 +27,7 @@ namespace Phoenix
 
             TeamTitle.Text = holdnavn;
             mainWindow = mW;
-            //mainWindow = mW;
-            //this.Title = holdnavn;
         }
-
-        private void Label_TextInput(object sender, TextCompositionEventArgs e)
-        {
-
-        }
-
         private void BackButton(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowTeamMenu();
@@ -46,15 +35,9 @@ namespace Phoenix
             //this.Close();
         }
 
-        private void Editorremove_Click(object sender, RoutedEventArgs e)
+        private void Searchfield_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            mainWindow.ShowAddTeamMember(holdnavn: TeamTitle.Text);
-
-        }
-
-        private void SeeList_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.ShowTeamList(holdnavn: TeamTitle.Text);
+            Searchfield.Text = "";
         }
     }
 }
