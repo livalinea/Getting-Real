@@ -11,15 +11,14 @@
 	<ItemGroup>
 		<None Remove="Billeder\BackArrow.png" />
 		<None Remove="Billeder\logo judo.jpg" />
+		<None Remove="Billeder\phoenix_logo.png" />
 		<None Remove="logo judo.jpg" />
 		<None Remove="logo judo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Resource Include="Billeder\BackArrow.png" />
-		<Resource Include="Billeder\logo judo.jpg">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Resource>
+		<Resource Include="Billeder\phoenix_logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
