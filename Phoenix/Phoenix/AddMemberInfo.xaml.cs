@@ -17,11 +17,23 @@ namespace Phoenix
     /// <summary>
     /// Interaction logic for AddMemberInfo.xaml
     /// </summary>
-    public partial class AddMemberInfo : Window
+    public partial class AddMemberInfo : UserControl
     {
         public AddMemberInfo()
         {
             InitializeComponent();
         }
+
+        public void BackButton(object sender, RoutedEventArgs e)
+        {
+            var mW = (MainWindow)Application.Current.MainWindow;
+            //mW.ShowAddMembers();
+        }
+        public void ConfirmButton(object sender, RoutedEventArgs e)
+        {
+            var mW = (MainWindow)Application.Current.MainWindow;
+            //mW.ShowAddMembers();
+        }
+
     }
 }
