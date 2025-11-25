@@ -85,13 +85,16 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
+                     
                         <TextBox x:Name="Searchfield" 
                                  HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
                                  Padding="5,0,30,0" FontSize="14" Text="Søg efter navn" 
                                  Height="30" Grid.Column="0" Margin="0,0,5,0" />
+                            
                         <Button x:Name="SearchButton" Content="🔍" Height="30" Width="30" 
                                 Background="Transparent" BorderBrush="Transparent" 
                                 VerticalAlignment="Center" Cursor="Hand" Grid.Column="1"/>
+                            
                         <Image Source="/Billeder/Lightbulb.png" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,30,0"/>
                     </Grid>
 

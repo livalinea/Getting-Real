@@ -34,6 +34,28 @@ namespace Phoenix
 
         }
 
-        
+        private void Searchfield_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Searchfield.Text))
+            {
+                Searchfield.Text = "Søg efter navn";
+            }
+
+        }
+
+        private void Searchfield_GotFocus(object sender, RoutedEventArgs e)
+        {
+            if (Searchfield.Text == "Søg efter navn")
+            {
+                Searchfield.Text = "";
+            }
+        }
+
+        private void Searchfield_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = Searchfield.Text.ToLower();
+
+            
+        }
     }
 }
