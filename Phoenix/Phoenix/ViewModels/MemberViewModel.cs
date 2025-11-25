@@ -33,9 +33,63 @@ namespace Phoenix.ViewModels
         private Member selectedMember;
         public Member SelectedMember
         {
+            get 
+            { 
+                return selectedMember; 
+            }
+            set
+            {
+                selectedMember = value;
+                OnPropertyChanged(nameof(SelectedMember));
+
+            }
 
         }
+        public MemberViewModel()
+        {
+            memberRepo = new MemberRepository();
 
+            Members = new ObservableCollection<Member>(memberRepo.GetAllMembers());
+
+          
+            FilteredMembers = new ObservableCollection<Member>(Members);
+        }
+        private void FilterMembers()
+        {
+            if (string.IsNullOrWhiteSpace(SearchText))
+            {
+                FilteredMembers = new ObservableCollection<Member>(Members);
+            }
+            else
+            {
+                string lower = SearchText.ToLower();
+                var tempList = new ObservableCollection<Member>();
+                foreach (var member in Members)
+                {
+                    string name = member.Name.ToLower();
+                    string mail = member.Mail.ToLower();
+                    string team = member.TeamType.ToString().ToLower();
+
+                    if (name.Contains(lower) ||
+                        mail.Contains(lower) ||
+                        team.Contains(lower))
+                    {
+                        tempList.Add(member);
+                    }
+                }
+
+                FilteredMembers = tempList;
+            }
+
+            OnPropertyChanged(nameof(FilteredMembers));
+        }
+        private void OnPropertyChanged(string prop)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
+        }
 
     }
-}
+
+
+  }
+

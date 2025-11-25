@@ -13,21 +13,64 @@ namespace Phoenix.ViewModels
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private TeamRepository teamRepo;
-        public ObservableCollection<Member> Members { get; set; }
-        public ObservableCollection<Member> TeamMembers { get; set; }
+        private MemberRepository memberRepo;
+        public ObservableCollection<Team> Teams { get; set; }
+        public ObservableCollection<Team> FilteredTeams { get; set; }
 
-        public ObservableCollection<Member> FilteredMembers { get; set; }
 
-    }
-    public TeamViewmodel()
+    
+    public TeamViewmodel(Team selectedTeam)
         {
-            TeamMembers = ObservableCollection<Member>(TeamMembers);
-            TeamType = teamRepo.GetTeamType();
-            Coach = teamRepo.GetCoach();
-            AssCoach = teamRepo.GetAssCoach();
-            TotalMembers = teamRepo.GetTotalMembers();
 
+            teamRepo = new TeamRepository();
+            memberRepo = new MemberRepository();
+
+            SelectedTeam = selectedTeam;
+
+            LoadTeamInfo();
+            LoadMemberList();
 
         }
+        private Team selectedTeam;
+        public Team SelectedTeam
+        {
+            get
+            {
+                return selectedTeam;
+            }
+            set
+            {
+                selectedTeam = value;
+                OnPropertyChanged(nameof(SelectedTeam));
+            }
+        }
+
+        private List<Member> teamMembers;
+        public List<Member> TeamMembers
+        {
+            get
+            { 
+                return teamMembers;
+            }
+            set
+            {
+                teamMembers = value;
+                OnPropertyChanged(nameof(TeamMembers));
+                OnPropertyChanged(nameof(MemberCount));
+            }
+        }
+        private List<Member> teamMembers;
+        public List<Member> TeamMembers
+        {
+            get { return teamMembers};
+            set
+            {
+                teamMembers = value;
+                OnPropertyChanged(nameof(TeamMembers));
+                OnPropertyChanged(nameof(MemberCount));
+            }
+
+        }
+        
     }
 }
