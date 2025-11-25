@@ -30,7 +30,7 @@ namespace Phoenix
             mainWindow = mW;
         }
 
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        private void BackButton(object sender, RoutedEventArgs e)
         {
            mainWindow.ShowMainMenu();
         }

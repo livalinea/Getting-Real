@@ -19,7 +19,11 @@ namespace Phoenix
     {
         private MainMenu mainMenu;
         private TeamMenu teamMenu;
-        //private TeamViewer teamViewer;
+        private PaymentMenu paymentMenu;
+        private TeamViewer teamViewer;
+        private TeamList teamList;
+        private TeamPayment teamPayment;
+        private AddPayment addPayment;
 
 
         public MainWindow()
@@ -28,6 +32,11 @@ namespace Phoenix
 
             mainMenu = new MainMenu();
             teamMenu = new TeamMenu(this);
+            paymentMenu = new PaymentMenu(this);
+            
+            
+
+
 
             ShowMainMenu();
 
@@ -52,14 +61,39 @@ namespace Phoenix
             MainContent.Content = teamViewer;
         }
 
+        public void ShowAddTeamMember(string holdnavn)
+        {
+            var addTeamMember = new AddTeamMember(holdnavn, this);
+            MainContent.Content = addTeamMember;
+        }
+
+        public void ShowTeamList(string holdnavn)
+        {
+            var teamList = new TeamList(holdnavn, this);
+            MainContent.Content = teamList;
+        }
+
         public void ShowMemberMenu()
         {
             //MainContent.Content = new MemberMenu(this);
         }
 
-        public void ShowContingentMenu()
+        public void ShowPaymentMenu()
         {
-            //MainContent.Content = new ContingentMenu(this);
+           
+            mainMenu.Content = paymentMenu;
+        }
+        public void ShowTeamPayment(string holdnavn)
+        {
+            var teamPayment = new TeamPayment(holdnavn, this);
+            mainMenu.Content = teamPayment;
+        }
+
+        public void ShowAdPayment()
+        {
+            var addPayment = new AddPayment(this);
+            mainMenu.Content = addPayment;
+
         }
     }
 }
