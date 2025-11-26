@@ -50,12 +50,8 @@ namespace Phoenix
 
             public void Add(Member Member)
             {
-
-                //Add Member = instance???/ instansiere ny object i Members
-                Member newMember = new Member();
-
                 //Tilføjer den nye member til listen
-                _Members.Add(newMember);
+                _Members.Add(Member);
             }
 
             public void Delete(int MemberId)
@@ -63,12 +59,11 @@ namespace Phoenix
                 //finder medlemmet i listen med den sammenhængende id og putter den i en variabel
                 var Selected = GetByID(MemberId)
 
-                //Sletter instans fra listen
+                //Sletter fra listen
                 if (Selected != null)
                 {
                     _Members.Remove(Selected);
                 }
-            }
 
             public void Update(Member Member)
             {
