@@ -133,7 +133,7 @@ namespace Phoenix
 
 
             var today = DateTime.Today;
-            if (today > birthDate)
+            if (today >= birthDate)
             {
                 Age = DateTime.Now.Year - birthDate.Year;
             }
