@@ -10,7 +10,7 @@ namespace Phoenix
 	{
 		private string type;
 
-		public string Type
+		public string TeamType
 		{
 			get { return type; }
 			set { type = value; }

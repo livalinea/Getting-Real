@@ -95,7 +95,7 @@
             <Label x:Name="Rank" Content="KYU:" HorizontalAlignment="Left" Margin="395,101,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
             <Label x:Name="Weight" Content="Vægt:" HorizontalAlignment="Left" Margin="395,137,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
             <Label x:Name="JudoPass" Content="Judopas:" HorizontalAlignment="Left" Margin="395,0,0,0" VerticalAlignment="Center" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
-            <Label x:Name="JudoLicens" Content="Judopas:" HorizontalAlignment="Left" Margin="395,230,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
+            <Label x:Name="JudoLicens" Content="JudoLicens:" HorizontalAlignment="Left" Margin="395,230,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
 
             <TextBox x:Name="IdField" HorizontalAlignment="Left" Margin="162,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}" Foreground="#FF191717" BorderBrush="{x:Null}" IsReadOnly="True"/>
             <TextBox x:Name="FirstnamField" HorizontalAlignment="Left" Margin="162,63,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16"/>

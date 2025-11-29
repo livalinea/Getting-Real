@@ -17,7 +17,9 @@ namespace Phoenix.ViewModels
         public ObservableCollection<Member> Members { get; set; }
         public ObservableCollection<Member> FilteredMembers { get; set; }
 
-        private string searchText;
+
+
+        private string searchText = "Søg efter et navn";
         public string SearchText
         {
             get 
@@ -49,11 +51,15 @@ namespace Phoenix.ViewModels
         {
             memberRepo = new MemberRepository();
 
-            Members = new ObservableCollection<Member>(memberRepo.GetAllMembers());
+            Members = new ObservableCollection<Member>(memberRepo.GetAll());
 
-          
             FilteredMembers = new ObservableCollection<Member>(Members);
+           
+
         }
+
+
+
         private void FilterMembers()
         {
             if (string.IsNullOrWhiteSpace(SearchText))
@@ -66,11 +72,14 @@ namespace Phoenix.ViewModels
                 var tempList = new ObservableCollection<Member>();
                 foreach (var member in Members)
                 {
-                    string name = member.Name.ToLower();
+                    string firstName = member.FirstName.ToLower();
+                    string lastName = member.LastName.ToLower();
                     string mail = member.Mail.ToLower();
-                    string team = member.TeamType.ToString().ToLower();
+                    string team = member.TeamType?.TeamType?.ToLower() ?? "";
 
-                    if (name.Contains(lower) ||
+
+                    if (firstName.Contains(lower) ||
+                        lastName.Contains(lower) ||
                         mail.Contains(lower) ||
                         team.Contains(lower))
                     {
@@ -83,6 +92,8 @@ namespace Phoenix.ViewModels
 
             OnPropertyChanged(nameof(FilteredMembers));
         }
+       
+
         private void OnPropertyChanged(string prop)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));

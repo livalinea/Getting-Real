@@ -107,12 +107,15 @@
 
         <Image Grid.Row="2" Grid.ColumnSpan="2"
                x:Name="logo"
-               Source="/Billeder/logo judo.jpg"
                Height="80"
                HorizontalAlignment="Right"
                VerticalAlignment="Bottom"
                Margin="0,0,20,10"
-               Opacity="0.8"/>
+               Opacity="0.8">
+            <Image.OpacityMask>
+                <ImageBrush ImageSource="/Billeder/logo judo.png"/>
+            </Image.OpacityMask>
+        </Image>
         <Button x:Name="Editorremove"  Content="Tilføj/fjern medlemmer" HorizontalAlignment="Left" Margin="508,103,0,0" VerticalAlignment="Top" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Grid.ColumnSpan="2" Grid.Row="1"/>
         <Button x:Name="SeeList" Content="Se medlemsliste" HorizontalAlignment="Left" Margin="508,226,0,0" VerticalAlignment="Top" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Grid.ColumnSpan="2" Grid.Row="1"/>
 

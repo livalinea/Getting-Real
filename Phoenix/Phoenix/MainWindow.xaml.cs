@@ -17,7 +17,7 @@ namespace Phoenix
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ShowMember? showMemberPage;
+        public ShowMembers? showMemberPage;
 
         public int NextMemberID = 1;
         private MainMenu mainMenu;
@@ -76,7 +76,7 @@ namespace Phoenix
 
         public void ShowMemberMenu()
         {
-            showMemberPage = new ShowMember(this);
+            showMemberPage = new ShowMembers(this);
             MainContent.Content = showMemberPage;
         }
 

@@ -20,8 +20,9 @@ namespace Phoenix
     public partial class SeeMemberInfo : UserControl
     {
         MainWindow mainWindow;
+        public Member SelectedMember { get; set; }
 
-        public SeeMemberInfo(MainWindow mW)
+        public SeeMemberInfo(MainWindow mW, Member member)
         {
             InitializeComponent();
 
@@ -29,10 +30,30 @@ namespace Phoenix
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
 
             mainWindow = mW;
+            SelectedMember = member;
+            DataContext = SelectedMember;
+
         }
         private void BackButton(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowTeamMenu();
+
+        }
+
+        private void JudoPassLabel_Loaded(object sender, RoutedEventArgs e)
+        {
+            var member = (Member)JudoPassLabel.DataContext;
+            JudoPassLabel.Content = member.JudoPass ? "Ja" : "Nej";
+
+
+        }
+
+
+        private void JudoLicensLabel_Loaded_1(object sender, RoutedEventArgs e)
+        {
+            var member = (Member)JudoLicensLabel.DataContext;
+            JudoLicensLabel.Content = member.JudoLicens ? "Ja" : "Nej";
+
 
         }
     }

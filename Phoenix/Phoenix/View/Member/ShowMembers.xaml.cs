@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phoenix.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -7,13 +8,14 @@ using System.Windows.Media.Imaging;
 
 namespace Phoenix
 {
-    public partial class ShowMember : UserControl
+    public partial class ShowMembers : UserControl
     {
-        private MainWindow mainWindow = null!;
+        MainWindow mainWindow;
+        public MemberViewModel ViewModel { get; set; }
 
-        private List<Member> allMembers = new List<Member>();
 
-        public ShowMember(MainWindow mW)
+
+        public ShowMembers(MainWindow mW)
         {
             InitializeComponent();
 
@@ -22,59 +24,27 @@ namespace Phoenix
 
             mainWindow = mW;
 
-            LoadMembers();
+           
+            ViewModel = new MemberViewModel();
+            DataContext = ViewModel;
+            ViewModel.SearchText = "";
 
-            Searchfield.Text = "Søg efter navn";
         }
-        private void AddNewMember(Member newMember)
-        {
-            allMembers.Add(newMember);
-
-            HoldMedlemListe.ItemsSource = null;
-            HoldMedlemListe.ItemsSource = allMembers;
-        }
-
-
-        private void LoadMembers()
-        {
-            // LIGE NU: tom liste.
-            // Senere kan vi hente rigtige medlemmer.
-            allMembers = new List<Member>();
-
-            HoldMedlemListe.ItemsSource = allMembers;
-        }
+        
 
         private void BackButton(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowMainMenu();
         }
 
-        private void SøgeFelt_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (Searchfield.Text == "Søg efter navn")
-                Searchfield.Text = "";
-        }
-        private void SøgeFelt_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(Searchfield.Text))
-            {
-                Searchfield.Text = "Søg efter navn";
-            }
-        }
+      
 
         private void SøgeFelt_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (Searchfield.Text == "Søg efter navn")
-                return;
+           
+            // Lad ViewModel håndtere filteret
+            ViewModel.SearchText = Searchfield.Text;
 
-            string query = Searchfield.Text.ToLower();
-
-            var filtreret = allMembers
-                .Where(m => m.Name != null &&
-                            m.Name.ToLower().Contains(query))
-                .ToList();
-
-            HoldMedlemListe.ItemsSource = filtreret;
         }
 
         private void Editorremove_Click(object sender, RoutedEventArgs e)
@@ -82,5 +52,19 @@ namespace Phoenix
             mainWindow.ShowMemberInfo();
         }
 
+        private void RemoveOrEditFromMembers_Click(object sender, RoutedEventArgs e)
+        {
+            if (ViewModel.SelectedMember != null)
+            {
+                var infoView = new SeeMemberInfo(mainWindow,ViewModel.SelectedMember);
+                mainWindow.Content = infoView; // eller mainWindow.ShowEditMember(editView);
+            }
+            else
+            {
+                MessageBox.Show("Vælg et medlem først.");
+            }
+
+
+        }
     }
 }

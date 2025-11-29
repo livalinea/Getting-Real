@@ -58,23 +58,23 @@ namespace Phoenix
                     double.TryParse(WeightField.Text, out weight);
 
                 bool judoPass = YesToJudoPass.IsChecked == true;
+                bool judoLicens = YesToJudoLicens.IsChecked == true;
 
-                Team team = new Team
-                {
-                    Type = TeamField.Text.Trim()
-                };
+                Team team = new Team(TeamField.Text.Trim());
 
                 ClubRole role = ClubRole.Member;
 
                 // LAV MEDLEM
                 Member newMember = new Member(
                     memberID,
-                    fullName,
+                    firstName,
+                    lastName,
                     birthDate,
                     address,
                     mail,
                     rank,
                     judoPass,
+                    judoLicens,
                     team,
                     weight,
                     role

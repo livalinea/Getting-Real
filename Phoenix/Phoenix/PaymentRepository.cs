@@ -41,7 +41,7 @@ namespace Phoenix
                 var member = paymentMembers.FirstOrDefault(m => m.MemberID == payment.MemberID);
                 if (member != null)
                 {
-                    Console.WriteLine($"ID: {member.MemberID}, Name: {member.Name}, Role: {member.Role} Team: {member.TeamType?.Type} Price: {payment.Price}");
+                    Console.WriteLine($"ID: {member.MemberID}, Firstname: {member.FirstName},Lastname: {member.LastName}, Role: {member.Role} Team: {member.TeamType?.TeamType} Price: {payment.Price}");
                 }
                 else
                 {
@@ -54,7 +54,7 @@ namespace Phoenix
         {
             foreach (var member in paymentMembers)
             {
-                Console.WriteLine($"ID: {member.MemberID}, Name: {member.Name}, Role: {member.Role}");
+                Console.WriteLine($"ID: {member.MemberID}, Firstname: {member.FirstName},Lastname: {member.LastName}, Role: {member.Role}");
             }
         }
     }

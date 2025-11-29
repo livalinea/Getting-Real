@@ -20,14 +20,14 @@ namespace Phoenix
         // Get members of a team by type
         public IReadOnlyList<Member> GetTeamMembers(string teamType)
         {
-            var t = teams.FirstOrDefault(x => string.Equals(x.Type, teamType, StringComparison.OrdinalIgnoreCase));
+            var t = teams.FirstOrDefault(x => string.Equals(x.TeamType, teamType, StringComparison.OrdinalIgnoreCase));
             return t?.Members ?? Array.Empty<Member>();
         }
 
         // Get coaches of a team by type
         public IReadOnlyList<Member> GetTeamCoaches(string teamType)
         {
-            var t = teams.FirstOrDefault(x => string.Equals(x.Type, teamType, StringComparison.OrdinalIgnoreCase));
+            var t = teams.FirstOrDefault(x => string.Equals(x.TeamType, teamType, StringComparison.OrdinalIgnoreCase));
             return t?.Coaches ?? Array.Empty<Member>();
         }
 
@@ -35,7 +35,7 @@ namespace Phoenix
         public void AddMember(string teamType, Member member)
         {
             if (member == null) throw new ArgumentNullException(nameof(member));
-            var t = teams.FirstOrDefault(x => string.Equals(x.Type, teamType, StringComparison.OrdinalIgnoreCase));
+            var t = teams.FirstOrDefault(x => string.Equals(x.TeamType, teamType, StringComparison.OrdinalIgnoreCase));
             if (t == null)
             {
                 t = new Team(teamType);
@@ -53,14 +53,14 @@ namespace Phoenix
         public void AddTeam(Team team)
         {
             if (team == null) throw new ArgumentNullException(nameof(team));
-            if (!teams.Any(t => string.Equals(t.Type, team.Type, StringComparison.OrdinalIgnoreCase)))
+            if (!teams.Any(t => string.Equals(t.TeamType, team.TeamType, StringComparison.OrdinalIgnoreCase)))
                 teams.Add(team);
         }
 
         // Get a team by type
         public Team? GetTeam(string teamType)
         {
-            return teams.FirstOrDefault(x => string.Equals(x.Type, teamType, StringComparison.OrdinalIgnoreCase));
+            return teams.FirstOrDefault(x => string.Equals(x.TeamType, teamType, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

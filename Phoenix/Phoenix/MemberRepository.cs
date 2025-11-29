@@ -46,6 +46,25 @@ namespace Phoenix
             }
         }
 
+        public MemberRepository()
+        {
+            _members.Add(new Member(
+             1,
+             "Anna",
+             "Jensen",
+             new DateTime(2000, 5, 12),
+             "Odensevej 1",
+             "anna@mail.dk",
+             "Gul bælte",
+             true,
+             true,
+             new Team("Junior"),
+             55,
+             ClubRole.Member
+         ));
+
+        }
+
 
         public void Update(Member member)
         {
@@ -55,13 +74,15 @@ namespace Phoenix
 
             if (Selected != null)
             {
-                Selected.Name = member.Name;
+                Selected.FirstName = member.FirstName;
+                Selected.LastName = member.LastName;
                 Selected.BirthDate = member.BirthDate;
                 Selected.Address = member.Address;
                 Selected.Mail = member.Mail;
                 Selected.RegDate = member.RegDate;
                 Selected.Rank = member.Rank;
                 Selected.JudoPass = member.JudoPass;
+                Selected.JudoLicens = member.JudoLicens;
                 Selected.TeamType = member.TeamType;
                 Selected.Weight = member.Weight;
                 Selected.Role = member.Role;
