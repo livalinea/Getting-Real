@@ -8,83 +8,64 @@ using System.Windows.Controls;
 
 namespace Phoenix
 {
-    internal class MasterRepository
+    public class MemberRepository : IRepository
     {
-        public interface IRepository
-        {
-            IEnumerable<Member> getAll();
-            void Add(Member Member);
-            void Delete(int MemberID);
-            void Update(Member Member);
-            Member GetByID(int MemberID);
+ private readonly List<Member> _members = new();
 
+        public IEnumerable<Member> GetAll()
+        {
+            return _members;
+        }
+
+        public Member GetByID(int memberID)
+        {
+            foreach (Member member in _members)
+            {
+                if (member.MemberID == memberID)
+                {
+                    return member;
+                }
+
+            }
+            return null;
+        }
+
+        public void Add(Member member)
+        {
+            _members.Add(member);
         }
 
 
-        public class MemberRepository : IRepository
+
+        public void Delete(int memberId)
         {
-
-            private readonly List<Member> _Members;
-
-            public MemberRepository()
+            var selected = GetByID(memberId);
+            if (selected != null)
             {
-                //constructor laver en liste af Members/medlemmerne
-                _Members = new List<Member>();
+                _members.Remove(selected);
             }
+        }
 
-            //get all
-            public getAll()
+
+        public void Update(Member member)
+        {
+            //updatere medlemmer
+
+            var Selected = GetByID(member.MemberID);
+
+            if (Selected != null)
             {
-                //retuner hele listen af medlemmer/Du får alle medlemmer
-                return _Members;
+                Selected.Name = member.Name;
+                Selected.BirthDate = member.BirthDate;
+                Selected.Address = member.Address;
+                Selected.Mail = member.Mail;
+                Selected.RegDate = member.RegDate;
+                Selected.Rank = member.Rank;
+                Selected.JudoPass = member.JudoPass;
+                Selected.TeamType = member.TeamType;
+                Selected.Weight = member.Weight;
+                Selected.Role = member.Role;
             }
-
-            //Get by id/name???
-            public Member GetByID()
-            {
-                //Finder medlemmer i listen og tjekker indtil den finder: Member.MemberID == MemberID, altså hvilken Member har den samme id som i parameteren
-                return _Members.Find(Member => Member.MemberID == MemberID);
-
-            }
-
-
-            public void Add(Member Member)
-            {
-                //Tilføjer den nye member til listen
-                _Members.Add(Member);
-            }
-
-            public void Delete(int MemberId)
-            {
-                //finder medlemmet i listen med den sammenhængende id og putter den i en variabel
-                var Selected = GetByID(MemberId)
-
-                //Sletter fra listen
-                if (Selected != null)
-                {
-                    _Members.Remove(Selected);
-                }
-
-            public void Update(Member Member)
-            {
-                //updatere medlemmer
-
-                var Selected = _Members.Find(m => m.MemberID == Member.MemberID);
-
-                if (Selected != null)
-                {
-                    Selected.Name = Member.Name;
-                    Selected.Age = Member.Age;
-                    Selected.BirthDate = Member.BirthDate;
-                    Selected.Address = Member.Address;
-                    Selected.Mail = Member.Mail;
-                    Selected.RegDate = Member.RegDate;
-                    Selected.rank = Member.rank;
-                    Selected.judopass = Member.judopass;
-                    Selected.teamtype = Member.teamtype;
-                    Selected.Weight = Member.Weight;
-                    Selected.ClubRole = Member.ClubRole;
-                }
-            }
+          }
         }
     }
