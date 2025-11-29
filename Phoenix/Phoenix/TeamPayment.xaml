@@ -94,8 +94,7 @@
                         <Button x:Name="SearchButton" Content="🔍" Height="30" Width="30" 
                                 Background="Transparent" BorderBrush="Transparent" 
                                 VerticalAlignment="Center" Cursor="Hand" Grid.Column="1"/>
-                            
-                        <Image Source="/Billeder/Lightbulb.png" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,30,0"/>
+                    
                     </Grid>
 
                     <ListView x:Name="HoldMedlemListe"
@@ -127,14 +126,14 @@
             </Grid>
         </Viewbox>
 
-        <Image Grid.Row="1" Grid.ColumnSpan="2"
+        <!--<Image Grid.Row="1" Grid.ColumnSpan="2"
                x:Name="logo"
-               Source="/Billeder/logo judo.jpg"
+               --><!--Source="/Billeder/logo judo.jpg"--><!--
                Height="80"
                HorizontalAlignment="Right"
                VerticalAlignment="Bottom"
                Margin="0,0,30,10"
-               Opacity="0.8"/>
+               Opacity="0.8"/>-->
     </Grid>
 
 </UserControl>
