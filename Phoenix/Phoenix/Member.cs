@@ -12,30 +12,32 @@ namespace Phoenix
         Member,
         Coach,
         AsCoach,
-        //andre roller?
+   
 
 	}
-    internal class Member
+    public class Member
     {
         public int MemberID { get; }
         private string name;
-
         public string Name
         {
             get { return name; }
             set { name = value; }
         }
         private int age;
-
         public int Age
         {
             get
             {
                 var today = DateTime.Today;
-                int age = today.Year - BirthDate.Year;
-                if (today < BirthDate.AddYears(age))
-                    age--;
-                return age;
+                int calculatedAge = today.Year - BirthDate.Year;
+
+                DateTime nextBirthday = BirthDate.AddYears(calculatedAge);
+                if (today < nextBirthday)
+                {
+                    calculatedAge = calculatedAge - 1;
+                }
+                return calculatedAge;
             }
             set { age = value; }
         }
@@ -71,7 +73,10 @@ namespace Phoenix
                 {
                     phoneNumber = value;
                 }
-                throw new ValidationException("Error");
+                else
+                {
+                    throw new ValidationException("Error");
+                }
             }
         }
         private DateTime regDate;
@@ -79,7 +84,7 @@ namespace Phoenix
         public DateTime RegDate
         {
             get { return regDate; }
-            set { regDate = value; }
+            set { regDate = DateTime.Today; }
         }
         private string rank;
 
@@ -117,6 +122,7 @@ namespace Phoenix
             set { role = value; }
         }
 
+
         public Member(int memberID, string name, DateTime birthDate, string address, string mail, string rank, bool judoPass, Team teamType, double weight, ClubRole role)
         {
             MemberID = memberID;
@@ -129,20 +135,7 @@ namespace Phoenix
             TeamType = teamType;
             Weight = weight;
             Role = role;
-
-
-
-            var today = DateTime.Today;
-            if (today > birthDate)
-            {
-                Age = DateTime.Now.Year - birthDate.Year;
-            }
-            else
-            {
-                Age = DateTime.Now.Year - birthDate.Year - 1;
-            }
-
-            RegDate = DateTime.Now.Date;
+            
         }
 
 

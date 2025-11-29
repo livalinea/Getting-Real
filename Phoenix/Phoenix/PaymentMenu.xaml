@@ -32,7 +32,7 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        
+
         <Button Click="BackButton" Background="Transparent" BorderThickness="0" Margin="40,10,0,0" Height="40" Width="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
         </Button>
@@ -82,10 +82,7 @@
                     Background="#FF906048" Foreground="White"
                     FontSize="20" FontFamily="Franklin Gothic Demi"
                     Margin="10" />
-            <Button   x:Name="Back" Content="Tilbage" Width="200" Height="60"
-                    Background="#FF906048" Foreground="White"
-                    FontSize="20" FontFamily="Franklin Gothic Demi"
-                    Margin="10" />
+    
         </StackPanel>
 
         <!-- Logo -->
