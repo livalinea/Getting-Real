@@ -60,10 +60,11 @@ namespace Phoenix
 
                 bool judoPass = YesToJudoPass.IsChecked == true;
 
-                Team team = new Team
-                {
-                    Type = TeamField.Text.Trim()
-                };
+                //Team team = new Team
+                //{
+                //    Type = TeamField.Text.Trim()
+                //};
+                Team team = new Team(TeamField.Text.Trim());
 
                 ClubRole role = ClubRole.Member;
 
