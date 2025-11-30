@@ -21,7 +21,7 @@ namespace Phoenix
     {
         MainWindow mainWindow;
        private PaymentViewModel viewModel;
-        public AddPayment(MainWindow mW)
+        public AddPayment(string holdnavn, MainWindow mW)
         {
             InitializeComponent();
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
@@ -29,14 +29,7 @@ namespace Phoenix
             mainWindow = mW;
             viewModel = new PaymentViewModel();
             DataContext = viewModel;
-
-
-            viewModel.MemberName = "Test Person";
-            viewModel.TeamName = "Junior";
-            viewModel.Description = "Kontingent forår 2025";
-            viewModel.PaymentDate = "01-02-2025";
-            viewModel.Amount = "500";
-            viewModel.HasJudoPass = true;
+            viewModel.TeamName = holdnavn;
 
         }
         private void BackButton(object sender, RoutedEventArgs e)

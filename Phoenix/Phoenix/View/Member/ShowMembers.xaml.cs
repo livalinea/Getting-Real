@@ -47,11 +47,6 @@ namespace Phoenix
 
         }
 
-        private void Editorremove_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.ShowMemberInfo();
-        }
-
         private void RemoveOrEditFromMembers_Click(object sender, RoutedEventArgs e)
         {
             if (ViewModel.SelectedMember != null)
@@ -65,6 +60,11 @@ namespace Phoenix
             }
 
 
+        }
+
+        private void AddToMember_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.ShowMemberInfo();
         }
     }
 }

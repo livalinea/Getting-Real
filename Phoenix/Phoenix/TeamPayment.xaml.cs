@@ -20,6 +20,7 @@ namespace Phoenix
     public partial class TeamPayment : UserControl
     {
         MainWindow mainWindow;
+        private string currentTeamName;
         public TeamPayment(string holdnavn, MainWindow mw)
         {
             InitializeComponent();
@@ -27,6 +28,7 @@ namespace Phoenix
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
 
             TeamTitle.Text = holdnavn;
+            currentTeamName = holdnavn;
             mainWindow = mw;
           
         }
@@ -41,7 +43,7 @@ namespace Phoenix
 
         private void RegPayment_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowAddPayment();
+            mainWindow.ShowAddPayment(currentTeamName);
         }
     }
 }

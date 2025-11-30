@@ -97,8 +97,8 @@ namespace Phoenix
         }
         public void ShowMemberInfo()
         {
-            var view= new SeeMemberInfo(this);
-            MainContent.Content = view;
+            var addMemberInfo= new AddMemberInfo(this);
+            MainContent.Content = addMemberInfo;
         }
         public void ShowSeeMemberInfo(Member member)
         {
@@ -106,9 +106,9 @@ namespace Phoenix
         MainContent.Content = seeMemberInfo;
         }
 
-        public void ShowAddPayment()
+        public void ShowAddPayment(string holdnavn)
         {
-            var addPayment = new AddPayment(this);
+            var addPayment = new AddPayment(holdnavn,this);
             MainContent.Content = addPayment;
         }
 
