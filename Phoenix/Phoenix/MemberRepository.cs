@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using static Phoenix.Team;
 
 namespace Phoenix
 {
@@ -79,7 +80,7 @@ namespace Phoenix
                 Selected.Rank = member.Rank;
                 Selected.JudoPass = member.JudoPass;
                 Selected.JudoLicens = member.JudoLicens;
-                Selected.TeamType = member.TeamType;
+                Selected.Team = member.Team;
                 Selected.Weight = member.Weight;
                 Selected.Role = member.Role;
             }
@@ -91,7 +92,7 @@ namespace Phoenix
                 foreach (Member m in _members)
                 {
                     // Gem som en linje med semikolon-separerede værdier
-                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.TeamType?.TeamType};{m.Weight};{m.Role}");
+                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team.TeamType};{m.Weight};{m.Role}");
                 }
                 sw.Close();
             }
@@ -107,6 +108,7 @@ namespace Phoenix
                 while ((line = sr.ReadLine()) != null)
                 {
                     string[] parts = line.Split(';');
+
                     if (parts.Length >= 12)
                     {
                         int id = int.Parse(parts[0]);
@@ -118,8 +120,19 @@ namespace Phoenix
                         string rank = parts[6];
                         bool judoPass = bool.Parse(parts[7]);
                         bool judoLicens = bool.Parse(parts[8]);
-                        Team.TeamName teamType = (Team.TeamName)Enum.Parse(typeof(Team.TeamName), parts[9], true);
+                        string raw = parts[9]?.Trim();
+                        if (string.IsNullOrEmpty(raw)); // fallback
+
+                        // Fjern evt. "Phoenix.Team.TeamName.Junior"
+                        if (raw.Contains(".")) raw = raw.Split('.').Last();
+
+                        if (!Enum.TryParse<Team.TeamName>(raw, true, out var teamType))
+                            teamType = Team.TeamName.Junior; // fallback
+
                         Team team = new Team(teamType);
+
+
+
                         double weight = double.Parse(parts[10]);
                         ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[11]);
 

@@ -16,7 +16,8 @@ namespace Phoenix
 
             mainWindow = mw;
 
-
+            TeamComboBox.ItemsSource = Enum.GetValues(typeof(Team.TeamName));
+            RoleComboBox.ItemsSource = Enum.GetValues(typeof(ClubRole));
 
             IdField.Text = mainWindow.NextMemberID.ToString();
         }
@@ -32,6 +33,7 @@ namespace Phoenix
             {
                 int memberID = mainWindow.NextMemberID;
                 mainWindow.NextMemberID++;
+
 
                 string firstName = FirstnamField.Text.Trim();
                 string lastName = LastnameField.Text.Trim();
@@ -59,15 +61,16 @@ namespace Phoenix
                 bool judoPass = YesToJudoPass.IsChecked == true;
                 bool judoLicens = YesToJudoLicens.IsChecked == true;
 
-                // Her bruger vi TeamField.Text direkte
-                if (!Enum.TryParse<Team.TeamName>(TeamField.Text.Trim(), out var parsedTeamType))
-                {
-                    MessageBox.Show("Ugyldigt holdnavn. Prøv igen.");
-                    return;
-                }
+                
+               
+                var selectedTeam = (Team.TeamName)TeamComboBox.SelectedItem;
 
-                Team team = new Team(parsedTeamType);
-                ClubRole role = ClubRole.Member;
+                var team = new Team(selectedTeam);
+                var selectedRole = (ClubRole)RoleComboBox.SelectedItem;
+
+
+
+
 
                 // LAV MEDLEM
                 Member newMember = new Member(
@@ -82,7 +85,7 @@ namespace Phoenix
                     judoLicens,
                     team,
                     weight,
-                    role
+                    selectedRole
                 );
 
                 mainWindow.memberRepository.Add(newMember);

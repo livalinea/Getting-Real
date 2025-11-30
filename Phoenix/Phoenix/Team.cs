@@ -8,7 +8,7 @@ namespace Phoenix
 {
 	public class Team
 	{
-		private string type;
+	
 
 		public TeamName TeamType { get; set; }
 		
@@ -20,9 +20,10 @@ namespace Phoenix
 			Junior,
 			Senior,
 			BJJ,
-
             
         }
+       
+
 
 
         // Backing collections for members and coaches
@@ -32,7 +33,7 @@ namespace Phoenix
 
 		// Price for the team (matches UML)
 		private double price;
-        private TeamName teamType;
+        
 
         // Read-only views for external callers
         public IReadOnlyList<Member> Members => members.AsReadOnly();
@@ -48,7 +49,7 @@ namespace Phoenix
 		}
 
 		// Constructor
-		public Team(TeamName teamtype)
+		public Team(TeamName teamType)
 		{
 			
 			TeamType = teamType;
@@ -83,6 +84,10 @@ namespace Phoenix
         {
             if (s == null) throw new ArgumentNullException(nameof(s));
             ascoaches.Add(s);
+        }
+        public override string ToString()
+        {
+            return TeamType.ToString(); // eller hvad du vil vise
         }
 
     }

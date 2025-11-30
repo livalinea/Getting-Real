@@ -47,18 +47,28 @@ namespace Phoenix
 
         }
 
+     
+
         private void RemoveOrEditFromMembers_Click(object sender, RoutedEventArgs e)
         {
             if (ViewModel.SelectedMember != null)
             {
-                var infoView = new SeeMemberInfo(mainWindow,ViewModel.SelectedMember);
-                mainWindow.Content = infoView; // eller mainWindow.ShowEditMember(editView);
+            
+                mainWindow.ShowSeeMemberInfo(ViewModel.SelectedMember);
+
+                // eller mainWindow.ShowEditMember(editView);
             }
             else
             {
                 MessageBox.Show("Vælg et medlem først.");
             }
 
+
+        }
+
+        private void AddToMember_Click(object sender, RoutedEventArgs e)
+        {
+            mainWindow.ShowMemberInfo();
 
         }
 

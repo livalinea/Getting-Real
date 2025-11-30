@@ -14,7 +14,7 @@ namespace Phoenix
         public IReadOnlyList<Team> Teams => teams.AsReadOnly();
 
         public Team? GetTeam(Team.TeamName teamType)
-            => teams.FirstOrDefault(t => t.TeamType == teamType);
+            => teams.FirstOrDefault((Func<Team, bool>)(t => t.TeamType == teamType));
 
         public IReadOnlyList<Member> GetTeamMembers(Team.TeamName teamType)
             => GetTeam(teamType)?.Members ?? Array.Empty<Member>();

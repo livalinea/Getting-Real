@@ -19,7 +19,7 @@ namespace Phoenix
     {
         public ShowMembers? showMemberPage;
         public MemberRepository memberRepository;
-        public int NextMemberID = 1;
+        public int NextMemberID;
         private MainMenu mainMenu;
         private TeamMenu teamMenu;
         private PaymentMenu paymentMenu;
@@ -38,9 +38,14 @@ namespace Phoenix
             teamMenu = new TeamMenu(this);
             paymentMenu = new PaymentMenu(this);
             memberRepository = new MemberRepository();
-
-
-
+            if (memberRepository.GetAll().Any())
+            {
+                NextMemberID = memberRepository.GetAll().Max(m => m.MemberID) + 1;
+            }
+            else
+            {
+                NextMemberID = 1;
+            }
 
 
             ShowMainMenu();
@@ -82,6 +87,8 @@ namespace Phoenix
         {
             showMemberPage = new ShowMembers(this);
             MainContent.Content = showMemberPage;
+           
+
 
         }
 

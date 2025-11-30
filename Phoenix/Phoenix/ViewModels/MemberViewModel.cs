@@ -75,7 +75,7 @@ namespace Phoenix.ViewModels
                     string firstName = member.FirstName.ToLower();
                     string lastName = member.LastName.ToLower();
                     string mail = member.Mail.ToLower();
-                    string team = member.TeamType?.TeamType.ToString().ToLower() ?? ""; ;
+                    string team = member.Team?.TeamType.ToString().ToLower() ?? ""; ;
 
 
                     if (firstName.Contains(lower) ||
