@@ -26,6 +26,7 @@ namespace Phoenix
         private TeamViewer teamViewer;
         private TeamList teamList;
         private TeamPayment teamPayment;
+        private AddPayment addPayment;
 
 
         public MainWindow()
@@ -35,6 +36,7 @@ namespace Phoenix
             mainMenu = new MainMenu();
             teamMenu = new TeamMenu(this);
             paymentMenu = new PaymentMenu(this);
+
 
 
 
@@ -89,13 +91,5 @@ namespace Phoenix
             var teamPayment = new TeamPayment(holdnavn, this);
             mainMenu.Content = teamPayment;
         }
-
-        public void ShowMemberInfo()
-        {
-            var addMemberInfo = new AddMemberInfo(this);
-            MainContent.Content = addMemberInfo;
-        }
-
-
     }
 }

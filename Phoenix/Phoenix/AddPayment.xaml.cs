@@ -15,33 +15,47 @@ using System.Windows.Shapes;
 namespace Phoenix
 {
     /// <summary>
-    /// Interaction logic for TeamPayment.xaml
+    /// Interaction logic for AddPayment.xaml
     /// </summary>
-    public partial class TeamPayment : UserControl
+    public partial class AddPayment : UserControl
     {
         MainWindow mainWindow;
-        public TeamPayment(string holdnavn, MainWindow mw)
+        public AddPayment(MainWindow mW)
         {
             InitializeComponent();
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
-
-            TeamTitle.Text = holdnavn;
-            mainWindow = mw;
-          
+            mainWindow = mW;
         }
-
         private void BackButton(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowPaymentMenu();
             //teamMenu.Show();
 
+        }
+
+        private void Searchfield_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(Searchfield.Text))
+            {
+                Searchfield.Text = "Søg efter navn";
+            }
 
         }
 
-        private void RegPayment_Click(object sender, RoutedEventArgs e)
+        private void Searchfield_GotFocus(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowAdPayment();
+            if (Searchfield.Text == "Søg efter navn")
+            {
+                Searchfield.Text = "";
+            }
+        }
+
+        private void Searchfield_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string searchText = Searchfield.Text.ToLower();
+
+            
         }
     }
 }
