@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phoenix.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,9 +31,18 @@ namespace Phoenix
 
             TeamTitle.Text = holdnavn;
             mainWindow = mW;
-            //mainWindow = mW;
-            //this.Title = holdnavn;
+            var teamRepo = new TeamRepository();
+            if (Enum.TryParse<Team.TeamName>(holdnavn, out var teamType))
+            {
+                var selectedTeam = teamRepo.GetTeam(teamType);
+                if (selectedTeam != null)
+                {
+                    this.DataContext = new TeamViewModel(selectedTeam);
+                }
+            }
+
         }
+
 
         private void Label_TextInput(object sender, TextCompositionEventArgs e)
         {
@@ -54,7 +64,13 @@ namespace Phoenix
 
         private void SeeList_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowTeamList(holdnavn: TeamTitle.Text);
+            if (Application.Current.MainWindow is MainWindow mainWindow)
+            {
+                string holdnavn = TeamTitle.Text;
+                
+                mainWindow.ShowTeamList(holdnavn);
+            }
         }
+
     }
 }

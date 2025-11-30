@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using Phoenix.ViewModels;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,7 @@ namespace Phoenix
     {
         public ShowMembers? showMemberPage;
         public MemberRepository memberRepository;
+        public TeamRepository teamRepository;
         public int NextMemberID;
         private MainMenu mainMenu;
         private TeamMenu teamMenu;
@@ -38,6 +40,7 @@ namespace Phoenix
             teamMenu = new TeamMenu(this);
             paymentMenu = new PaymentMenu(this);
             memberRepository = new MemberRepository();
+            teamRepository = new TeamRepository();
             if (memberRepository.GetAll().Any())
             {
                 NextMemberID = memberRepository.GetAll().Max(m => m.MemberID) + 1;
@@ -47,6 +50,17 @@ namespace Phoenix
                 NextMemberID = 1;
             }
 
+            memberRepository.LoadFromFile();
+
+            // 3. Fordel medlemmerne på teams
+            foreach (var member in memberRepository.GetAll())
+            {
+                if (Enum.TryParse<Team.TeamName>(member.Team.ToString(), out var teamType));
+
+                {
+                    teamRepository.AddMember(teamType, member);
+                }
+            }
 
             ShowMainMenu();
 
@@ -79,8 +93,20 @@ namespace Phoenix
 
         public void ShowTeamList(string holdnavn)
         {
-            var teamList = new TeamList(holdnavn, this);
-            MainContent.Content = teamList;
+
+
+            if (Enum.TryParse<Team.TeamName>(holdnavn, out var teamType))
+            {
+                var selectedTeam = teamRepository.GetTeam(teamType);
+                if (selectedTeam != null)
+                {
+                    var vm = new TeamViewModel(selectedTeam);
+                    var teamList = new TeamList(holdnavn, this);
+                    teamList.DataContext = vm;
+                    MainContent.Content = teamList;
+                }
+
+            }
         }
 
         public void ShowMemberMenu()
