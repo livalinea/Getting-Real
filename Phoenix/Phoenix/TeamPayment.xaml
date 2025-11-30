@@ -128,7 +128,6 @@
 
         <Image Grid.Row="1" Grid.ColumnSpan="2"
                x:Name="logo"
-               Source="/logo judo.jpg"
                Height="80"
                HorizontalAlignment="Right"
                VerticalAlignment="Bottom"

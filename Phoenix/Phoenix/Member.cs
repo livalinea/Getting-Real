@@ -17,13 +17,11 @@ namespace Phoenix
 	}
     public class Member
     {
-        public int MemberID { get; }
-        private string name;
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public int MemberID { get; internal set; }
+       
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+       
         private int age;
         public int Age
         {
@@ -100,6 +98,13 @@ namespace Phoenix
             get { return judoPass; }
             set { judoPass = value; }
         }
+        private bool judoLicens;
+
+        public bool JudoLicens
+        {
+            get { return judoLicens; }
+            set { judoLicens = value; }
+        }
         private Team teamType;
 
         public Team TeamType
@@ -123,15 +128,17 @@ namespace Phoenix
         }
 
 
-        public Member(int memberID, string name, DateTime birthDate, string address, string mail, string rank, bool judoPass, Team teamType, double weight, ClubRole role)
+        public Member(int memberID, string firstName, string lastName, DateTime birthDate, string address, string mail, string rank, bool judoPass, bool judoLicens, Team teamType, double weight, ClubRole role)
         {
             MemberID = memberID;
-            Name = name;
+            FirstName = firstName;
+            LastName = lastName;
             BirthDate = birthDate;
             Address = address;
             Mail = mail;
             Rank = rank;
             JudoPass = judoPass;
+            JudoLicens = judoLicens;
             TeamType = teamType;
             Weight = weight;
             Role = role;

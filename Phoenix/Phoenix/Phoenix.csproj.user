@@ -2,13 +2,13 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="AddMemberInfo.xaml.cs">
+    <Compile Update="View\Member\AddMemberInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="SeeMemberInfo.xaml.cs">
+    <Compile Update="View\Member\SeeMemberInfo.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="ShowMembers.xaml.cs">
+    <Compile Update="View\Member\ShowMembers.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="AddTeamMember.xaml.cs">

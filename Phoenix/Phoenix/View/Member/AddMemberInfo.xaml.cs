@@ -7,6 +7,7 @@ namespace Phoenix
 {
     public partial class AddMemberInfo : UserControl
     {
+
         private MainWindow mainWindow;
 
         public AddMemberInfo(MainWindow mw)
@@ -15,8 +16,7 @@ namespace Phoenix
 
             mainWindow = mw;
 
-            string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
-            logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
+
 
             IdField.Text = mainWindow.NextMemberID.ToString();
         }
@@ -35,7 +35,6 @@ namespace Phoenix
 
                 string firstName = FirstnamField.Text.Trim();
                 string lastName = LastnameField.Text.Trim();
-                string fullName = firstName + " " + lastName;
 
                 if (string.IsNullOrWhiteSpace(firstName) || string.IsNullOrWhiteSpace(lastName))
                 {
@@ -51,7 +50,6 @@ namespace Phoenix
 
                 string address = AdressField.Text.Trim();
                 string mail = EmailField.Text.Trim();
-
                 string rank = RankField.Text.Trim();
 
                 double weight = 0;
@@ -59,39 +57,50 @@ namespace Phoenix
                     double.TryParse(WeightField.Text, out weight);
 
                 bool judoPass = YesToJudoPass.IsChecked == true;
+                bool judoLicens = YesToJudoLicens.IsChecked == true;
 
-                Team team = new Team(TeamField.Text.Trim());
+                // Her bruger vi TeamField.Text direkte
+                if (!Enum.TryParse<Team.TeamName>(TeamField.Text.Trim(), out var parsedTeamType))
+                {
+                    MessageBox.Show("Ugyldigt holdnavn. Prøv igen.");
+                    return;
+                }
 
+                Team team = new Team(parsedTeamType);
                 ClubRole role = ClubRole.Member;
 
                 // LAV MEDLEM
                 Member newMember = new Member(
                     memberID,
-                    fullName,
+                    firstName,
+                    lastName,
                     birthDate,
                     address,
                     mail,
                     rank,
                     judoPass,
+                    judoLicens,
                     team,
                     weight,
                     role
                 );
 
+                mainWindow.memberRepository.Add(newMember);
 
-                //if (mainWindow.showMemberPage != null)
-                //{
-                //    mainWindow.showMemberPage.AddNewMember(newMember);
-                //}
+                // Hvis du vil opdatere UI
+                // if (mainWindow.showMemberPage != null)
+                // {
+                //     mainWindow.showMemberPage.AddNewMember(newMember);
+                // }
 
-                //// 4) Gå tilbage til medlemsoversigten
+                // Gå tilbage til medlemsoversigten
                 mainWindow.ShowMemberMenu();
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Der opstod en fejl: " + ex.Message, "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Der opstod en fejl: " + ex.Message,
+                    "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-
         }
     }
 }

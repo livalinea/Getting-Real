@@ -88,23 +88,23 @@
             <Label x:Name="Rank" Content="KYU:" HorizontalAlignment="Left" Margin="365,60,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
             <Label x:Name="Weight" Content="Vægt:" HorizontalAlignment="Left" Margin="366,97,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
             <Label x:Name="JudoPass" Content="Judopas:" HorizontalAlignment="Left" Margin="366,139,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
-            <Label x:Name="JudoLicens" Content="Judopas:" HorizontalAlignment="Left" Margin="366,179,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
+            <Label x:Name="JudoLicens" Content="Judolicens:" HorizontalAlignment="Left" Margin="366,179,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B" RenderTransformOrigin="0.514,1.209"/>
 
 
-            <Label x:Name="IdLabel" Content="" HorizontalAlignment="Left" Margin="162,27,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717"/>
-            <Label x:Name="FirstnameLabel" Content="" HorizontalAlignment="Left" Margin="162,63,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27" Background="{x:Null}"/>
-            <Label x:Name="LastnameLabel" Content="" HorizontalAlignment="Left" Margin="163,101,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="20"/>
-            <Label x:Name="BirthdateLabel" Content="" HorizontalAlignment="Left" Margin="162,140,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
-            <Label x:Name="AdressLabel" Content="" HorizontalAlignment="Left" Margin="163,178,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
-            <Label x:Name="EmailLabel" Content="" HorizontalAlignment="Left" Margin="163,216,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
-            <Label x:Name="TelephoneNumber1Label" Content="" HorizontalAlignment="Left" Margin="163,250,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
-            <Label x:Name="TelephoneNumber2Label" Content="" HorizontalAlignment="Left" Margin="163,288,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
-            <Label x:Name="RoleLabel" Content="" HorizontalAlignment="Left" Margin="163,326,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
-            <Label x:Name="TeamLabel" Content="" HorizontalAlignment="Left" Margin="163,359,0,0" VerticalAlignment="Top" Width="128" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="28"/>
-            <Label x:Name="RankLabel" Content="" HorizontalAlignment="Left" Margin="477,59,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="31"/>
-            <Label x:Name="WeightLabel" Content="" HorizontalAlignment="Left" Margin="477,102,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="23"/>
-            <Label x:Name="JudoPassLabel" Content="" HorizontalAlignment="Left" Margin="500,138,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" Background="{x:Null}" Foreground="#FF191717" FontSize="18" RenderTransformOrigin="0.497,0.605" Height="38" Width="52"/>
-            <Label x:Name="JudoLicensLabel" Content="" HorizontalAlignment="Left" Margin="500,181,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" Foreground="#FF191717" FontSize="18" Background="{x:Null}" Width="51" Height="39"/>
+            <Label x:Name="IdLabel" Content="{Binding MemberID}" HorizontalAlignment="Left" Margin="162,27,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717"/>
+            <Label x:Name="FirstnameLabel" Content="{Binding FirstName}" HorizontalAlignment="Left" Margin="162,63,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27" Background="{x:Null}"/>
+            <Label x:Name="LastnameLabel" Content="{Binding LastName}" HorizontalAlignment="Left" Margin="163,101,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="20"/>
+            <Label x:Name="BirthdateLabel" Content="{Binding BirthDate}" HorizontalAlignment="Left" Margin="162,140,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
+            <Label x:Name="AdressLabel" Content="{Binding Address}" HorizontalAlignment="Left" Margin="163,178,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
+            <Label x:Name="EmailLabel" Content="{Binding Mail}" HorizontalAlignment="Left" Margin="163,216,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
+            <Label x:Name="TelephoneNumber1Label" Content="{Binding PhoneNumber}" HorizontalAlignment="Left" Margin="163,250,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
+            <Label x:Name="TelephoneNumber2Label" Content="{Binding PhoneNumber}" HorizontalAlignment="Left" Margin="163,288,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
+            <Label x:Name="RoleLabel" Content="{Binding Role}" HorizontalAlignment="Left" Margin="163,326,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27"/>
+            <Label x:Name="TeamLabel" Content="{Binding TeamType}" HorizontalAlignment="Left" Margin="163,359,0,0" VerticalAlignment="Top" Width="128" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="28"/>
+            <Label x:Name="RankLabel" Content="{Binding Rank}" HorizontalAlignment="Left" Margin="477,59,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="31"/>
+            <Label x:Name="WeightLabel" Content="{Binding Weight}" HorizontalAlignment="Left" Margin="477,102,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="23"/>
+            <Label x:Name="JudoPassLabel" Content="{Binding JudoPass}" HorizontalAlignment="Left" Margin="500,138,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" Background="{x:Null}" Foreground="#FF191717" FontSize="18" RenderTransformOrigin="0.497,0.605" Height="38" Width="52" Loaded="JudoPassLabel_Loaded"/>
+            <Label x:Name="JudoLicensLabel" Content="{Binding JudoLicens}" HorizontalAlignment="Left" Margin="500,181,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" Foreground="#FF191717" FontSize="18" Background="{x:Null}" Width="51" Height="39" Loaded="JudoLicensLabel_Loaded_1"/>
 
             <ListView  x:Name="MedlemListesInfo" Margin="366,222,121,33">
                 <ListView.View>
@@ -117,7 +117,7 @@
             </ListView>
 
             <Button x:Name="Edit"  Content="Rediger" HorizontalAlignment="Left" Margin="609,23,0,0" VerticalAlignment="Top" Height="50" Width="103" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
-            <Button x:Name="Delet"  Content="fjern" HorizontalAlignment="Left" Margin="489,23,0,0" VerticalAlignment="Top" Height="50" Width="103" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" />
+            <Button x:Name="Delete"  Content="Fjern" HorizontalAlignment="Left" Margin="489,23,0,0" VerticalAlignment="Top" Height="50" Width="103" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Click="Delete_Click" />
 
         </Grid>
 
