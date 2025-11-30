@@ -47,32 +47,9 @@
                 </LinearGradientBrush>
             </Grid.Background>
 
-            <TextBlock x:Name="TeamTitle" Text="Placeholder" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" Foreground="White"/>
+            <TextBlock x:Name="TeamTitle" Text="{Binding SelectedTeam.TeamType}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" Foreground="White"/>
         </Grid>
 
-        <!--<Rectangle Height="58" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <Rectangle.Fill>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <LinearGradientBrush.RelativeTransform>
-                        <TransformGroup>
-                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
-                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
-                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
-                            <TranslateTransform/>
-                        </TransformGroup>
-                    </LinearGradientBrush.RelativeTransform>
-                    <GradientStop Color="#FFFFDEBC"/>
-                    <GradientStop Color="#FFFF8D66" Offset="1"/>
-                </LinearGradientBrush>
-            </Rectangle.Fill>
-        </Rectangle>-->
-
-
-        <!--<Label x:Name="TitleTeam" Content="Placeholder" HorizontalAlignment="Left" VerticalAlignment="Top" 
-               FontSize="36" FontWeight="Bold" Foreground="White" Grid.Column="1" Margin="112,0,0,0" TextInput="Label_TextInput"/>-->
-
-
-        <!--Foreground="#FFC12E2E"-->
 
         <!-- back button -->
         <Button Click="BackButton" Background="Transparent" BorderThickness="0" Margin="40,0,0,0" Height="40" Width="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
@@ -87,8 +64,9 @@
             <Label Content="Antal medlemmer:" HorizontalAlignment="Left" Margin="30,131,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24"/>
             <Label Content="Træner:" HorizontalAlignment="Left" Margin="30,210,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24"/>
             <Label Content="Hjælpetræner:" HorizontalAlignment="Left" Margin="30,286,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FF6A3B24" RenderTransformOrigin="0.514,1.209"/>
-            <TextBox x:Name="TeamType" HorizontalAlignment="Left" Margin="240,75,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
-            <TextBox x:Name="Members" HorizontalAlignment="Left" Margin="240,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="TeamType" HorizontalAlignment="Left" Margin="240,75,0,0" TextWrapping="Wrap" Text="{Binding SelectedTeam.TeamType}" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
+            <TextBox x:Name="Members" HorizontalAlignment="Left" Margin="240,137,0,0" TextWrapping="Wrap" Text="{Binding MemberCount}"
+ VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
             <TextBox x:Name="Coach" HorizontalAlignment="Left" Margin="240,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
             <TextBox x:Name="asCoach" HorizontalAlignment="Left" Margin="240,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Background="{x:Null}" FontFamily="Franklin Gothic Book" FontSize="16"/>
             <Label Content="Vælg ønsket handling" HorizontalAlignment="Left" Margin="471,19,0,0" VerticalAlignment="Top" FontFamily="Franklin Gothic Demi" Background="Transparent" Foreground="#FFA30B0B" FontSize="18"/>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phoenix.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,6 +30,14 @@ namespace Phoenix
 
             TeamTitle.Text = holdnavn;
             mainWindow = mW;
+            var teamRepo = new TeamRepository();
+
+            
+
+
+
+
+
         }
         private void BackButton(object sender, RoutedEventArgs e)
         {

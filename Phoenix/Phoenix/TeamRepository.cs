@@ -32,16 +32,19 @@ namespace Phoenix
                 team = new Team(teamType);
                 teams.Add(team);
             }
+            if (!team.Members.Any(m => m.MemberID == member.MemberID))
+            {
+                if (member.Role == ClubRole.Coach)
+                    team.AddCoach(member);
+                else if (member.Role == ClubRole.AsCoach)
+                    team.AddAsCoach(member);
+                else
+                    team.AddMember(member);
+            }
+           }
 
-            if (member.Role == ClubRole.Coach)
-                team.AddCoach(member);
-            else if (member.Role == ClubRole.AsCoach)
-                team.AddAsCoach(member);
-            else
-                team.AddMember(member);
         }
     }
-}
 
 
 

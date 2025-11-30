@@ -93,13 +93,15 @@
             </Grid>
 
             <ListView x:Name="HoldMedlemListe"
-                      Height="281" Width="564"  >
+                      Height="281" Width="564" 
+                  ItemsSource="{Binding TeamMembers}"
+               SelectedItem="{Binding SelectedMember, Mode=TwoWay}">
                 <ListView.View>
                     <GridView>
                         <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MemberID}" Width="50"/>
-                        <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding Name}" Width="100"/>
+                        <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
                         <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
-                        <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding TeamType}" Width="80"/>
+                        <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team}" Width="80"/>
                     </GridView>
                 </ListView.View>
             </ListView>

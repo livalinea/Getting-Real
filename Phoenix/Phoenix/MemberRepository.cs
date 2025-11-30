@@ -85,7 +85,7 @@ namespace Phoenix
                 Selected.Role = member.Role;
             }
           }
-        private void SaveToFile()
+        public void SaveToFile()
         {
             using (StreamWriter sw = new StreamWriter("Members.txt"))
             {
@@ -98,7 +98,7 @@ namespace Phoenix
             }
         }
 
-        private void LoadFromFile()
+        public void LoadFromFile()
         {
             if (!File.Exists("Members.txt"))
                 return;
