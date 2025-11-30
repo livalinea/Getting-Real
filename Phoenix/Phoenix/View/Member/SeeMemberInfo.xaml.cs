@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phoenix.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace Phoenix
         MainWindow mainWindow;
 
         public Member SelectedMember { get; set; }
-
+        public MemberViewModel ViewModel { get; set; }
         public SeeMemberInfo(MainWindow mW, Member member)
         {
             InitializeComponent();
@@ -33,6 +34,9 @@ namespace Phoenix
             mainWindow = mW;
             SelectedMember = member;
             DataContext = SelectedMember;
+            ViewModel = new MemberViewModel();
+            ViewModel.SearchText = "";
+
 
         }
         private void BackButton(object sender, RoutedEventArgs e)
@@ -68,9 +72,12 @@ namespace Phoenix
             if (result == MessageBoxResult.Yes)
             {
                 mainWindow.memberRepository.Delete(SelectedMember.MemberID);
-                
+                MessageBox.Show("Navigating back now...");
+                mainWindow.ShowMemberMenu();
+
             }
-            mainWindow.ShowMemberMenu();
+
+
 
         }
     }

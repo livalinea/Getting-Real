@@ -137,7 +137,7 @@
                                         DisplayMemberBinding="{Binding Age}"
                                         Width="100"/>
                             <GridViewColumn Header="Hold"
-                                        DisplayMemberBinding="{Binding TeamType.TeamType}"
+                                        DisplayMemberBinding="{Binding Team}"
                                         Width="80"/>
                         </GridView>
                     </ListView.View>
@@ -158,8 +158,8 @@
                 FontFamily="Franklin Gothic Book"
                 FontSize="18"
                 Grid.ColumnSpan="2"
-                Grid.Row="1"
-                Click="Editorremove_Click"/>
+                Grid.Row="1" Click="AddToMember_Click"
+               />
 
             <Button x:Name="RemoveOrEditFromMembers"
                 Content="Fjern / rediger medlem"
