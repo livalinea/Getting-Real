@@ -95,7 +95,6 @@
                                 Background="Transparent" BorderBrush="Transparent" 
                                 VerticalAlignment="Center" Cursor="Hand" Grid.Column="1"/>
                             
-                        <Image Source="/Billeder/Lightbulb.png" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,30,0"/>
                     </Grid>
 
                     <ListView x:Name="HoldMedlemListe"
@@ -129,7 +128,7 @@
 
         <Image Grid.Row="1" Grid.ColumnSpan="2"
                x:Name="logo"
-               Source="/Billeder/logo judo.jpg"
+               Source="/logo judo.jpg"
                Height="80"
                HorizontalAlignment="Right"
                VerticalAlignment="Bottom"

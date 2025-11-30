@@ -41,7 +41,7 @@ namespace Phoenix
 
         private void RegPayment_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowAdPayment();
+            mainWindow.ShowAddPayment();
         }
     }
 }

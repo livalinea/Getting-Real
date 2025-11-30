@@ -84,12 +84,25 @@ namespace Phoenix
 
         public void ShowPaymentMenu()
         {
-            mainMenu.Content = paymentMenu;
+            var paymentMenu = new PaymentMenu(this);
+            MainContent.Content = paymentMenu;
         }
         public void ShowTeamPayment(string holdnavn)
         {
             var teamPayment = new TeamPayment(holdnavn, this);
-            mainMenu.Content = teamPayment;
+            MainContent.Content = teamPayment;
         }
+        public void ShowMemberInfo()
+        {
+            var view= new SeeMemberInfo(this);
+            MainContent.Content = view;
+        }
+
+        public void ShowAddPayment()
+        {
+            var addPayment = new AddPayment(this);
+            MainContent.Content = addPayment;
+        }
+
     }
 }
