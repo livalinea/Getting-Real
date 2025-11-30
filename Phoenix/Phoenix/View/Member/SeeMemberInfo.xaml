@@ -117,7 +117,7 @@
             </ListView>
 
             <Button x:Name="Edit"  Content="Rediger" HorizontalAlignment="Left" Margin="609,23,0,0" VerticalAlignment="Top" Height="50" Width="103" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
-            <Button x:Name="Delete"  Content="Fjern" HorizontalAlignment="Left" Margin="489,23,0,0" VerticalAlignment="Top" Height="50" Width="103" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" />
+            <Button x:Name="Delete"  Content="Fjern" HorizontalAlignment="Left" Margin="489,23,0,0" VerticalAlignment="Top" Height="50" Width="103" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Click="Delete_Click" />
 
         </Grid>
 

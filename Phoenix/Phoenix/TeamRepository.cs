@@ -6,61 +6,46 @@ using System.Threading.Tasks;
 
 namespace Phoenix
 {
-    internal class TeamRepository
+    public class TeamRepository
     {
-        private readonly List<Team> teams = new();
+        
+            private readonly List<Team> teams = new();
 
-        public TeamRepository()
-        {
-        }
-
-        // Read-only view of teams
         public IReadOnlyList<Team> Teams => teams.AsReadOnly();
 
-        // Get members of a team by type
-        public IReadOnlyList<Member> GetTeamMembers(string teamType)
-        {
-            var t = teams.FirstOrDefault(x => string.Equals(x.TeamType, teamType, StringComparison.OrdinalIgnoreCase));
-            return t?.Members ?? Array.Empty<Member>();
-        }
+        public Team? GetTeam(Team.TeamName teamType)
+            => teams.FirstOrDefault(t => t.TeamType == teamType);
 
-        // Get coaches of a team by type
-        public IReadOnlyList<Member> GetTeamCoaches(string teamType)
-        {
-            var t = teams.FirstOrDefault(x => string.Equals(x.TeamType, teamType, StringComparison.OrdinalIgnoreCase));
-            return t?.Coaches ?? Array.Empty<Member>();
-        }
+        public IReadOnlyList<Member> GetTeamMembers(Team.TeamName teamType)
+            => GetTeam(teamType)?.Members ?? Array.Empty<Member>();
 
-        // Add a member to a team (creates the team if it doesn't exist)
-        public void AddMember(string teamType, Member member)
+        public IReadOnlyList<Member> GetTeamCoaches(Team.TeamName teamType)
+            => GetTeam(teamType)?.Coaches ?? Array.Empty<Member>();
+
+        public void AddMember(Team.TeamName teamType, Member member)
         {
             if (member == null) throw new ArgumentNullException(nameof(member));
-            var t = teams.FirstOrDefault(x => string.Equals(x.TeamType, teamType, StringComparison.OrdinalIgnoreCase));
-            if (t == null)
+
+            var team = GetTeam(teamType);
+            if (team == null)
             {
-                t = new Team(teamType);
-                teams.Add(t);
+                team = new Team(teamType);
+                teams.Add(team);
             }
 
-            // Place member according to role
-            if (member.Role == ClubRole.Coach || member.Role == ClubRole.AsCoach)
-                t.AddCoach(member);
+            if (member.Role == ClubRole.Coach)
+                team.AddCoach(member);
+            else if (member.Role == ClubRole.AsCoach)
+                team.AddAsCoach(member);
             else
-                t.AddMember(member);
-        }
-
-        // Optional helper: add an existing Team instance
-        public void AddTeam(Team team)
-        {
-            if (team == null) throw new ArgumentNullException(nameof(team));
-            if (!teams.Any(t => string.Equals(t.TeamType, team.TeamType, StringComparison.OrdinalIgnoreCase)))
-                teams.Add(team);
-        }
-
-        // Get a team by type
-        public Team? GetTeam(string teamType)
-        {
-            return teams.FirstOrDefault(x => string.Equals(x.TeamType, teamType, StringComparison.OrdinalIgnoreCase));
+                team.AddMember(member);
         }
     }
 }
+
+
+
+
+
+
+

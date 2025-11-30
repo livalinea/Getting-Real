@@ -18,7 +18,7 @@ namespace Phoenix
     public partial class MainWindow : Window
     {
         public ShowMembers? showMemberPage;
-
+        public MemberRepository memberRepository;
         public int NextMemberID = 1;
         private MainMenu mainMenu;
         private TeamMenu teamMenu;
@@ -26,6 +26,7 @@ namespace Phoenix
         private TeamViewer teamViewer;
         private TeamList teamList;
         private TeamPayment teamPayment;
+        private SeeMemberInfo seeMemberInfo;
 
 
         public MainWindow()
@@ -35,6 +36,8 @@ namespace Phoenix
             mainMenu = new MainMenu();
             teamMenu = new TeamMenu(this);
             paymentMenu = new PaymentMenu(this);
+            memberRepository = new MemberRepository();
+
 
 
 
@@ -78,16 +81,17 @@ namespace Phoenix
         {
             showMemberPage = new ShowMembers(this);
             MainContent.Content = showMemberPage;
+
         }
 
         public void ShowPaymentMenu()
         {
-            mainMenu.Content = paymentMenu;
+            MainContent.Content = paymentMenu;
         }
         public void ShowTeamPayment(string holdnavn)
         {
             var teamPayment = new TeamPayment(holdnavn, this);
-            mainMenu.Content = teamPayment;
+            MainContent.Content = teamPayment;
         }
 
         public void ShowMemberInfo()
@@ -95,7 +99,15 @@ namespace Phoenix
             var addMemberInfo = new AddMemberInfo(this);
             MainContent.Content = addMemberInfo;
         }
+        public void ShowSeeMemberInfo(Member member)
+        {
+         var seeMemberInfo = new SeeMemberInfo(this, member);
+        MainContent.Content = seeMemberInfo;
+        }
+
+        
 
 
     }
+
 }

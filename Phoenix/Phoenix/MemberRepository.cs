@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Reflection.PortableExecutable;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Phoenix
@@ -11,6 +14,7 @@ namespace Phoenix
     public class MemberRepository : IRepository
     {
  private readonly List<Member> _members = new();
+        private string filePath = "Members.txt";
 
         public IEnumerable<Member> GetAll()
         {
@@ -33,8 +37,8 @@ namespace Phoenix
         public void Add(Member member)
         {
             _members.Add(member);
+            SaveToFile();
         }
-
 
 
         public void Delete(int memberId)
@@ -43,25 +47,17 @@ namespace Phoenix
             if (selected != null)
             {
                 _members.Remove(selected);
+                SaveToFile();
             }
         }
 
         public MemberRepository()
         {
-            _members.Add(new Member(
-             1,
-             "Anna",
-             "Jensen",
-             new DateTime(2000, 5, 12),
-             "Odensevej 1",
-             "anna@mail.dk",
-             "Gul bælte",
-             true,
-             true,
-             new Team("Junior"),
-             55,
-             ClubRole.Member
-         ));
+          LoadFromFile();
+            
+           
+          SaveToFile();
+            
 
         }
 
@@ -88,5 +84,54 @@ namespace Phoenix
                 Selected.Role = member.Role;
             }
           }
+        private void SaveToFile()
+        {
+            using (StreamWriter sw = new StreamWriter("Members.txt"))
+            {
+                foreach (Member m in _members)
+                {
+                    // Gem som en linje med semikolon-separerede værdier
+                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.TeamType?.TeamType};{m.Weight};{m.Role}");
+                }
+                sw.Close();
+            }
         }
+
+        private void LoadFromFile()
+        {
+            if (!File.Exists("Members.txt"))
+                return;
+            using (StreamReader sr = new StreamReader("Members.txt"))
+            {
+                string line;
+                while ((line = sr.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(';');
+                    if (parts.Length >= 12)
+                    {
+                        int id = int.Parse(parts[0]);
+                        string firstName = parts[1];
+                        string lastName = parts[2];
+                        DateTime birthDate = DateTime.Parse(parts[3]);
+                        string address = parts[4];
+                        string mail = parts[5];
+                        string rank = parts[6];
+                        bool judoPass = bool.Parse(parts[7]);
+                        bool judoLicens = bool.Parse(parts[8]);
+                        Team.TeamName teamType = (Team.TeamName)Enum.Parse(typeof(Team.TeamName), parts[9], true);
+                        Team team = new Team(teamType);
+                        double weight = double.Parse(parts[10]);
+                        ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[11]);
+
+                        Member m = new Member(id, firstName, lastName, birthDate, address, mail, rank, judoPass, judoLicens, team, weight, role);
+                        _members.Add(m);
+                    }
+                }
+                sr.Close();
+            }
+           
+        }
+
+
+    }
     }

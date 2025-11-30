@@ -20,6 +20,7 @@ namespace Phoenix
     public partial class SeeMemberInfo : UserControl
     {
         MainWindow mainWindow;
+
         public Member SelectedMember { get; set; }
 
         public SeeMemberInfo(MainWindow mW, Member member)
@@ -36,7 +37,7 @@ namespace Phoenix
         }
         private void BackButton(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowTeamMenu();
+            mainWindow.ShowMemberMenu();
 
         }
 
@@ -54,6 +55,22 @@ namespace Phoenix
             var member = (Member)JudoLicensLabel.DataContext;
             JudoLicensLabel.Content = member.JudoLicens ? "Ja" : "Nej";
 
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+            var result = MessageBox.Show(
+        $"Er du sikker på at du vil slette {SelectedMember.FirstName} {SelectedMember.LastName}?",
+        "Bekræft sletning",
+        MessageBoxButton.YesNo,
+        MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                mainWindow.memberRepository.Delete(SelectedMember.MemberID);
+                
+            }
+            mainWindow.ShowMemberMenu();
 
         }
     }
