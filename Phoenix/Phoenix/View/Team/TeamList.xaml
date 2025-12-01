@@ -106,8 +106,15 @@
                         <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
                         <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team}" Width="80"/>
                     </GridView>
+                    
                 </ListView.View>
             </ListView>
+            <!-- Tilføj/fjern knapper under listen -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center">
+
+                <Button Content="Fjern valgt medlem" Click="RemoveMember_Click" Margin="5"  Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
+            </StackPanel>
+
         </StackPanel>
 
             </Grid>

@@ -90,5 +90,6 @@ namespace Phoenix
             return TeamType.ToString(); // eller hvad du vil vise
         }
 
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using Phoenix.ViewModels;
+﻿using Phoenix.Repositories;
+using Phoenix.ViewModels;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -85,11 +86,7 @@ namespace Phoenix
             MainContent.Content = teamViewer;
         }
 
-        public void ShowAddTeamMember(string holdnavn)
-        {
-            var addTeamMember = new AddTeamMember(holdnavn, this);
-            MainContent.Content = addTeamMember;
-        }
+      
 
         public void ShowTeamList(string holdnavn)
         {

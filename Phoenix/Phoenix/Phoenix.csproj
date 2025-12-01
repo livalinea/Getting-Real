@@ -22,7 +22,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="logo judo.jpg" />
+		<Resource Include="Billeder\logo judo.jpg" />
 		<Resource Include="Billeder\logo judo.png" />
 	</ItemGroup>
 

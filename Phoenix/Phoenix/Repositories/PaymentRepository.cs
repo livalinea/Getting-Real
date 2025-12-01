@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Phoenix
+namespace Phoenix.Repositories
 {
     public class PaymentRepository
     {
