@@ -18,67 +18,179 @@ namespace Phoenix
     /// <summary>
     /// Interaction logic for SeeMemberInfo.xaml
     /// </summary>
+
     public partial class SeeMemberInfo : UserControl
     {
         MainWindow mainWindow;
-
+        private bool isEditing = false;
         public Member SelectedMember { get; set; }
         public MemberViewModel ViewModel { get; set; }
         public SeeMemberInfo(MainWindow mW, Member member)
         {
             InitializeComponent();
 
-            string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
-            logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
-
             mainWindow = mW;
             SelectedMember = member;
             DataContext = SelectedMember;
+
+            TeamComboBox.ItemsSource = Enum.GetValues(typeof(Team.TeamName));
+            RoleComboBox.ItemsSource = Enum.GetValues(typeof(ClubRole));
+
+            if (SelectedMember.Team != null)
+                TeamComboBox.SelectedItem = SelectedMember.Team.TeamType;
+
+            RoleComboBox.SelectedItem = SelectedMember.Role;
+
+            YesToJudoPass.IsChecked = SelectedMember.JudoPass;
+            NoToJudoPass.IsChecked = !SelectedMember.JudoPass;
+            YesToJudoLicens.IsChecked = SelectedMember.JudoLicens;
+            NoToJudoLicens.IsChecked = !SelectedMember.JudoLicens;
+
+            SetEditing(false);
+
             ViewModel = new MemberViewModel();
             ViewModel.SearchText = "";
 
+            // Hent alle betalinger for dette medlem
+            var paymentsForMember = mainWindow.paymentRepository.GetAllPayments().Where(p => p.MemberID == member.MemberID).OrderByDescending(p => p.DatePaid ?? p.DateToPay).ToList();
+
+            // Vis dem i listen nederst
+            MedlemListesInfo.ItemsSource = paymentsForMember;
 
         }
+
+        private void SetEditing(bool editing)
+        {
+            isEditing = editing;
+            Edit.Content = editing ? "Gem" : "Rediger";
+
+            bool editable = editing;
+
+            FirstnameLabel.IsReadOnly = !editable;
+            LastnameLabel.IsReadOnly = !editable;
+            BirthdateLabel.IsReadOnly = !editable;
+            AdressLabel.IsReadOnly = !editable;
+            EmailLabel.IsReadOnly = !editable;
+            TelephoneNumber1Label.IsReadOnly = !editable;
+            TelephoneNumber2Label.IsReadOnly = !editable;
+            WeightLabel.IsReadOnly = !editable;
+
+            YesToJudoPass.IsEnabled = editable;
+            NoToJudoPass.IsEnabled = editable;
+            YesToJudoLicens.IsEnabled = editable;
+            NoToJudoLicens.IsEnabled = editable;
+        }
+
         private void BackButton(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowMemberMenu();
-
         }
 
-        private void JudoPassLabel_Loaded(object sender, RoutedEventArgs e)
+        private void Edit_Click(object sender, RoutedEventArgs e)
         {
-            var member = (Member)JudoPassLabel.DataContext;
-            JudoPassLabel.Content = member.JudoPass ? "Ja" : "Nej";
+            if (!isEditing)
+            {
+                // Gå i REDIGER-tilstand
+                isEditing = true;
+                Edit.Content = "Gem";
 
+                FirstnameLabel.IsReadOnly = false;
+                LastnameLabel.IsReadOnly = false;
+                BirthdateLabel.IsReadOnly = false;
+                AdressLabel.IsReadOnly = false;
+                EmailLabel.IsReadOnly = false;
+                TelephoneNumber1Label.IsReadOnly = false;
+                TelephoneNumber2Label.IsReadOnly = false;
+                WeightLabel.IsReadOnly = false;
 
+                YesToJudoPass.IsEnabled = true;
+                NoToJudoPass.IsEnabled = true;
+                YesToJudoLicens.IsEnabled = true;
+                NoToJudoLicens.IsEnabled = true;
+            }
+            else
+            {
+                // GEM ændringerne
+                isEditing = false;
+                Edit.Content = "Rediger";
+
+                FirstnameLabel.IsReadOnly = true;
+                LastnameLabel.IsReadOnly = true;
+                BirthdateLabel.IsReadOnly = true;
+                AdressLabel.IsReadOnly = true;
+                EmailLabel.IsReadOnly = true;
+                TelephoneNumber1Label.IsReadOnly = true;
+                TelephoneNumber2Label.IsReadOnly = true;
+                WeightLabel.IsReadOnly = true;
+
+                YesToJudoPass.IsEnabled = false;
+                NoToJudoPass.IsEnabled = false;
+                YesToJudoLicens.IsEnabled = false;
+                NoToJudoLicens.IsEnabled = false;
+
+                SelectedMember.FirstName = FirstnameLabel.Text;
+                SelectedMember.LastName = LastnameLabel.Text;
+                SelectedMember.Address = AdressLabel.Text;
+                SelectedMember.Mail = EmailLabel.Text;
+                // hvis PhoneNumber er string/int: tilpas til din Member-klasse
+                // SelectedMember.PhoneNumber = TelephoneNumber1Label.Text;
+
+                if (TeamComboBox.SelectedItem is Team.TeamName newTeam)
+                    SelectedMember.Team = new Team(newTeam);
+
+                if (RoleComboBox.SelectedItem is ClubRole newRole)
+                    SelectedMember.Role = newRole;
+
+                SelectedMember.JudoPass = YesToJudoPass.IsChecked == true;
+                SelectedMember.JudoLicens = YesToJudoLicens.IsChecked == true;
+
+                mainWindow.memberRepository.Update(SelectedMember);
+
+                MessageBox.Show("Medlemsoplysninger gemt.");
+
+                mainWindow.ShowMemberMenu();
+            }
         }
 
-
-        private void JudoLicensLabel_Loaded_1(object sender, RoutedEventArgs e)
-        {
-            var member = (Member)JudoLicensLabel.DataContext;
-            JudoLicensLabel.Content = member.JudoLicens ? "Ja" : "Nej";
-
-
-        }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             var result = MessageBox.Show(
-        $"Er du sikker på at du vil slette {SelectedMember.FirstName} {SelectedMember.LastName}?",
-        "Bekræft sletning",
-        MessageBoxButton.YesNo,
-        MessageBoxImage.Warning);
-            if (result == MessageBoxResult.Yes)
-            {
-                mainWindow.memberRepository.Delete(SelectedMember.MemberID);
-                MessageBox.Show("Navigating back now...");
-                mainWindow.ShowMemberMenu();
+                $"Er du sikker på at du vil slette {SelectedMember.FirstName} {SelectedMember.LastName}?",
+                "Bekræft sletning",
+                MessageBoxButton.YesNo,
+                MessageBoxImage.Warning);
 
-            }
+            if (result != MessageBoxResult.Yes)
+                return;
 
+            mainWindow.memberRepository.Delete(SelectedMember.MemberID);
+            mainWindow.ShowMemberMenu();
+        }
 
+        private void YesToJudoPass_Checked(object sender, RoutedEventArgs e)
+        {
+            if (YesToJudoPass.IsChecked == true)
+                NoToJudoPass.IsChecked = false;
+        }
 
+        private void NoToJudoPass_Checked(object sender, RoutedEventArgs e)
+        {
+            if (NoToJudoPass.IsChecked == true)
+                YesToJudoPass.IsChecked = false;
+        }
+
+        private void YesToJudoLicens_Checked(object sender, RoutedEventArgs e)
+        {
+            if (YesToJudoLicens.IsChecked == true)
+                NoToJudoLicens.IsChecked = false;
+        }
+
+        private void NoToJudoLicens_Checked(object sender, RoutedEventArgs e)
+        {
+            if (NoToJudoLicens.IsChecked == true)
+                YesToJudoLicens.IsChecked = false;
         }
     }
 }
+

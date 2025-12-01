@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using static Phoenix.Team;
 
-namespace Phoenix.Repositories
+namespace Phoenix
 {
     public class MemberRepository : IRepository
     {
@@ -34,18 +34,13 @@ namespace Phoenix.Repositories
             }
             return null;
         }
-        public List<Member> GetMembersByTeam(Team.TeamName team)
-        {
-            return _members
-                .Where(m => m.Team != null && m.Team.TeamType == team)
-                .ToList();
-        }
 
         public void Add(Member member)
         {
             _members.Add(member);
             SaveToFile();
         }
+
 
         public void Delete(int memberId)
         {
@@ -60,10 +55,13 @@ namespace Phoenix.Repositories
         public MemberRepository()
         {
           LoadFromFile();
+            
            
+          SaveToFile();
             
 
         }
+
 
         public void Update(Member member)
         {
@@ -85,7 +83,6 @@ namespace Phoenix.Repositories
                 Selected.Team = member.Team;
                 Selected.Weight = member.Weight;
                 Selected.Role = member.Role;
-                SaveToFile();
             }
           }
         public void SaveToFile()
@@ -95,7 +92,7 @@ namespace Phoenix.Repositories
                 foreach (Member m in _members)
                 {
                     // Gem som en linje med semikolon-separerede værdier
-                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team.TeamType};{m.Weight};{m.Role}");
+                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.PhoneNumber1};{m.PhoneNumber2};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team.TeamType};{m.Weight};{m.Role}");
                 }
                 sw.Close();
             }
@@ -103,8 +100,6 @@ namespace Phoenix.Repositories
 
         public void LoadFromFile()
         {
-            _members.Clear();
-
             if (!File.Exists("Members.txt"))
                 return;
             using (StreamReader sr = new StreamReader("Members.txt"))
@@ -122,12 +117,15 @@ namespace Phoenix.Repositories
                         DateTime birthDate = DateTime.Parse(parts[3]);
                         string address = parts[4];
                         string mail = parts[5];
-                        int phoneNumber1 = int.Parse(parts[6]);
-                        int phoneNumber2 = int.Parse(parts[7]);
+
+                        int phone1=int.Parse(parts[6]);
+                        int phone2=int.Parse(parts[7]);
+
                         string rank = parts[8];
                         bool judoPass = bool.Parse(parts[9]);
                         bool judoLicens = bool.Parse(parts[10]);
                         string raw = parts[11]?.Trim();
+
                         if (string.IsNullOrEmpty(raw)); // fallback
 
                         // Fjern evt. "Phoenix.Team.TeamName.Junior"
@@ -138,16 +136,14 @@ namespace Phoenix.Repositories
 
                         Team team = new Team(teamType);
 
-
-
                         double weight = double.Parse(parts[10]);
                         ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[11]);
 
-                        Member m = new Member(id, firstName, lastName, birthDate, address, mail,phoneNumber1,phoneNumber2, rank, judoPass, judoLicens, team, weight, role);
+                        Member m = new Member(id, firstName, lastName, birthDate, address, mail,phone1, phone2, rank, judoPass, judoLicens, team, weight, role);
                         _members.Add(m);
                     }
                 }
-               
+                sr.Close();
             }
            
         }
