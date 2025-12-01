@@ -46,13 +46,33 @@ namespace Phoenix
 
                 if (!DateTime.TryParse(BirthDateField.Text, out DateTime birthDate))
                 {
-                    MessageBox.Show("Ugyldig fødselsdato.");
+                    MessageBox.Show("Ugyldig fødselsdato. formatet skal være: DD.MM.YYYY");
                     return;
                 }
 
                 string address = AdressField.Text.Trim();
+                string phone1 = TelephoneNumber1Field.Text.Trim();
+                string phone2 = TelephoneNumber2Field.Text.Trim();
+
+                
+                if (!phone1.All(char.IsDigit) || !phone2.All(char.IsDigit))
+                {
+                    MessageBox.Show("Telefonnummer må kun indeholde 8 tal.",
+                                    "Fejl i telefonnummer",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Warning);
+                    return;
+                }
+
+
                 string mail = EmailField.Text.Trim();
                 string rank = RankField.Text.Trim();
+                if (!rank.All(char.IsDigit))
+                {
+                    MessageBox.Show("Rank må kun indeholde tal",
+                        " ",MessageBoxButton.OK, MessageBoxImage.Warning);
+                    return;
+                }
 
                 double weight = 0;
                 if (!string.IsNullOrWhiteSpace(WeightField.Text))

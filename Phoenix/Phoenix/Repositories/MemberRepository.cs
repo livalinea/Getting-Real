@@ -55,9 +55,7 @@ namespace Phoenix.Repositories
         public MemberRepository()
         {
           LoadFromFile();
-            
            
-          SaveToFile();
             
 
         }
@@ -100,6 +98,8 @@ namespace Phoenix.Repositories
 
         public void LoadFromFile()
         {
+            _members.Clear();
+
             if (!File.Exists("Members.txt"))
                 return;
             using (StreamReader sr = new StreamReader("Members.txt"))
@@ -121,9 +121,9 @@ namespace Phoenix.Repositories
                         bool judoPass = bool.Parse(parts[7]);
                         bool judoLicens = bool.Parse(parts[8]);
                         string raw = parts[9]?.Trim();
-                        if (string.IsNullOrEmpty(raw)); // fallback
+                        if (string.IsNullOrEmpty(raw)) // fallback
 
-                        // Fjern evt. "Phoenix.Team.TeamName.Junior"
+        
                         if (raw.Contains(".")) raw = raw.Split('.').Last();
 
                         if (!Enum.TryParse<Team.TeamName>(raw, true, out var teamType))
@@ -140,7 +140,7 @@ namespace Phoenix.Repositories
                         _members.Add(m);
                     }
                 }
-                sr.Close();
+               
             }
            
         }

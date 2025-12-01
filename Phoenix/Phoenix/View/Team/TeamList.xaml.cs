@@ -1,4 +1,5 @@
-﻿using Phoenix.ViewModels;
+﻿using Phoenix.Repositories;
+using Phoenix.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,8 +22,8 @@ namespace Phoenix
     public partial class TeamList : UserControl
     {
         MainWindow mainWindow;
+        private TeamRepository teamRepository;
         public Member SelectedMember { get; set; }
-        
 
         public TeamList(string holdnavn, MainWindow mW)
         {

@@ -58,194 +58,144 @@
         </Button>
 
         <!-- lower section wrapped in ViewBox -->
-        <Viewbox Grid.Row="1" Stretch="Uniform" StretchDirection="Both">
-            <!-- Parent grid with two columns (left/right) -->
-            <Grid Margin="20">
+        <!--//<Viewbox Grid.Row="1" Stretch="Uniform" StretchDirection="Both">-->
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1.5*"/>
-                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="Auto" MinWidth="120"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Left side: labels + textboxes + role -->
-                <Grid Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="Foreground" Value="#FFA30B0B"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,6,10,6"/>
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="FontFamily" Value="Franklin Gothic Book"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                        <Setter Property="Height" Value="26"/>
+                    </Style>
+                </Grid.Resources>
 
-                    <!-- ID -->
-                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="IDMember" Content="ID"
-                               FontFamily="Franklin Gothic Demi" Background="Transparent"
-                               Foreground="#FFA30B0B" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="IdField" Width="127" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16"
-                                 Background="{x:Null}" SelectionBrush="{x:Null}" SelectionTextBrush="{x:Null}"
-                                 Foreground="#FF191717" BorderBrush="{x:Null}" IsReadOnly="True"/>
-                    </StackPanel>
+                <Label Grid.Row="0" Grid.Column="0" x:Name="IDMember" Content="ID" FontSize="18"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="IdField" Width="127" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}"/>
 
-                    <!-- Fornavn -->
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="Firstname" Content="Fornavn:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="FirstnamField" Width="198" Margin="0,0,0,0"
-                                 HorizontalAlignment="Left"
-                                 FontFamily="Franklin Gothic Book" FontSize="16"/>
-                    </StackPanel>
+                <Label Grid.Row="1" Grid.Column="0" x:Name="Firstname" Content="Fornavn:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="FirstnamField" Width="198"/>
 
-                    <!-- Efternavn -->
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="Lastname" Content="Efternavn:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="LastnameField" Width="198" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16"
-                                  HorizontalAlignment="Left"/>
-                    </StackPanel>
+                <Label Grid.Row="2" Grid.Column="0" x:Name="Lastname" Content="Efternavn:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="LastnameField" Width="198"/>
 
-                    <!-- Fødselsdag -->
-                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="Birthdate" Content="Fødselsdag:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center"
-                                HorizontalAlignment="Right"/>
-                        <TextBox x:Name="BirthDateField" Width="198" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16"  HorizontalAlignment="Left"/>
-                    </StackPanel>
+                <Label Grid.Row="3" Grid.Column="0" x:Name="Birthdate" Content="Fødselsdag:"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="BirthDateField" Width="198"/>
 
-                    <!-- Adresse -->
-                    <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="Adress" Content="Adresse:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="AdressField" Width="198" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left"/>
-                    </StackPanel>
+                <Label Grid.Row="4" Grid.Column="0" x:Name="Adress" Content="Adresse:"/>
+                <TextBox Grid.Row="4" Grid.Column="1" x:Name="AdressField" Width="198"/>
 
-                    <!-- Mail -->
-                    <StackPanel Grid.Row="5" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="Email" Content="Mail:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="EmailField" Width="198" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left"/>
-                    </StackPanel>
+                <Label Grid.Row="5" Grid.Column="0" x:Name="Email" Content="Mail:"/>
+                <TextBox Grid.Row="5" Grid.Column="1" x:Name="EmailField" Width="198"/>
 
-                    <!-- Tlf.1 -->
-                    <StackPanel Grid.Row="6" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="TelephoneNumber1" Content="Tlf.1:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="TelephoneNumber1Field" Width="127" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left"/>
-                    </StackPanel>
+                <Label Grid.Row="6" Grid.Column="0" x:Name="TelephoneNumber1" Content="Tlf.1:"/>
+                <TextBox Grid.Row="6" Grid.Column="1" x:Name="TelephoneNumber1Field" Width="127"/>
 
-                    <!-- Tlf.2 -->
-                    <StackPanel Grid.Row="7" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="TelephoneNumber2" Content="Tlf.2:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="TelephoneNumber2Field" Width="127" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left"/>
-                    </StackPanel>
+                <Label Grid.Row="7" Grid.Column="0" x:Name="TelephoneNumber2" Content="Tlf.2:"/>
+                <TextBox Grid.Row="7" Grid.Column="1" x:Name="TelephoneNumber2Field" Width="127"/>
 
-                    <!-- Rolle -->
-                    <StackPanel Grid.Row="8" Orientation="Horizontal" Margin="0,12">
-                        <Label x:Name="Role" Content="Rolle:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right" />
-                        <ComboBox x:Name="RoleComboBox" Width="127" Margin="16,0,0,0"
-                                  FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left"/>
-                    </StackPanel>
-                </Grid>
-
-                <!-- Right side: team, rank, weight, judo pass/licens, save -->
-                <Grid Grid.Column="1" Margin="30,0,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-
-                    <!-- Hold -->
-                    <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="Team" Content="Hold:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <ComboBox x:Name="TeamComboBox" Width="127" Margin="16,0,0,0"
-                                  FontFamily="Franklin Gothic Book" FontSize="16"
-                                  Background="White" BorderBrush="{x:Null}"  HorizontalAlignment="Left"/>
-                    </StackPanel>
-
-                    <!-- KYU -->
-                    <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="Rank" Content="KYU:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="RankField" Width="127" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16"  HorizontalAlignment="Left"/>
-                    </StackPanel>
-
-                    <!-- Vægt -->
-                    <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="0,6">
-                        <Label x:Name="Weight" Content="Vægt:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <TextBox x:Name="WeightField" Width="127" Margin="16,0,0,0"
-                                 FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left"/>
-                    </StackPanel>
-
-                    <!-- Judopas -->
-                    <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,12" VerticalAlignment="Center">
-                        <Label x:Name="JudoPass" Content="Judopas:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <Label x:Name="Yes" Content="Ja"
-                               FontFamily="Franklin Gothic Demi" FontSize="18" Foreground="#FFA30B0B"
-                               Margin="16,0,0,0" VerticalAlignment="Center"/>
-                        <CheckBox x:Name="YesToJudoPass" Width="30" Height="20" Margin="6,0,0,0" VerticalAlignment="Center"/>
-                        <Label x:Name="No" Content="Nej"
-                               FontFamily="Franklin Gothic Demi" FontSize="18" Foreground="#FFA30B0B"
-                               Margin="16,0,0,0" VerticalAlignment="Center" />
-                        <CheckBox x:Name="NoToJudoPass" Width="30" Height="20" Margin="6,0,0,0" VerticalAlignment="Center"/>
-                    </StackPanel>
-
-                    <!-- JudoLicens -->
-                    <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,12" VerticalAlignment="Center">
-                        <Label x:Name="JudoLicens" Content="JudoLicens:"
-                               FontFamily="Franklin Gothic Demi" FontSize="20" Foreground="#FFA30B0B"
-                               VerticalAlignment="Center" HorizontalAlignment="Right"/>
-                        <Label Content="Ja"
-                               FontFamily="Franklin Gothic Demi" FontSize="18" Foreground="#FFA30B0B"
-                               Margin="16,0,0,0" VerticalAlignment="Center"/>
-                        <CheckBox x:Name="YesToJudoLicens" Width="30" Height="20" Margin="6,0,0,0" VerticalAlignment="Center"/>
-                        <Label Content="Nej"
-                               FontFamily="Franklin Gothic Demi" FontSize="18" Foreground="#FFA30B0B"
-                               Margin="16,0,0,0" VerticalAlignment="Center"/>
-                        <CheckBox x:Name="NoToJudoLicens" Width="30" Height="20" Margin="6,0,0,0" VerticalAlignment="Center"/>
-                    </StackPanel>
-
-                    <!-- Save -->
-                    <Button x:Name="SaveMember" Content="Gem medlem"
-                            Grid.Row="5" Margin="0,20,0,0"
-                            Height="52" Width="149"
-                            HorizontalAlignment="Left" VerticalAlignment="Top"
-                            Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4"
-                            FontFamily="Franklin Gothic Book" FontSize="18"
-                            Click="SaveMember_Click"/>
-                </Grid>
+                <Label Grid.Row="8" Grid.Column="0" x:Name="Role" Content="Rolle:"/>
+                <ComboBox Grid.Row="8" Grid.Column="1" x:Name="RoleComboBox" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             </Grid>
-        </Viewbox>
+
+            <Grid Grid.Column="1" Margin="30,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="Foreground" Value="#FFA30B0B"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,6,10,6"/>
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="FontFamily" Value="Franklin Gothic Book"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                        <Setter Property="Height" Value="26"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Label Grid.Row="0" Grid.Column="0" x:Name="Team" Content="Hold:"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="TeamComboBox" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <Label Grid.Row="1" Grid.Column="0" x:Name="Rank" Content="KYU:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="RankField" Width="127"/>
+
+                <Label Grid.Row="2" Grid.Column="0" x:Name="Weight" Content="Vægt:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="WeightField" Width="127"/>
+
+                <Label Grid.Row="3" Grid.Column="0" x:Name="JudoPass" Content="Judopas:"/>
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content="Ja" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="YesToJudoPass" VerticalAlignment="Center" Margin="5,0,15,0"/>
+                    <Label Content="Nej" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="NoToJudoPass" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <Label Grid.Row="4" Grid.Column="0" x:Name="JudoLicens" Content="JudoLicens:"/>
+                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content="Ja" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="YesToJudoLicens" VerticalAlignment="Center" Margin="5,0,15,0"/>
+                    <Label Content="Nej" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="NoToJudoLicens" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <Button x:Name="SaveMember" Content="Gem medlem"
+                Grid.Row="5" Grid.Column="1" Margin="0,20,0,0"
+                Height="52" Width="149"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Background="#FF906048" Foreground="#FFF4F4F4"
+                FontFamily="Franklin Gothic Book" FontSize="18"
+                Click="SaveMember_Click"/>
+            </Grid>
+        </Grid>
     </Grid>
-</UserControl>
+    </UserControl>
+       
