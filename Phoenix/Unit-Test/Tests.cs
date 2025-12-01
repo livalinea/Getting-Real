@@ -1,10 +1,12 @@
-﻿namespace Unit_Test
+﻿using Phoenix;
+
+namespace Unit_Test
 {
     [TestClass]
     public sealed class Tests
     {
         [TestMethod]
-        public void TestMemberOprettelseOgRepository()
+        public void UC02_registrer_medlem()
         {
             // Arrange
             var repo = new MemberRepository();
@@ -21,7 +23,7 @@
                 judoPass: false,
                 teamType: team,
                 weight: 67.67,
-                role: ClubeRole.AsCoach
+                role: ClubRole.AsCoach
             );
 
             // Act
@@ -47,6 +49,7 @@
 
             Assert.IsNotNull(get.TeamType, "TeamType skulle være puslinge");
             Assert.AreEqual(team.Type, get.TeamType.Type);
+
         }
     }
 }
