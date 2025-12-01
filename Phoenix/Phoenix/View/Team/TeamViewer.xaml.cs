@@ -56,11 +56,7 @@ namespace Phoenix
             //this.Close();
         }
 
-        private void Editorremove_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.ShowAddTeamMember(holdnavn: TeamTitle.Text);
-
-        }
+      
 
         private void SeeList_Click(object sender, RoutedEventArgs e)
         {

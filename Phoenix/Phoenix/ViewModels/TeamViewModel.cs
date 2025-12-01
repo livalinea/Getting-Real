@@ -24,8 +24,23 @@ namespace Phoenix.ViewModels
                     LoadMemberList();
                 }
             }
+        private Member selectedMember;
+        public Member SelectedMember
+        {
+            get
+            {
+                return selectedMember;
+            }
+            set
+            {
+                selectedMember = value;
+                OnPropertyChanged(nameof(SelectedMember));
 
-            private ObservableCollection<Member> teamMembers;
+            }
+
+        }
+
+        private ObservableCollection<Member> teamMembers;
             public ObservableCollection<Member> TeamMembers
             {
                 get => teamMembers;
@@ -42,6 +57,7 @@ namespace Phoenix.ViewModels
             public TeamViewModel(Team selectedTeam)
             {
                 SelectedTeam = selectedTeam;
+
                 LoadMemberList();
             }
 

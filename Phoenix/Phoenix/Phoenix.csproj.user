@@ -11,16 +11,13 @@
     <Compile Update="View\Member\ShowMembers.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\Team\AddTeamMember.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="MainMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="PaymentMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TeamList.xaml.cs">
+    <Compile Update="View\Team\TeamList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="TeamPayment.xaml.cs">
