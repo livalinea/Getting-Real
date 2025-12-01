@@ -1,4 +1,5 @@
-﻿using Phoenix.ViewModels;
+﻿using Phoenix.Repositories;
+using Phoenix.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Phoenix
         MainWindow mainWindow;
         public Member SelectedMember { get; set; }
         
+        private TeamRepository teamRepository;
 
         public TeamList(string holdnavn, MainWindow mW)
         {

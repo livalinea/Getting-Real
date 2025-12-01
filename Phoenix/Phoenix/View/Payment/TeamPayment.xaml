@@ -98,7 +98,7 @@
                     </Grid>
 
 
-                    <ListView x:Name="HoldMedlemListe"
+                    <ListView x:Name="HoldMedlemListe" ItemsSource="{Binding TeamMembers}" SelectedItem="{Binding SelectedMember, Mode=TwoWay}"
                               Height="281" Width="474" HorizontalAlignment="Left">
                         <ListView.View>
                             <GridView>

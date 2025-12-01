@@ -120,10 +120,12 @@ namespace Phoenix.Repositories
                         DateTime birthDate = DateTime.Parse(parts[3]);
                         string address = parts[4];
                         string mail = parts[5];
-                        string rank = parts[6];
-                        bool judoPass = bool.Parse(parts[7]);
-                        bool judoLicens = bool.Parse(parts[8]);
-                        string raw = parts[9]?.Trim();
+                        int phoneNumber1 = int.Parse(parts[6]);
+                        int phoneNumber2 = int.Parse(parts[7]);
+                        string rank = parts[8];
+                        bool judoPass = bool.Parse(parts[9]);
+                        bool judoLicens = bool.Parse(parts[10]);
+                        string raw = parts[11]?.Trim();
                         if (string.IsNullOrEmpty(raw)); // fallback
 
                         // Fjern evt. "Phoenix.Team.TeamName.Junior"
@@ -139,7 +141,7 @@ namespace Phoenix.Repositories
                         double weight = double.Parse(parts[10]);
                         ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[11]);
 
-                        Member m = new Member(id, firstName, lastName, birthDate, address, mail, rank, judoPass, judoLicens, team, weight, role);
+                        Member m = new Member(id, firstName, lastName, birthDate, address, mail,phoneNumber1,phoneNumber2, rank, judoPass, judoLicens, team, weight, role);
                         _members.Add(m);
                     }
                 }

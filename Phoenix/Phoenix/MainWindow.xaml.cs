@@ -120,35 +120,17 @@ namespace Phoenix
         }
         public void ShowTeamPayment(string holdnavn)
         {
-            Team.TeamName teamEnum;
-
-            switch (holdnavn)
+            if (Enum.TryParse<Team.TeamName>(holdnavn, out var teamType))
             {
-                case "Motorik og Krea":
-                case "Motorik":
-                    teamEnum = Team.TeamName.Motorik;
-                    break;
-                case "Puslinge":
-                    teamEnum = Team.TeamName.Puslinge;
-                    break;
-                case "Junior":
-                    teamEnum = Team.TeamName.Junior;
-                    break;
-                case "Senior":
-                    teamEnum = Team.TeamName.Senior;
-                    break;
-                case "BJJ":
-                    teamEnum = Team.TeamName.BJJ;
-                    break;
-                default:
-                    MessageBox.Show("Ukendt hold: " + holdnavn);
-                    return;
+                var selectedTeam = teamRepository.GetTeam(teamType);
+                if (selectedTeam != null)
+                {
+                    var vm = new TeamViewModel(selectedTeam);
+                    var teamPayment = new TeamPayment(holdnavn, this);
+                    teamPayment.DataContext = vm;
+                    MainContent.Content = teamPayment;
+                }
             }
-
-            var teamMembers = memberRepository.GetMembersByTeam(teamEnum);
-
-            var teamPayment = new TeamPayment(holdnavn, teamMembers, this);
-            MainContent.Content = teamPayment;
         }
         public void ShowMemberInfo()
         {

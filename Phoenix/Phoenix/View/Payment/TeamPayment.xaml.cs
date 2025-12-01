@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phoenix.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,20 +21,16 @@ namespace Phoenix
     public partial class TeamPayment : UserControl
     {
         MainWindow mainWindow;
-        private string currentTeamName;
-        private List<Member> teamMembers;
-        public TeamPayment(string holdnavn, List<Member> members, MainWindow mw)
+        private TeamRepository teamRepository;
+        public TeamPayment(string holdnavn, MainWindow mw)
         {
             InitializeComponent();
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
 
             TeamTitle.Text = holdnavn;
-            currentTeamName = holdnavn;
             mainWindow = mw;
-
-            teamMembers = members ?? new List<Member>();
-            HoldMedlemListe.ItemsSource = teamMembers;
+            var teamRepo = new TeamRepository();
         }
 
         private void BackButton(object sender, RoutedEventArgs e)
@@ -54,7 +51,7 @@ namespace Phoenix
                 return;
             }
 
-            mainWindow.ShowAddPayment(currentTeamName, selectedMember);
+            mainWindow.ShowAddPayment(TeamTitle.Text, selectedMember);
         }
     }
 }

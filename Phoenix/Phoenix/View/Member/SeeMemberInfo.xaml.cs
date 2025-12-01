@@ -36,6 +36,11 @@ namespace Phoenix
             TeamComboBox.ItemsSource = Enum.GetValues(typeof(Team.TeamName));
             RoleComboBox.ItemsSource = Enum.GetValues(typeof(ClubRole));
 
+            if (SelectedMember.Team != null)
+                TeamComboBox.SelectedItem = SelectedMember.Team.TeamType;
+
+            RoleComboBox.SelectedItem = SelectedMember.Role;
+
             YesToJudoPass.IsChecked = SelectedMember.JudoPass;
             NoToJudoPass.IsChecked = !SelectedMember.JudoPass;
             YesToJudoLicens.IsChecked = SelectedMember.JudoLicens;
@@ -123,7 +128,19 @@ namespace Phoenix
                 YesToJudoLicens.IsEnabled = false;
                 NoToJudoLicens.IsEnabled = false;
 
-                // skriv ja/nej tilbage på medlemmet
+                SelectedMember.FirstName = FirstnameLabel.Text;
+                SelectedMember.LastName = LastnameLabel.Text;
+                SelectedMember.Address = AdressLabel.Text;
+                SelectedMember.Mail = EmailLabel.Text;
+                // hvis PhoneNumber er string/int: tilpas til din Member-klasse
+                // SelectedMember.PhoneNumber = TelephoneNumber1Label.Text;
+
+                if (TeamComboBox.SelectedItem is Team.TeamName newTeam)
+                    SelectedMember.Team = new Team(newTeam);
+
+                if (RoleComboBox.SelectedItem is ClubRole newRole)
+                    SelectedMember.Role = newRole;
+
                 SelectedMember.JudoPass = YesToJudoPass.IsChecked == true;
                 SelectedMember.JudoLicens = YesToJudoLicens.IsChecked == true;
 

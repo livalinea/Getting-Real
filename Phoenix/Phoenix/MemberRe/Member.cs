@@ -60,20 +60,47 @@ namespace Phoenix
             get { return mail; }
             set { mail = value; }
         }
-        private int phoneNumber;
 
-        public int PhoneNumber
+
+        private int phoneNumber1;
+        private int phoneNumber2;
+
+        public int PhoneNumber1
         {
-            get { return phoneNumber; }
+            get { return phoneNumber1; }
             set
             {
-                if (value.ToString().Length == 8)
+                if (value == 0)            // hvis du vil tillade tomt
                 {
-                    phoneNumber = value;
+                    phoneNumber1 = 0;
+                }
+                else if (value.ToString().Length == 8)
+                {
+                    phoneNumber1 = value;
                 }
                 else
                 {
-                    throw new ValidationException("Error");
+                    throw new ValidationException("Telefonnummer 1 skal være 8 cifre.");
+                }
+            }
+        }
+
+        public int PhoneNumber2
+        {
+            get { return phoneNumber2; }
+            set
+            {
+                if (value == 0)            // tillad tomt nr. 2
+                {
+                    phoneNumber2 = 0;
+                }
+                else if (value.ToString().Length == 8)
+                {
+                    phoneNumber2 = value;
+                }
+                else
+                {
+                    throw new ValidationException("Telefonnummer 2 skal være 8 cifre.");
                 }
             }
         }
@@ -124,7 +151,8 @@ namespace Phoenix
         }
 
 
-        public Member(int memberID, string firstName, string lastName, DateTime birthDate, string address, string mail, string rank, bool judoPass, bool judoLicens, Team team, double weight, ClubRole role)
+        public Member(int memberID, string firstName, string lastName, DateTime birthDate, string address, string mail, int phoneNumber1, int phoneNumber2, string rank, bool judoPass, bool judoLicens, Team team, double weight, ClubRole role)
+
         {
             MemberID = memberID;
             FirstName = firstName;
@@ -132,19 +160,16 @@ namespace Phoenix
             BirthDate = birthDate;
             Address = address;
             Mail = mail;
+            PhoneNumber1 = phoneNumber1;
+            PhoneNumber2 = phoneNumber2;
             Rank = rank;
             JudoPass = judoPass;
             JudoLicens = judoLicens;
             Team = team;
             Weight = weight;
             Role = role;
-            
+          
         }
-
-
-
-
-
 
     }
 }

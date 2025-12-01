@@ -1,4 +1,5 @@
-﻿using Phoenix.ViewModels;
+﻿using Phoenix.Repositories;
+using Phoenix.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,7 @@ namespace Phoenix
     public partial class TeamViewer : UserControl
     {
         MainWindow mainWindow;
+        private TeamRepository teamRepository;
 
         public TeamViewer(string holdnavn, MainWindow mW)
         {

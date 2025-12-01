@@ -82,9 +82,9 @@
                 <TextBox x:Name="EmailLabel" Text="{Binding Mail, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="163,216,0,0" VerticalAlignment="Top" Width="198" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27" IsReadOnly="True"/>
                 <TextBox x:Name="TelephoneNumber1Label" Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="163,250,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27" IsReadOnly="True"/>
                 <TextBox x:Name="TelephoneNumber2Label" Text="{Binding PhoneNumber, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="163,288,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="27" IsReadOnly="True"/>
-                <ComboBox x:Name="RoleComboBox" Width="127" Margin="162,323,522,82" FontFamily="Franklin Gothic Book" FontSize="16"/>
-                <TextBox x:Name="RankLabel" Text="{Binding Rank}" HorizontalAlignment="Left" Margin="477,62,0,0" VerticalAlignment="Top" Width="128" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="28"/>
-                <ComboBox x:Name="TeamComboBox" Width="127" Margin="163,0,521,48" FontFamily="Franklin Gothic Book" FontSize="16" Background="White" BorderBrush="{x:Null}" Height="21" VerticalAlignment="Bottom"/>
+                <ComboBox x:Name="RoleComboBox" ItemsSource="{Binding Role}" Width="127" Margin="162,323,522,82" FontFamily="Franklin Gothic Book" FontSize="16"/>
+                <TextBox x:Name="RankLabel" Text="{Binding Rank, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="477,62,0,0" VerticalAlignment="Top" Width="128" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="28"/>
+                <ComboBox x:Name="TeamComboBox"  ItemsSource="{Binding Team}" Width="127" Margin="163,0,521,48" FontFamily="Franklin Gothic Book" FontSize="16" Background="White" BorderBrush="{x:Null}" Height="21" VerticalAlignment="Bottom"/>
                 <TextBox x:Name="WeightLabel" Text="{Binding Weight, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Margin="477,102,0,0" VerticalAlignment="Top" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" Foreground="#FF191717" Height="36"/>
 
                 <!-- JudoPass -->
