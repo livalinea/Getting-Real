@@ -14,13 +14,13 @@
     <Compile Update="MainMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="PaymentMenu.xaml.cs">
+    <Compile Update="View\Payment\PaymentMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Team\TeamList.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="TeamPayment.xaml.cs">
+    <Compile Update="View\Payment\TeamPayment.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

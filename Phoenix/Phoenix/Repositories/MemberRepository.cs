@@ -10,7 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using static Phoenix.Team;
 
-namespace Phoenix
+namespace Phoenix.Repositories
 {
     public class MemberRepository : IRepository
     {
