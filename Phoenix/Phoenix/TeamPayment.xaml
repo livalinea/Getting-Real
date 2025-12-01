@@ -97,19 +97,20 @@
                             
                     </Grid>
 
+
                     <ListView x:Name="HoldMedlemListe"
                               Height="281" Width="474" HorizontalAlignment="Left">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MemberID}" Width="50"/>
-                                <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding Name}" Width="100"/>
+                                <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
                                 <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
-                                <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding TeamType}" Width="80"/>
-                                <GridViewColumn Header="" Width="144"/>
+                                <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team.TeamType}" Width="80"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
                 </StackPanel>
+
 
                 <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="0,47,0,0">
 

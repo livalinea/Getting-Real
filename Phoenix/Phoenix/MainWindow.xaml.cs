@@ -21,6 +21,7 @@ namespace Phoenix
         public ShowMembers? showMemberPage;
         public MemberRepository memberRepository;
         public TeamRepository teamRepository;
+        public PaymentRepository paymentRepository;
         public int NextMemberID;
         private MainMenu mainMenu;
         private TeamMenu teamMenu;
@@ -41,6 +42,7 @@ namespace Phoenix
             paymentMenu = new PaymentMenu(this);
             memberRepository = new MemberRepository();
             teamRepository = new TeamRepository();
+            paymentRepository = new PaymentRepository();
             if (memberRepository.GetAll().Any())
             {
                 NextMemberID = memberRepository.GetAll().Max(m => m.MemberID) + 1;
@@ -49,8 +51,6 @@ namespace Phoenix
             {
                 NextMemberID = 1;
             }
-
-            memberRepository.LoadFromFile();
 
             // 3. Fordel medlemmerne på teams
             foreach (var member in memberRepository.GetAll())
@@ -113,8 +113,6 @@ namespace Phoenix
         {
             showMemberPage = new ShowMembers(this);
             MainContent.Content = showMemberPage;
-           
-
 
         }
 
@@ -125,7 +123,34 @@ namespace Phoenix
         }
         public void ShowTeamPayment(string holdnavn)
         {
-            var teamPayment = new TeamPayment(holdnavn, this);
+            Team.TeamName teamEnum;
+
+            switch (holdnavn)
+            {
+                case "Motorik og Krea":
+                case "Motorik":
+                    teamEnum = Team.TeamName.Motorik;
+                    break;
+                case "Puslinge":
+                    teamEnum = Team.TeamName.Puslinge;
+                    break;
+                case "Junior":
+                    teamEnum = Team.TeamName.Junior;
+                    break;
+                case "Senior":
+                    teamEnum = Team.TeamName.Senior;
+                    break;
+                case "BJJ":
+                    teamEnum = Team.TeamName.BJJ;
+                    break;
+                default:
+                    MessageBox.Show("Ukendt hold: " + holdnavn);
+                    return;
+            }
+
+            var teamMembers = memberRepository.GetMembersByTeam(teamEnum);
+
+            var teamPayment = new TeamPayment(holdnavn, teamMembers, this);
             MainContent.Content = teamPayment;
         }
         public void ShowMemberInfo()
@@ -139,11 +164,12 @@ namespace Phoenix
         MainContent.Content = seeMemberInfo;
         }
 
-        public void ShowAddPayment(string holdnavn)
+        public void ShowAddPayment(string holdnavn, Member member)
         {
-            var addPayment = new AddPayment(holdnavn,this);
+            var addPayment = new AddPayment(holdnavn, this, member);
             MainContent.Content = addPayment;
         }
+
 
     }
 

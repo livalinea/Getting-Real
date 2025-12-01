@@ -21,7 +21,8 @@ namespace Phoenix
     {
         MainWindow mainWindow;
         private string currentTeamName;
-        public TeamPayment(string holdnavn, MainWindow mw)
+        private List<Member> teamMembers;
+        public TeamPayment(string holdnavn, List<Member> members, MainWindow mw)
         {
             InitializeComponent();
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
@@ -30,7 +31,9 @@ namespace Phoenix
             TeamTitle.Text = holdnavn;
             currentTeamName = holdnavn;
             mainWindow = mw;
-          
+
+            teamMembers = members ?? new List<Member>();
+            HoldMedlemListe.ItemsSource = teamMembers;
         }
 
         private void BackButton(object sender, RoutedEventArgs e)
@@ -43,7 +46,15 @@ namespace Phoenix
 
         private void RegPayment_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowAddPayment(currentTeamName);
+            var selectedMember = HoldMedlemListe.SelectedItem as Member;
+
+            if (selectedMember == null)
+            {
+                MessageBox.Show("Vælg først et medlem i listen.");
+                return;
+            }
+
+            mainWindow.ShowAddPayment(currentTeamName, selectedMember);
         }
     }
 }

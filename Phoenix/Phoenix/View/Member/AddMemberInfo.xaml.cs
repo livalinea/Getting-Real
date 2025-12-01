@@ -61,8 +61,8 @@ namespace Phoenix
                 bool judoPass = YesToJudoPass.IsChecked == true;
                 bool judoLicens = YesToJudoLicens.IsChecked == true;
 
-                
-               
+
+
                 var selectedTeam = (Team.TeamName)TeamComboBox.SelectedItem;
 
                 var team = new Team(selectedTeam);
@@ -105,5 +105,6 @@ namespace Phoenix
                     "Fejl", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
     }
 }

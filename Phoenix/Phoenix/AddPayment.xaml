@@ -68,14 +68,6 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-
-                    <TextBox x:Name="Searchfield" Grid.Column="0" VerticalAlignment="Center" Height="30" Margin="40,0,82,0"
-                             HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Padding="5,0,5,0" 
-                             FontSize="16" Text="Søg efter navn" FontFamily="Franklin Gothic Book" Foreground="#FF6A3B24" LostFocus="Searchfield_LostFocus" GotFocus="Searchfield_GotFocus" TextChanged="Searchfield_TextChanged" />
-
-                    <Button x:Name="SearchButton" Content="🔍" 
-                            Height="30" Width="30" Background="Transparent" BorderBrush="Transparent" 
-                            VerticalAlignment="Center" Cursor="Hand" RenderTransformOrigin="1.09,0.662" Margin="288,0,82,0"/>
                 </Grid>
             </Grid>
         </Viewbox>
@@ -129,8 +121,9 @@
 
                 <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0,0,20,0">
                     <Button x:Name="Save" Content="Gem betaling" HorizontalAlignment="Center" 
-                            Height="52" Width="202" Margin="0,0,0,30"
-                            Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
+        Height="52" Width="202" Margin="0,0,0,30"
+        Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Click="Save_Click"/>
+
 
                     <Button x:Name="Delete" Content="Slet betaling" HorizontalAlignment="Center" 
                             Height="46" Width="202" 

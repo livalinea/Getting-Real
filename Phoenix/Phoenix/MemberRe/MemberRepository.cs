@@ -34,13 +34,18 @@ namespace Phoenix
             }
             return null;
         }
+        public List<Member> GetMembersByTeam(Team.TeamName team)
+        {
+            return _members
+                .Where(m => m.Team != null && m.Team.TeamType == team)
+                .ToList();
+        }
 
         public void Add(Member member)
         {
             _members.Add(member);
             SaveToFile();
         }
-
 
         public void Delete(int memberId)
         {
@@ -55,13 +60,10 @@ namespace Phoenix
         public MemberRepository()
         {
           LoadFromFile();
-            
            
           SaveToFile();
-            
 
         }
-
 
         public void Update(Member member)
         {
@@ -83,6 +85,7 @@ namespace Phoenix
                 Selected.Team = member.Team;
                 Selected.Weight = member.Weight;
                 Selected.Role = member.Role;
+                SaveToFile();
             }
           }
         public void SaveToFile()

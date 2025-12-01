@@ -13,8 +13,6 @@ namespace Phoenix
         MainWindow mainWindow;
         public MemberViewModel ViewModel { get; set; }
 
-
-
         public ShowMembers(MainWindow mW)
         {
             InitializeComponent();
@@ -30,7 +28,6 @@ namespace Phoenix
             ViewModel.SearchText = "";
 
         }
-        
 
         private void BackButton(object sender, RoutedEventArgs e)
         {
@@ -47,7 +44,6 @@ namespace Phoenix
 
         }
 
-     
 
         private void RemoveOrEditFromMembers_Click(object sender, RoutedEventArgs e)
         {
@@ -70,11 +66,7 @@ namespace Phoenix
         {
             mainWindow.ShowMemberInfo();
 
-        }
-
-        private void AddToMember_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.ShowMemberInfo();
+        
         }
     }
 }
