@@ -14,7 +14,7 @@ namespace Phoenix.Repositories
 {
     public class MemberRepository : IRepository
     {
- private readonly List<Member> _members = new();
+        private readonly List<Member> _members = new();
         private string filePath = "Members.txt";
 
         public IEnumerable<Member> GetAll()
@@ -59,9 +59,8 @@ namespace Phoenix.Repositories
 
         public MemberRepository()
         {
-          LoadFromFile();
+            LoadFromFile();
            
-            
 
         }
 
@@ -78,6 +77,8 @@ namespace Phoenix.Repositories
                 Selected.BirthDate = member.BirthDate;
                 Selected.Address = member.Address;
                 Selected.Mail = member.Mail;
+                Selected.PhoneNumber1 = member.PhoneNumber1;
+                Selected.PhoneNumber2 = member.PhoneNumber2;
                 Selected.RegDate = member.RegDate;
                 Selected.Rank = member.Rank;
                 Selected.JudoPass = member.JudoPass;
@@ -87,7 +88,7 @@ namespace Phoenix.Repositories
                 Selected.Role = member.Role;
                 SaveToFile();
             }
-          }
+        }
         public void SaveToFile()
         {
             using (StreamWriter sw = new StreamWriter("Members.txt"))
@@ -95,11 +96,12 @@ namespace Phoenix.Repositories
                 foreach (Member m in _members)
                 {
                     // Gem som en linje med semikolon-separerede værdier
-                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team.TeamType};{m.Weight};{m.Role}");
+                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.PhoneNumber1};{m.PhoneNumber2};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team.TeamType};{m.Weight};{m.Role}");
                 }
                 sw.Close();
             }
         }
+      
 
         public void LoadFromFile()
         {
@@ -128,7 +130,7 @@ namespace Phoenix.Repositories
                         bool judoPass = bool.Parse(parts[9]);
                         bool judoLicens = bool.Parse(parts[10]);
                         string raw = parts[11]?.Trim();
-                        if (string.IsNullOrEmpty(raw)); // fallback
+                        if (string.IsNullOrEmpty(raw)) ; // fallback
 
                         // Fjern evt. "Phoenix.Team.TeamName.Junior"
                         if (raw.Contains(".")) raw = raw.Split('.').Last();
@@ -140,18 +142,22 @@ namespace Phoenix.Repositories
 
 
 
-                        double weight = double.Parse(parts[10]);
-                        ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[11]);
+                        double weight = double.Parse(parts[12]);
+                        ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[13]);
 
-                        Member m = new Member(id, firstName, lastName, birthDate, address, mail,phoneNumber1,phoneNumber2, rank, judoPass, judoLicens, team, weight, role);
+                        Member m = new Member(id, firstName, lastName, birthDate, address, mail, phoneNumber1, phoneNumber2, rank, judoPass, judoLicens, team, weight, role);
                         _members.Add(m);
                     }
                 }
-               
+
             }
-           
         }
 
+        }
 
     }
-    }
+
+
+
+  
+    

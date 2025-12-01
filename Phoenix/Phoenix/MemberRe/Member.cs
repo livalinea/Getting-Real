@@ -70,11 +70,7 @@ namespace Phoenix
             get { return phoneNumber1; }
             set
             {
-                if (value == 0)            // hvis du vil tillade tomt
-                {
-                    phoneNumber1 = 0;
-                }
-                else if (value.ToString().Length == 8)
+               if (value.ToString().Length == 8)
                 {
                     phoneNumber1 = value;
                 }

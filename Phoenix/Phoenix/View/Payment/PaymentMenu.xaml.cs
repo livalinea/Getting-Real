@@ -39,5 +39,7 @@ namespace Phoenix
             string holdnavn = (sender as Button).Content.ToString();
             mainWindow.ShowTeamPayment(holdnavn);
         }
+
+       
     }
 }

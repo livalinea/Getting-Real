@@ -51,17 +51,31 @@ namespace Phoenix
                 }
 
                 string address = AdressField.Text.Trim();
-                string phone1 = TelephoneNumber1Field.Text.Trim();
-                string phone2 = TelephoneNumber2Field.Text.Trim();
 
-                
-                if (!phone1.All(char.IsDigit) || !phone2.All(char.IsDigit))
+
+
+
+                if (string.IsNullOrWhiteSpace(TelephoneNumber1Field.Text) ||
+                     !int.TryParse(TelephoneNumber1Field.Text, out int phone1))
                 {
-                    MessageBox.Show("Telefonnummer må kun indeholde 8 tal.",
+                    MessageBox.Show("Hovedtelefonnummeret skal udfyldes og må kun indeholde 8 tal.",
                                     "Fejl i telefonnummer",
                                     MessageBoxButton.OK,
                                     MessageBoxImage.Warning);
                     return;
+                }
+                int? phone2 = null;
+                if (!string.IsNullOrWhiteSpace(TelephoneNumber2Field.Text))
+                {
+                    // Hvis feltet er udfyldt, SKAL det være et gyldigt tal.
+                    if (!int.TryParse(TelephoneNumber2Field.Text, out int tempphone2))
+                    {
+                        MessageBox.Show("Ekstra telefonnummer må kun indeholde tal, hvis det udfyldes.",
+                                        "Fejl i telefonnummer",
+                                        MessageBoxButton.OK,
+                                        MessageBoxImage.Warning);
+                        return;
+                    }
                 }
 
 
@@ -100,6 +114,8 @@ namespace Phoenix
                     birthDate,
                     address,
                     mail,
+                    phone1,
+                    phone2.GetValueOrDefault(),
                     rank,
                     judoPass,
                     judoLicens,
