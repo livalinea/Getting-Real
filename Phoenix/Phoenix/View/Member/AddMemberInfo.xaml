@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         MinHeight="480" MinWidth="720">
 
-   
+  
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
@@ -46,28 +46,24 @@
                     <GradientStop Color="#FFFF8D66" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-
+            <!-- Indhold i headeren -->
             <TextBlock x:Name="AddMemberInfomation" Text="Tilføj medlem"
                        HorizontalAlignment="Center" VerticalAlignment="Center"
                        FontSize="36" FontWeight="Bold" Foreground="White"/>
         </Grid>
-
-        <!-- back button -->
         <Button Click="BackButton" Background="Transparent" BorderThickness="0"
                 Margin="40,0,0,0" Height="40" Width="40" Grid.Row="0"
                 HorizontalAlignment="Left" VerticalAlignment="Center">
             <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
         </Button>
 
-        <!-- lower section wrapped in ViewBox -->
-        <!--//<Viewbox Grid.Row="1" Stretch="Uniform" StretchDirection="Both">-->
+      <!--Starten på indholdet-->
         <Grid Grid.Row="1" Margin="0,0,0,0" Grid.IsSharedSizeScope="True" HorizontalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="100"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-
 
             <Grid Grid.Column="0" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
@@ -82,11 +78,12 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
+                <!--kolonnerne inde i kolonnen -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" SharedSizeGroup="LabelGroup"/>
                     <ColumnDefinition Width="*" SharedSizeGroup="FieldGroup"/>
                 </Grid.ColumnDefinitions>
-
+                <!-- Her sætter vi stilen ( teskttype størrelse osv) for hele vores grid-->
                 <Grid.Resources>
                     <Style TargetType="Label">
                         <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
@@ -132,9 +129,11 @@
                 <Label Grid.Row="8" Grid.Column="0" x:Name="Role" Content="Rolle:" HorizontalAlignment="Left"/>
                 <ComboBox Grid.Row="8" Grid.Column="1" x:Name="RoleComboBox"  FontFamily="Franklin Gothic Book" FontSize="16"  VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
             </Grid>
+            <!--Spaceing kolonne for at der er mere plads imellem-->
         <Grid Grid.Column="1" Margin="0,0,10,0" >
             </Grid>
-
+            <!--Spaceing kolonne for at der er mere plads imellem-->
+            <!--Starten på kolonne to hvor det resterende indhold er-->
             <Grid Grid.Column="2" Margin="0,0,0,0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -149,7 +148,7 @@
                     <ColumnDefinition Width="Auto" SharedSizeGroup="LabelGroup"/>
                     <ColumnDefinition Width="*" SharedSizeGroup="FieldGroup"/>
                 </Grid.ColumnDefinitions>
-
+                <!-- Her sætter vi stilen ( teskttype størrelse osv) for hele vores grid-->
                 <Grid.Resources>
                     <Style TargetType="Label">
                         <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
@@ -193,13 +192,7 @@
                     <CheckBox x:Name="NoToJudoLicens" VerticalAlignment="Center" Margin="5,0,0,0"/>
                 </StackPanel>
 
-                <Button x:Name="SaveMember" Content="Gem medlem"
-                Grid.Row="5" Grid.Column="1" Margin="0,20,0,0"
-                Height="52" Width="149"
-                HorizontalAlignment="Left" VerticalAlignment="Top"
-                Background="#FF906048" Foreground="#FFF4F4F4"
-                FontFamily="Franklin Gothic Book" FontSize="18"
-                Click="SaveMember_Click"/>
+                <Button x:Name="SaveMember" Content="Gem medlem" Grid.Row="5" Grid.Column="1" Margin="0,20,0,0"  Height="52" Width="149" HorizontalAlignment="Left" VerticalAlignment="Top"  Background="#FF906048" Foreground="#FFF4F4F4"  FontFamily="Franklin Gothic Book" FontSize="18" Click="SaveMember_Click"/>
             </Grid>
         </Grid>
     </Grid>

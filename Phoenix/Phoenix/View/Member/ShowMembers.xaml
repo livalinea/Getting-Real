@@ -6,23 +6,19 @@
         mc:Ignorable="d"
         MinHeight="480" MinWidth="720">
 
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="60"/>
             <RowDefinition Height="*"/>
-            <!-- Liste + knapper -->
             <RowDefinition Height="Auto"/>
-            <!-- Logo nederst -->
-        </Grid.RowDefinitions>
 
-        <!-- 2 kolonner, ligesom din veninde -->
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <!-- BAGGRUND -->
+        <!-- baggrunden til alle fanerne -->
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <LinearGradientBrush.RelativeTransform>
@@ -38,7 +34,7 @@
             </LinearGradientBrush>
         </Grid.Background>
 
-        <!-- HEADER -->
+        <!-- Header -->
         <Grid Grid.Row="0" Grid.ColumnSpan="2">
             <Grid.Background>
                 <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
@@ -54,112 +50,41 @@
                     <GradientStop Color="#FFFF8D66" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
+            <!-- Indhold i headeren -->
+            <TextBlock x:Name="TeamTitle" Text="Medlemmer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" Foreground="White"/>
 
-            <TextBlock x:Name="TeamTitle"
-                       Text="Medlemmer"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="36"
-                       FontWeight="Bold"
-                       Foreground="White"/>
-
-            <!-- Tilbage-knap -->
-            <Button Click="BackButton"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Margin="40,0,0,0"
-                    Height="40" Width="40"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center">
+            <Button Click="BackButton" Background="Transparent" BorderThickness="0" Margin="40,0,0,0" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
             </Button>
         </Grid>
 
-        <!-- VENSTRE SIDE: tekst + søg + liste -->
+        <!-- Venstre kolonne med listen -->
         <StackPanel Grid.Row="1" Grid.Column="0" Margin="50,0,20,0">
+            <TextBlock Text="Medlemmer" FontFamily="Franklin Gothic Demi" FontWeight="Bold" Foreground="#FFA30B0B" FontSize="20"  Height="27" Width="474" RenderTransformOrigin="0.29,0.111" />
 
-
-
-            <!-- SØGEFELT + LILLE GRID TIL IKON -->
-            <TextBlock Text="Medlemmer"
-                       FontFamily="Franklin Gothic Demi"
-                       FontWeight="Bold"
-                       Foreground="#FFA30B0B"
-                       FontSize="20"
-                       Height="27"
-                       Width="474" RenderTransformOrigin="0.29,0.111"
-                       />
-
-
-
-                <!-- LISTE -->
-                <ListView x:Name="HoldMedlemListe"
-                     ItemsSource="{Binding}"
-                  SelectedItem="{Binding SelectedMember, Mode=TwoWay}"
-                      VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,0,0" FontFamily="Franklin Gothic Book" FontSize="16">
-
+            <ListView x:Name="HoldMedlemListe" HorizontalContentAlignment="Stretch" 
+                          ItemsSource="{Binding}" SelectedItem="{Binding SelectedMember, Mode=TwoWay}"
+                          VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,0,0" FontFamily="Franklin Gothic Book" FontSize="16">
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="ID"
-                                        DisplayMemberBinding="{Binding MemberID}"
-                                        Width="50"/>
-                        <GridViewColumn Header="Navn"
-                                        DisplayMemberBinding="{Binding FirstName}"
-                                        Width="100"/>
-                        <GridViewColumn Header="Alder"
-                                        DisplayMemberBinding="{Binding Age}"
-                                        Width="100"/>
-                        <GridViewColumn Header="Hold"
-                                        DisplayMemberBinding="{Binding Team}"
-                                        Width="80"/>
-                            <GridViewColumn Header="Rolle"
-                                        DisplayMemberBinding="{Binding Role}"
-                                        Width="80"/>
-                        </GridView>
-                    </ListView.View>
-                </ListView>
-            </StackPanel>
-
-        <!-- KNAPPERNE TIL HØJRE (samme række som listen) -->
-        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="20,20,10,0" HorizontalAlignment="Stretch" >
-
-            <Button x:Name="AddToMember"
-                Content="Tilføj medlemmer"
-                Height="62"
-                Width="202"
-                Background="#FF906048"
-                BorderBrush="{x:Null}"
-                Foreground="#FFF4F4F4"
-                FontFamily="Franklin Gothic Book"
-                FontSize="18"
-                Margin="0,0,0,50"
-                Click="AddToMember_Click"
-               />
-
-            <Button x:Name="RemoveOrEditFromMembers"
-                Content="Fjern / rediger medlem"
-                VerticalAlignment="Top"
-                Height="62"
-                Width="202"
-                Background="#FF906048"
-                BorderBrush="{x:Null}"
-                Foreground="#FFF4F4F4"
-                FontFamily="Franklin Gothic Book"
-                FontSize="18"
-                
-                Click="RemoveOrEditFromMembers_Click"/>
+                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MemberID}" Width="100"/>
+                        <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                        <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
+                        <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team}" Width="100"/>
+                        <GridViewColumn Header="Rolle" DisplayMemberBinding="{Binding Role}" Width="100"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </StackPanel>
 
-        <!-- LOGO NEDERST -->
-        <Image Grid.Row="2"
-               x:Name="logo"
-               Source="/Billeder/logo judo.png"
-               Height="80"
-               HorizontalAlignment="Right"
-               VerticalAlignment="Bottom"
-               Margin="0,0,20,10"
-               Opacity="0.8" Grid.Column="1" Width="132"/>
+        <!-- Højre kolonne med knapperne -->
+        <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="20,20,10,0" HorizontalAlignment="Stretch" >
 
+            <Button x:Name="AddToMember" Content="Tilføj medlemmer" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}"  Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Margin="0,0,0,50" Click="AddToMember_Click" />
+            <Button x:Name="RemoveOrEditFromMembers" Content="Fjern / rediger medlem" VerticalAlignment="Top" Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18" Click="RemoveOrEditFromMembers_Click"/>
+        </StackPanel>
+
+        <!-- Logo i bunde -->
+        <Image Grid.Row="2" x:Name="logo" Source="/Billeder/logo judo.png" Height="80" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,10" Opacity="0.8" Grid.Column="1" Width="132"/>
     </Grid>
-
 </UserControl>

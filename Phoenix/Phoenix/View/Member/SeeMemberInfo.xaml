@@ -45,15 +45,11 @@
                     <GradientStop Color="#FFFF8D66" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
-            <TextBlock x:Name="ShowMemberInfomation" Text="Vis medlem"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       FontSize="36" FontWeight="Bold" Foreground="White"/>
+            <!-- Headerens indhold -->
+            <TextBlock x:Name="ShowMemberInfomation" Text="Vis medlem" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="36" FontWeight="Bold" Foreground="White"/>
         </Grid>
 
-        <!-- Back Button -->
-        <Button Click="BackButton" Background="Transparent" BorderThickness="0"
-                Margin="40,0,0,0" Height="40" Width="40" Grid.Row="0"
-                HorizontalAlignment="Left" VerticalAlignment="Center">
+        <Button Click="BackButton" Background="Transparent" BorderThickness="0" Margin="40,0,0,0" Height="40" Width="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center">
             <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
         </Button>
 
@@ -65,7 +61,7 @@
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Venstre kolonne: labels og tekstbokse -->
+            <!-- Venstre kolonne-->
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -82,7 +78,7 @@
                     <ColumnDefinition Width="Auto" SharedSizeGroup="LabelGroup"/>
                     <ColumnDefinition Width="*" SharedSizeGroup="FieldGroup"/>
                 </Grid.ColumnDefinitions>
-
+<!--Her sngiver vi den teksttype ift. størrelse og stil for dette grid-->
                 <Grid.Resources>
                     <Style TargetType="Label">
                         <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
@@ -129,24 +125,23 @@
                 <ComboBox Grid.Row="8" Grid.Column="1" x:Name="RoleComboBox" ItemsSource="{Binding Role}" HorizontalAlignment="Stretch" FontFamily="Franklin Gothic Book" FontSize="16"/>
             </Grid>
 
-            <!-- Midterste kolonne (spacer) -->
+            <!-- spacer for at lave god plads mellem kolonnerne -->
             <Grid Grid.Column="1" Width="20"/>
 
-            <!-- Højre kolonne: felter, knapper, ListView -->
+            <!-- Højre kolonne -->
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <!-- Felter -->
                     <RowDefinition Height="Auto"/>
-                    <!-- Knapper -->
                     <RowDefinition Height="*"/>
-                    <!-- ListView -->
                 </Grid.RowDefinitions>
+                
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" SharedSizeGroup="LabelGroup"/>
                     <ColumnDefinition Width="*" SharedSizeGroup="FieldGroup"/>
                 </Grid.ColumnDefinitions>
                 <Grid.Resources>
+                    <!--Her sngiver vi den teksttype ift. størrelse og stil for dette grid-->
                     <Style TargetType="Label">
                         <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
                         <Setter Property="FontSize" Value="20"/>
@@ -163,8 +158,7 @@
                         <Setter Property="Height" Value="26"/>
                     </Style>
                 </Grid.Resources>
-
-                <!-- Felter -->
+                
                 <Grid Grid.Row="0" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -204,16 +198,14 @@
                     </StackPanel>
                 </Grid>
 
-                <!-- Knapper -->
+                <!-- knapperne til at fjerne og redigere medlemsinfo -->
                 <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,10,0,10">
-                    <Button x:Name="Edit" Content="Rediger" Click="Edit_Click" Width="100" Margin="0,0,10,0"
-                            Background="#FF906048" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
-                    <Button x:Name="Delete" Content="Fjern" Click="Delete_Click" Width="100"
-                            Background="#FF906048" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
+                    <Button x:Name="Edit" Content="Rediger" Click="Edit_Click" Width="100" Margin="0,0,10,0" Background="#FF906048" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
+                    <Button x:Name="Delete" Content="Fjern" Click="Delete_Click" Width="100" Background="#FF906048" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
                 </StackPanel>
 
-                <!-- ListView -->
-                <ListView Grid.Row="2" x:Name="MedlemListesInfo">
+                <!-- Viser overblik over alle betalinger -->
+                <ListView Grid.Row="2" x:Name="MedlemListesInfo" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Dato" DisplayMemberBinding="{Binding DatePaid, StringFormat=dd-MM-yyyy}" Width="80"/>

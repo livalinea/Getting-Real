@@ -7,13 +7,7 @@
              
         mc:Ignorable="d"
         MinHeight="480" MinWidth="720">
-    
-    
-    <!--Height="500" Width="700">-->
-        <!--Title="TeamMenu"--> 
-    
     <Grid>
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="134*"/>
             <ColumnDefinition Width="567*"/>
@@ -50,15 +44,14 @@
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        
+        <!-- Indhold i headeren -->
         <Label Content="Hold" HorizontalAlignment="Left" VerticalAlignment="Top"
                FontSize="36" FontWeight="Bold" Foreground="White" Grid.Column="1" Margin="170,0,0,0"/>
-
-        <!-- back button -->
         <Button Click="BackButton" Background="Transparent" BorderThickness="0" Margin="40,10,0,0" Height="40" Width="40" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top">
             <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
         </Button>
 
+        <!--Knapperne-->
         <Button Content="Motorik" Width="200" Height="60" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,182,0,0" FontWeight="Bold" Grid.Column="1" Click="Button_Click"/>
         <Button Content="Puslinge" Width="200" Height="60" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="246,182,0,0" Grid.Column="1" Click="Button_Click"/>
         <Button Content="Junior" Width="200" Height="58" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,273,0,0" Grid.Column="1" Click="Button_Click"/>
