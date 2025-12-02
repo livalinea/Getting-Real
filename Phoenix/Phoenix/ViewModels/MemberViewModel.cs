@@ -63,6 +63,8 @@ namespace Phoenix.ViewModels
 
         private void FilterMembers()
         {
+            memberRepo.LoadFromFile();
+
             if (string.IsNullOrWhiteSpace(SearchText))
             {
                 FilteredMembers = new ObservableCollection<Member>(Members);
@@ -76,7 +78,7 @@ namespace Phoenix.ViewModels
                     string firstName = member.FirstName.ToLower();
                     string lastName = member.LastName.ToLower();
                     string mail = member.Mail.ToLower();
-                    string team = member.Team?.TeamType.ToString().ToLower() ?? ""; ;
+                    string team = member.Team.ToString().ToLower() ?? ""; ;
 
 
                     if (firstName.Contains(lower) ||

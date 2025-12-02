@@ -36,8 +36,8 @@ namespace Phoenix
             TeamComboBox.ItemsSource = Enum.GetValues(typeof(Team.TeamName));
             RoleComboBox.ItemsSource = Enum.GetValues(typeof(ClubRole));
 
-            if (SelectedMember.Team != null)
-                TeamComboBox.SelectedItem = SelectedMember.Team.TeamType;
+            TeamComboBox.SelectedItem = SelectedMember.Team;
+            
 
             RoleComboBox.SelectedItem = SelectedMember.Role;
 
@@ -136,7 +136,8 @@ namespace Phoenix
                 // SelectedMember.PhoneNumber = TelephoneNumber1Label.Text;
 
                 if (TeamComboBox.SelectedItem is Team.TeamName newTeam)
-                    SelectedMember.Team = new Team(newTeam);
+                    SelectedMember.Team = newTeam;
+
 
                 if (RoleComboBox.SelectedItem is ClubRole newRole)
                     SelectedMember.Role = newRole;

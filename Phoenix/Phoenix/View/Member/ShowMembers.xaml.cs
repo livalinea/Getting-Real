@@ -36,13 +36,7 @@ namespace Phoenix
 
       
 
-        private void SøgeFelt_TextChanged(object sender, TextChangedEventArgs e)
-        {
-           
-            // Lad ViewModel håndtere filteret
-            ViewModel.SearchText = Searchfield.Text;
-
-        }
+       
 
 
         private void RemoveOrEditFromMembers_Click(object sender, RoutedEventArgs e)

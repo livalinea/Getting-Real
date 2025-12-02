@@ -36,40 +36,37 @@ namespace Phoenix
 
         public MainWindow()
         {
-            InitializeComponent();
 
-            mainMenu = new MainMenu();
-            teamMenu = new TeamMenu(this);
-            paymentMenu = new PaymentMenu(this);
-            memberRepository = new MemberRepository();
-            teamRepository = new TeamRepository();
-            paymentRepository = new PaymentRepository();
-            if (memberRepository.GetAll().Any())
-            {
-                NextMemberID = memberRepository.GetAll().Max(m => m.MemberID) + 1;
-            }
-            else
-            {
-                NextMemberID = 1;
-            }
+                InitializeComponent();
 
-            // 3. Fordel medlemmerne på teams
-            foreach (var member in memberRepository.GetAll())
-            {
-                if (Enum.TryParse<Team.TeamName>(member.Team.ToString(), out var teamType));
-
+                mainMenu = new MainMenu();
+                teamMenu = new TeamMenu(this);
+                paymentMenu = new PaymentMenu(this);
+                memberRepository = new MemberRepository();
+                teamRepository = new TeamRepository();
+                paymentRepository = new PaymentRepository();
+                if (memberRepository.GetAll().Any())
                 {
-                    teamRepository.AddMember(teamType, member);
+                    NextMemberID = memberRepository.GetAll().Max(m => m.MemberID) + 1;
                 }
-            }
+                else
+                {
+                    NextMemberID = 1;
+                }
 
-            ShowMainMenu();
+                // 3. Fordel medlemmerne på teams
+                foreach (var member in memberRepository.GetAll())
+                {
+                    teamRepository.AddMember(member.Team, member);
+                }
 
-            //var test = new MainMenu();
-            //MessageBox.Show(test.ToString());
+                ShowMainMenu();
+            
         }
+       
 
-        public void ShowMainMenu()
+
+public void ShowMainMenu()
         {
             MainContent.Content = mainMenu;
         }

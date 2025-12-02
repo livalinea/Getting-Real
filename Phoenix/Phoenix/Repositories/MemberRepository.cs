@@ -37,8 +37,9 @@ namespace Phoenix.Repositories
         public List<Member> GetMembersByTeam(Team.TeamName team)
         {
             return _members
-                .Where(m => m.Team != null && m.Team.TeamType == team)
-                .ToList();
+               .Where(m => m.Team == team)
+               .ToList();
+
         }
 
         public void Add(Member member)
@@ -96,7 +97,7 @@ namespace Phoenix.Repositories
                 foreach (Member m in _members)
                 {
                     // Gem som en linje med semikolon-separerede værdier
-                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.PhoneNumber1};{m.PhoneNumber2};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team.TeamType};{m.Weight};{m.Role}");
+                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.PhoneNumber1};{m.PhoneNumber2};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team};{m.Weight};{m.Role}");
                 }
                 sw.Close();
             }
@@ -116,7 +117,7 @@ namespace Phoenix.Repositories
                 {
                     string[] parts = line.Split(';');
 
-                    if (parts.Length >= 12)
+                    if (parts.Length >= 14)
                     {
                         int id = int.Parse(parts[0]);
                         string firstName = parts[1];
@@ -138,14 +139,14 @@ namespace Phoenix.Repositories
                         if (!Enum.TryParse<Team.TeamName>(raw, true, out var teamType))
                             teamType = Team.TeamName.Junior; // fallback
 
-                        Team team = new Team(teamType);
+                        
 
 
 
                         double weight = double.Parse(parts[12]);
                         ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[13]);
 
-                        Member m = new Member(id, firstName, lastName, birthDate, address, mail, phoneNumber1, phoneNumber2, rank, judoPass, judoLicens, team, weight, role);
+                        Member m = new Member(id, firstName, lastName, birthDate, address, mail, phoneNumber1, phoneNumber2, rank, judoPass, judoLicens, teamType, weight, role);
                         _members.Add(m);
                     }
                 }

@@ -129,7 +129,7 @@ namespace Phoenix
             set { judoLicens = value; }
         }
       
-        public Team Team { get; set; }
+        public Team.TeamName Team { get; set; }
 
         private double weight;
 
@@ -147,7 +147,7 @@ namespace Phoenix
         }
 
 
-        public Member(int memberID, string firstName, string lastName, DateTime birthDate, string address, string mail, int phoneNumber1, int phoneNumber2, string rank, bool judoPass, bool judoLicens, Team team, double weight, ClubRole role)
+        public Member(int memberID, string firstName, string lastName, DateTime birthDate, string address, string mail, int phoneNumber1, int phoneNumber2, string rank, bool judoPass, bool judoLicens, Team.TeamName team, double weight, ClubRole role)
 
         {
             MemberID = memberID;

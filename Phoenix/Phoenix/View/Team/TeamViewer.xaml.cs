@@ -23,27 +23,43 @@ namespace Phoenix
     {
         MainWindow mainWindow;
         private TeamRepository teamRepository;
+        private Team selectedTeam;
 
         public TeamViewer(string holdnavn, MainWindow mW)
         {
-            InitializeComponent();
-
-            string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
-            logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
-
-            TeamTitle.Text = holdnavn;
-            mainWindow = mW;
-            var teamRepo = new TeamRepository();
-            if (Enum.TryParse<Team.TeamName>(holdnavn, out var teamType))
+            try
             {
-                var selectedTeam = teamRepo.GetTeam(teamType);
+                InitializeComponent();
+
+                string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
+                logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
+
+
+                mainWindow = mW;
+
+                this.teamRepository = mW.teamRepository;
+                if(!Enum.TryParse<Team.TeamName>(holdnavn, true, out var teamType))
+        {
+                    MessageBox.Show($"Kunne ikke parse '{holdnavn}' til TeamName");
+                    return;
+                }
+
+                selectedTeam = teamRepository.GetTeam(teamType);
                 if (selectedTeam != null)
                 {
                     this.DataContext = new TeamViewModel(selectedTeam);
                 }
+                else
+                {
+                    MessageBox.Show($"Intet team fundet for {teamType}");
+                }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show("Fejl i Teamviewer: " + ex.ToString());
+            }
         }
+
 
 
         private void Label_TextInput(object sender, TextCompositionEventArgs e)
@@ -70,5 +86,6 @@ namespace Phoenix
             }
         }
 
+       
     }
 }

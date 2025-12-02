@@ -50,12 +50,6 @@ namespace Phoenix
 
 
         }
-
-        private void Searchfield_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            Searchfield.Text = "";
-        }
-
         private void RemoveMember_Click(object sender, RoutedEventArgs e)
         {
             var vm = DataContext as TeamViewModel;

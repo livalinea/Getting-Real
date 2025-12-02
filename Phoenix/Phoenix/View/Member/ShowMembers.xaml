@@ -93,32 +93,7 @@
                        Height="27"
                        Width="592" RenderTransformOrigin="0.29,0.111" />
 
-                <!-- SØGEFELT + LILLE GRID TIL IKON -->
-                <Grid Margin="10,10,0,10" Width="400" Height="24">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="400*"/>
-                        <ColumnDefinition Width="40*"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBox x:Name="Searchfield"
-                         Grid.Column="0"
-                         HorizontalContentAlignment="Left"
-                         VerticalContentAlignment="Center"
-                         Padding="5,0,30,0"
-                         FontSize="14"
-                         Text= "{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"
-                        
-                         TextChanged="SøgeFelt_TextChanged" Margin="-104,0,104,0"/>
-
-                    <Button x:Name="SearchButton"
-                        Content="🔍"
-                        Height="24"
-                        Background="Transparent"
-                        BorderBrush="Transparent"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Left"
-                        Cursor="Hand" RenderTransformOrigin="-6.182,0.562" Margin="234,0,0,0"/>
-                </Grid>
+               
 
                 <!-- LISTE -->
                 <ListView x:Name="HoldMedlemListe"
