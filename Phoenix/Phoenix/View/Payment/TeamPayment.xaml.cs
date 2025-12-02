@@ -31,13 +31,14 @@ namespace Phoenix
             TeamTitle.Text = holdnavn;
             mainWindow = mw;
             var teamRepo = new TeamRepository();
+
+            this.Loaded += TeamPaymentLoaded;
         }
 
         private void BackButton(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowPaymentMenu();
             //teamMenu.Show();
-
 
         }
 
@@ -52,6 +53,19 @@ namespace Phoenix
             }
 
             mainWindow.ShowAddPayment(TeamTitle.Text, selectedMember);
+        }
+        private void TeamPaymentLoaded(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext is Phoenix.ViewModels.TeamViewModel vm &&
+                vm.SelectedTeam != null)
+            {
+                var allPeople = vm.SelectedTeam.Coaches
+                    .Concat(vm.SelectedTeam.AsCoaches)
+                    .Concat(vm.SelectedTeam.Members)
+                    .ToList();
+
+                HoldMedlemListe.ItemsSource = allPeople;
+            }
         }
     }
 }

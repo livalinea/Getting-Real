@@ -35,21 +35,30 @@ namespace Phoenix
             TeamTitle.Text = holdnavn;
             mainWindow = mW;
             var teamRepo = new TeamRepository();
-           
-
-
-
-
-
-
+            this.Loaded += TeamListLoaded;
         }
         private void BackButton(object sender, RoutedEventArgs e)
         {
             mainWindow.ShowTeamMenu();
             //teamMenu.Show();
 
-
         }
+
+        private void TeamListLoaded(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext is TeamViewModel vm && vm.SelectedTeam != null)
+            {
+                var team = vm.SelectedTeam;
+
+                var allPeople = team.Coaches
+                    .Concat(team.AsCoaches)
+                    .Concat(team.Members)
+                    .ToList();
+
+                HoldMedlemListe.ItemsSource = allPeople;
+            }
+        }
+
         private void RemoveMember_Click(object sender, RoutedEventArgs e)
         {
             var vm = DataContext as TeamViewModel;
@@ -74,11 +83,7 @@ namespace Phoenix
                 MessageBox.Show("Medlem fjernet.");
             }
         }
-
-       
-
-            }
-
-        }
+    }
+}
     
 

@@ -92,9 +92,9 @@
 
 
 
-            <!-- LISTE -->
-            <ListView x:Name="HoldMedlemListe"
-                     ItemsSource="{Binding Members}"
+                <!-- LISTE -->
+                <ListView x:Name="HoldMedlemListe"
+                     ItemsSource="{Binding}"
                   SelectedItem="{Binding SelectedMember, Mode=TwoWay}"
                       VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="10,0,0,0" FontFamily="Franklin Gothic Book" FontSize="16">
 
@@ -112,10 +112,13 @@
                         <GridViewColumn Header="Hold"
                                         DisplayMemberBinding="{Binding Team}"
                                         Width="80"/>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-        </StackPanel>
+                            <GridViewColumn Header="Rolle"
+                                        DisplayMemberBinding="{Binding Role}"
+                                        Width="80"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
 
         <!-- KNAPPERNE TIL HØJRE (samme række som listen) -->
         <StackPanel Grid.Row="1" Grid.Column="1" VerticalAlignment="Top" Margin="20,20,10,0" HorizontalAlignment="Stretch" >

@@ -21,8 +21,8 @@ namespace Phoenix
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
 
             mainWindow = mW;
+            this.Loaded += ShowMembersLoaded;
 
-           
             ViewModel = new MemberViewModel();
             DataContext = ViewModel;
             ViewModel.SearchText = "";
@@ -34,9 +34,17 @@ namespace Phoenix
             mainWindow.ShowMainMenu();
         }
 
-      
+        private void ShowMembersLoaded(object sender, RoutedEventArgs e)
+        {
+            var allPeople = mainWindow.teamRepository.Teams
+                .SelectMany(team =>
+                    team.Coaches
+                        .Concat(team.AsCoaches)
+                        .Concat(team.Members))
+                .ToList();
 
-       
+            HoldMedlemListe.ItemsSource = allPeople;
+        }
 
 
         private void RemoveOrEditFromMembers_Click(object sender, RoutedEventArgs e)
