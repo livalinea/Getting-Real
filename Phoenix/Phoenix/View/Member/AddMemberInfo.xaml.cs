@@ -99,7 +99,7 @@ namespace Phoenix
 
                 var selectedTeam = (Team.TeamName)TeamComboBox.SelectedItem;
 
-                var team = new Team(selectedTeam);
+                
                 var selectedRole = (ClubRole)RoleComboBox.SelectedItem;
 
 
@@ -119,20 +119,14 @@ namespace Phoenix
                     rank,
                     judoPass,
                     judoLicens,
-                    team,
+                    selectedTeam,
                     weight,
                     selectedRole
                 );
 
                 mainWindow.memberRepository.Add(newMember);
+                mainWindow.teamRepository.AddMember(selectedTeam, newMember);
 
-                // Hvis du vil opdatere UI
-                // if (mainWindow.showMemberPage != null)
-                // {
-                //     mainWindow.showMemberPage.AddNewMember(newMember);
-                // }
-
-                // Gå tilbage til medlemsoversigten
                 mainWindow.ShowMemberMenu();
             }
             catch (Exception ex)

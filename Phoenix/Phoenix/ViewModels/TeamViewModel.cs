@@ -53,8 +53,18 @@ namespace Phoenix.ViewModels
             }
 
             public int MemberCount => TeamMembers?.Count ?? 0;
+        public string CoachName =>
+        SelectedTeam.Coaches.FirstOrDefault() is Member coach
+        ? $"{coach.FirstName} {coach.LastName}"
+        : "Ingen træner";
 
-            public TeamViewModel(Team selectedTeam)
+        public string AsCoachName =>
+            SelectedTeam.AsCoaches.FirstOrDefault() is Member asCoach
+                ? $"{asCoach.FirstName} {asCoach.LastName}"
+                : "Ingen hjælpetræner";
+
+
+        public TeamViewModel(Team selectedTeam)
             {
                 SelectedTeam = selectedTeam;
 

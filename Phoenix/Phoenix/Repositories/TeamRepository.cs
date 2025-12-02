@@ -32,8 +32,10 @@ namespace Phoenix.Repositories
                 team = new Team(teamType);
                 teams.Add(team);
             }
-            if (!team.Members.Any(m => m.MemberID == member.MemberID))
-            {
+            if(!team.Members.Any(m => m.MemberID == member.MemberID) &&
+    !team.Coaches.Any(c => c.MemberID == member.MemberID) &&
+    !team.AsCoaches.Any(a => a.MemberID == member.MemberID))
+{
                 if (member.Role == ClubRole.Coach)
                     team.AddCoach(member);
                 else if (member.Role == ClubRole.AsCoach)
@@ -41,9 +43,10 @@ namespace Phoenix.Repositories
                 else
                     team.AddMember(member);
             }
-           }
 
         }
+
+    }
 
     }
 

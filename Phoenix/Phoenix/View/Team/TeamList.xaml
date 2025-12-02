@@ -79,21 +79,7 @@
                                FontFamily="Franklin Gothic Demi" FontWeight="Bold" 
                                Foreground="#FFA30B0B" FontSize="20" Height="27" Width="564" HorizontalAlignment="Left" Margin="0,0,0,0"/>
 
-                    <Grid Margin="0,10,0,10" Width="564" Height="30" HorizontalAlignment="Left">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="30"/>
-                        </Grid.ColumnDefinitions>
-
-                        <TextBox x:Name="Searchfield" 
-                                 HorizontalContentAlignment="Left" VerticalContentAlignment="Center" 
-                                 Padding="5,0,5,0" FontSize="14" Text="Søg efter navn" 
-                                 Height="30" Grid.Column="0" Margin="0,0,5,0" />
-
-                        <Button x:Name="SearchButton" Content="🔍" Height="30" Width="30" 
-                                Background="Transparent" BorderBrush="Transparent" 
-                                VerticalAlignment="Center" Cursor="Hand" Grid.Column="1"/>
-                    </Grid>
+                    
 
             <ListView x:Name="HoldMedlemListe"
                       Height="281" Width="564" 
