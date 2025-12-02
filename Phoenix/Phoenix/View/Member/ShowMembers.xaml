@@ -97,7 +97,7 @@
 
                 <!-- LISTE -->
                 <ListView x:Name="HoldMedlemListe"
-                     ItemsSource="{Binding Members}"
+                     ItemsSource="{Binding}"
                   SelectedItem="{Binding SelectedMember, Mode=TwoWay}"
                       Height="281" Width="474" HorizontalAlignment="Left">
                     <ListView.View>
@@ -113,6 +113,9 @@
                                         Width="100"/>
                             <GridViewColumn Header="Hold"
                                         DisplayMemberBinding="{Binding Team}"
+                                        Width="80"/>
+                            <GridViewColumn Header="Rolle"
+                                        DisplayMemberBinding="{Binding Role}"
                                         Width="80"/>
                         </GridView>
                     </ListView.View>

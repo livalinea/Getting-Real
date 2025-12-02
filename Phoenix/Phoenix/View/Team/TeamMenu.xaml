@@ -59,7 +59,7 @@
             <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
         </Button>
 
-        <Button Content="Motorik og Krea" Width="200" Height="60" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,182,0,0" FontWeight="Bold" Grid.Column="1" Click="Button_Click"/>
+        <Button Content="Motorik" Width="200" Height="60" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,182,0,0" FontWeight="Bold" Grid.Column="1" Click="Button_Click"/>
         <Button Content="Puslinge" Width="200" Height="60" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="246,182,0,0" Grid.Column="1" Click="Button_Click"/>
         <Button Content="Junior" Width="200" Height="58" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="16,273,0,0" Grid.Column="1" Click="Button_Click"/>
         <Button Content="Senior" Width="200" Height="59" Background="#FFF8A521" Foreground="White" FontSize="20" FontFamily="Franklin Gothic Demi" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="246,272,0,0" RenderTransformOrigin="0.565,0.516" Grid.Column="1" Click="Button_Click"/>

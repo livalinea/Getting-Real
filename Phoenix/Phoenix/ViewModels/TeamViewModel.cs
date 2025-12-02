@@ -20,9 +20,14 @@ namespace Phoenix.ViewModels
                 set
                 {
                     selectedTeam = value;
-                    OnPropertyChanged(nameof(SelectedTeam));
                     LoadMemberList();
-                }
+
+                    OnPropertyChanged(nameof(SelectedTeam));
+                    OnPropertyChanged(nameof(TeamMembers));
+                    OnPropertyChanged(nameof(MemberCount));
+                    OnPropertyChanged(nameof(CoachName));
+                    OnPropertyChanged(nameof(AsCoachName));
+            }
             }
         private Member selectedMember;
         public Member SelectedMember
@@ -67,7 +72,6 @@ namespace Phoenix.ViewModels
         public TeamViewModel(Team selectedTeam)
             {
                 SelectedTeam = selectedTeam;
-
                 LoadMemberList();
             }
 

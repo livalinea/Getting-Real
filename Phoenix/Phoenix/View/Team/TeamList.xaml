@@ -91,7 +91,8 @@
                         <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
                         <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
                         <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team}" Width="80"/>
-                    </GridView>
+                        <GridViewColumn Header="Rolle" DisplayMemberBinding="{Binding Role}" Width="80"/>
+                            </GridView>
                     
                 </ListView.View>
             </ListView>

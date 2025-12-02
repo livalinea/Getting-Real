@@ -64,9 +64,7 @@ namespace Phoenix
             
         }
        
-
-
-public void ShowMainMenu()
+       public void ShowMainMenu()
         {
             MainContent.Content = mainMenu;
         }
@@ -83,12 +81,8 @@ public void ShowMainMenu()
             MainContent.Content = teamViewer;
         }
 
-      
-
         public void ShowTeamList(string holdnavn)
         {
-
-
             if (Enum.TryParse<Team.TeamName>(holdnavn, out var teamType))
             {
                 var selectedTeam = teamRepository.GetTeam(teamType);
@@ -115,6 +109,7 @@ public void ShowMainMenu()
             var paymentMenu = new PaymentMenu(this);
             MainContent.Content = paymentMenu;
         }
+
         public void ShowTeamPayment(string holdnavn)
         {
             if (Enum.TryParse<Team.TeamName>(holdnavn, out var teamType))
