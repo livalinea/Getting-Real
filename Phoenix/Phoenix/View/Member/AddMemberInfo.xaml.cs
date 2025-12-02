@@ -75,6 +75,7 @@ namespace Phoenix
                                         MessageBoxButton.OK,
                                         MessageBoxImage.Warning);
                         return;
+                        phone2 = tempphone2;
                     }
                 }
 
