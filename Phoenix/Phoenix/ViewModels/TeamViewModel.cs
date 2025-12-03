@@ -10,25 +10,25 @@ namespace Phoenix.ViewModels
 {
     public class TeamViewModel : INotifyPropertyChanged
     {
-        
-            public event PropertyChangedEventHandler? PropertyChanged;
 
-            private Team selectedTeam;
-            public Team SelectedTeam
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        private Team selectedTeam;
+        public Team SelectedTeam
+        {
+            get => selectedTeam;
+            set
             {
-                get => selectedTeam;
-                set
-                {
-                    selectedTeam = value;
-                    LoadMemberList();
+                selectedTeam = value;
+                LoadMemberList();
 
-                    OnPropertyChanged(nameof(SelectedTeam));
-                    OnPropertyChanged(nameof(TeamMembers));
-                    OnPropertyChanged(nameof(MemberCount));
-                    OnPropertyChanged(nameof(CoachName));
-                    OnPropertyChanged(nameof(AsCoachName));
+                OnPropertyChanged(nameof(SelectedTeam));
+                OnPropertyChanged(nameof(TeamMembers));
+                OnPropertyChanged(nameof(MemberCount));
+                OnPropertyChanged(nameof(CoachName));
+                OnPropertyChanged(nameof(AsCoachName));
             }
-            }
+        }
         private Member selectedMember;
         public Member SelectedMember
         {
@@ -46,18 +46,18 @@ namespace Phoenix.ViewModels
         }
 
         private ObservableCollection<Member> teamMembers;
-            public ObservableCollection<Member> TeamMembers
+        public ObservableCollection<Member> TeamMembers
+        {
+            get => teamMembers;
+            set
             {
-                get => teamMembers;
-                set
-                {
-                    teamMembers = value;
-                    OnPropertyChanged(nameof(TeamMembers));
-                    OnPropertyChanged(nameof(MemberCount));
-                }
+                teamMembers = value;
+                OnPropertyChanged(nameof(TeamMembers));
+                OnPropertyChanged(nameof(MemberCount));
             }
+        }
 
-            public int MemberCount => TeamMembers?.Count ?? 0;
+        public int MemberCount => TeamMembers?.Count ?? 0;
         public string CoachName =>
         SelectedTeam.Coaches.FirstOrDefault() is Member coach
         ? $"{coach.FirstName} {coach.LastName}"
@@ -70,23 +70,23 @@ namespace Phoenix.ViewModels
 
 
         public TeamViewModel(Team selectedTeam)
-            {
-                SelectedTeam = selectedTeam;
-                LoadMemberList();
-            }
+        {
+            SelectedTeam = selectedTeam;
+            LoadMemberList();
+        }
 
-            private void LoadMemberList()
-            {
-                if (SelectedTeam != null)
-                    TeamMembers = new ObservableCollection<Member>(SelectedTeam.Members);
-                else
-                    TeamMembers = new ObservableCollection<Member>();
-            }
+        private void LoadMemberList()
+        {
+            if (SelectedTeam != null)
+                TeamMembers = new ObservableCollection<Member>(SelectedTeam.Members);
+            else
+                TeamMembers = new ObservableCollection<Member>();
+        }
 
-            protected void OnPropertyChanged(string propertyName)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
+        protected void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
+}
 

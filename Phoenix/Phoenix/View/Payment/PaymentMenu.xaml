@@ -8,7 +8,7 @@
         MinHeight="480" MinWidth="720">
 
     <Grid>
-      
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>

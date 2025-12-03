@@ -85,7 +85,7 @@ namespace Phoenix
                 if (!rank.All(char.IsDigit))
                 {
                     MessageBox.Show("Rank må kun indeholde tal",
-                        " ",MessageBoxButton.OK, MessageBoxImage.Warning);
+                        " ", MessageBoxButton.OK, MessageBoxImage.Warning);
                     return;
                 }
 
@@ -100,7 +100,7 @@ namespace Phoenix
 
                 var selectedTeam = (Team.TeamName)TeamComboBox.SelectedItem;
 
-                
+
                 var selectedRole = (ClubRole)RoleComboBox.SelectedItem;
 
 

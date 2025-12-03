@@ -57,7 +57,7 @@ namespace Phoenix
         {
             if (ViewModel.SelectedMember != null)
             {
-            
+
                 mainWindow.ShowSeeMemberInfo(ViewModel.SelectedMember);
 
                 // eller mainWindow.ShowEditMember(editView);
@@ -74,7 +74,7 @@ namespace Phoenix
         {
             mainWindow.ShowMemberInfo();
 
-        
+
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Phoenix
                     return;
                 }
 
-                    selectedTeam = teamRepository.GetTeam(teamType);
+                selectedTeam = teamRepository.GetTeam(teamType);
                 if (selectedTeam != null)
                 {
                     this.DataContext = new TeamViewModel(selectedTeam);
@@ -75,18 +75,18 @@ namespace Phoenix
             //this.Close();
         }
 
-       
+
 
         private void SeeList_Click(object sender, RoutedEventArgs e)
         {
             if (Application.Current.MainWindow is MainWindow mainWindow)
             {
                 string holdnavn = TeamTitle.Text;
-                
+
                 mainWindow.ShowTeamList(holdnavn);
             }
         }
 
-       
+
     }
 }

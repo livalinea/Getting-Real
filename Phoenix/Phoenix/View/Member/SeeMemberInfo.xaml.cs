@@ -37,7 +37,7 @@ namespace Phoenix
             RoleComboBox.ItemsSource = Enum.GetValues(typeof(ClubRole));
 
             TeamComboBox.SelectedItem = SelectedMember.Team;
-            
+
 
             RoleComboBox.SelectedItem = SelectedMember.Role;
 

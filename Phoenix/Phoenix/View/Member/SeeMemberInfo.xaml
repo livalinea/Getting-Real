@@ -78,7 +78,7 @@
                     <ColumnDefinition Width="Auto" SharedSizeGroup="LabelGroup"/>
                     <ColumnDefinition Width="*" SharedSizeGroup="FieldGroup"/>
                 </Grid.ColumnDefinitions>
-<!--Her sngiver vi den teksttype ift. størrelse og stil for dette grid-->
+                <!--Her sngiver vi den teksttype ift. størrelse og stil for dette grid-->
                 <Grid.Resources>
                     <Style TargetType="Label">
                         <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
@@ -135,7 +135,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
+
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" SharedSizeGroup="LabelGroup"/>
                     <ColumnDefinition Width="*" SharedSizeGroup="FieldGroup"/>
@@ -158,7 +158,7 @@
                         <Setter Property="Height" Value="26"/>
                     </Style>
                 </Grid.Resources>
-                
+
                 <Grid Grid.Row="0" Grid.ColumnSpan="2">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>

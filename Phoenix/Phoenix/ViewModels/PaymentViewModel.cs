@@ -28,10 +28,10 @@ namespace Phoenix
         }
         private string teamName;
         public string TeamName
-        { 
+        {
             get => teamName;
             set
-            {  
+            {
                 teamName = value;
                 OnPropertyChanged();
             }

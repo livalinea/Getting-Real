@@ -17,9 +17,7 @@
 
 	<ItemGroup>
 		<None Remove="Billeder\BackArrow.png" />
-		<None Remove="Billeder\logo judo.jpg" />
 		<None Remove="Billeder\logo.ico" />
-		<None Remove="Billeder\phoenix_logo.png" />
 		<None Remove="logo judo.jpg" />
 		<None Remove="logo judo.png" />
 	</ItemGroup>
@@ -27,11 +25,9 @@
 	<ItemGroup>
 		<Resource Include="Billeder\BackArrow.png" />
 		<Resource Include="Billeder\logo.ico" />
-		<Resource Include="Billeder\phoenix_logo.png" />
 	</ItemGroup>
 
 	<ItemGroup>
-		<Resource Include="Billeder\logo judo.jpg" />
 		<Resource Include="Billeder\logo judo.png" />
 	</ItemGroup>
 

@@ -32,7 +32,7 @@ namespace Phoenix
 
         private void BackButton(object sender, RoutedEventArgs e)
         {
-           mainWindow.ShowMainMenu();
+            mainWindow.ShowMainMenu();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

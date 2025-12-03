@@ -13,13 +13,13 @@ namespace Phoenix
         Coach,
         AsCoach,
 
-	}
+    }
     public class Member
     {
         public int MemberID { get; internal set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-      
+
         private int age;
         public int Age
         {
@@ -67,7 +67,7 @@ namespace Phoenix
             get { return phoneNumber1; }
             set
             {
-               if (value.ToString().Length == 8)
+                if (value.ToString().Length == 8)
                 {
                     phoneNumber1 = value;
                 }
@@ -125,7 +125,7 @@ namespace Phoenix
             get { return judoLicens; }
             set { judoLicens = value; }
         }
-      
+
         public Team.TeamName Team { get; set; }
 
         private double weight;
@@ -161,7 +161,7 @@ namespace Phoenix
             Team = team;
             Weight = weight;
             Role = role;
-          
+
         }
 
     }

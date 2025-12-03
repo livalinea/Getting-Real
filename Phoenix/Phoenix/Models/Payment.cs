@@ -46,7 +46,7 @@ namespace Phoenix
             return team.Price;
         }
 
-        
+
         //opdater betalings oplyniger(pris, betalings dag, beskrivelse og medlem/medlemID
         public void EditPayment(double? newPrice = null, DateTime? datePaid = null, string? newDescription = null, int? newMemberId = null)
         {

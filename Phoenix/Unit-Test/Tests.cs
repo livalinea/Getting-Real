@@ -47,7 +47,7 @@ namespace Unit_Test
                 //var all = repo.GetAll().ToList();
                 var list = all.FirstOrDefault(member => member.MemberID == 1);
 
-                
+
 
                 // Assert
                 Assert.IsNotNull(get, "GetByID retur null for member");
@@ -70,7 +70,7 @@ namespace Unit_Test
                 Assert.IsNotNull(value: get.Team, "TeamType skulle være puslinge");
                 Assert.AreEqual(teamName.TeamType, get.Team);
             }
-            finally 
+            finally
             {
                 if (File.Exists(file)) File.Delete(file);
             }

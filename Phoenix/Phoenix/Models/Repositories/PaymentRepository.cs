@@ -19,7 +19,7 @@ namespace Phoenix.Repositories
         public PaymentRepository()
         {
             LoadFromFile();
-        } 
+        }
         internal IReadOnlyList<Payment> Payments => payments.AsReadOnly();
         internal IReadOnlyList<Member> PaymentMembers => paymentMembers.AsReadOnly();
 

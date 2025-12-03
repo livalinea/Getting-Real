@@ -23,22 +23,22 @@ namespace Phoenix.ViewModels
         private string searchText = "Søg efter et navn";
         public string SearchText
         {
-            get 
+            get
             {
                 return searchText;
-            } 
-            set 
-            { 
+            }
+            set
+            {
                 searchText = value; OnPropertyChanged(nameof(SearchText));
                 FilterMembers();
-            } 
+            }
         }
         private Member selectedMember;
         public Member SelectedMember
         {
-            get 
-            { 
-                return selectedMember; 
+            get
+            {
+                return selectedMember;
             }
             set
             {
@@ -55,7 +55,7 @@ namespace Phoenix.ViewModels
             Members = new ObservableCollection<Member>(memberRepo.GetAll());
 
             FilteredMembers = new ObservableCollection<Member>(Members);
-           
+
 
         }
 
@@ -94,7 +94,7 @@ namespace Phoenix.ViewModels
 
             OnPropertyChanged(nameof(FilteredMembers));
         }
-       
+
         private void OnPropertyChanged(string prop)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
@@ -103,5 +103,5 @@ namespace Phoenix.ViewModels
     }
 
 
-  }
+}
 

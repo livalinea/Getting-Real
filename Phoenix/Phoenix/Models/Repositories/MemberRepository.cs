@@ -16,17 +16,18 @@ namespace Phoenix.Repositories
 {
     public class MemberRepository : IRepository
     {
-        private readonly List<Member> _members = new();
+        private readonly List<Member> members = new();
+
         private string filePath = "Members.txt";
 
         public IEnumerable<Member> GetAll()
         {
-            return _members;
+            return members;
         }
 
         public Member GetByID(int memberID)
         {
-            foreach (Member member in _members)
+            foreach (Member member in members)
             {
                 if (member.MemberID == memberID)
                 {
@@ -38,7 +39,7 @@ namespace Phoenix.Repositories
         }
         public List<Member> GetMembersByTeam(Team.TeamName team)
         {
-            return _members
+            return members
                .Where(m => m.Team == team)
                .ToList();
             /*
@@ -60,7 +61,7 @@ namespace Phoenix.Repositories
 
         public void Add(Member member)
         {
-            _members.Add(member);
+            members.Add(member);
             SaveToFile();
         }
 
@@ -69,7 +70,7 @@ namespace Phoenix.Repositories
             var selected = GetByID(memberId);
             if (selected != null)
             {
-                _members.Remove(selected);
+                members.Remove(selected);
                 SaveToFile();
             }
         }
@@ -77,7 +78,7 @@ namespace Phoenix.Repositories
         public MemberRepository()
         {
             LoadFromFile();
-           
+
 
         }
 
@@ -110,7 +111,7 @@ namespace Phoenix.Repositories
         {
             using (StreamWriter sw = new StreamWriter("Members.txt"))
             {
-                foreach (Member m in _members)
+                foreach (Member m in members)
                 {
                     // Gem som en linje med semikolon-separerede værdier
                     sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.PhoneNumber1};{m.PhoneNumber2};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team};{m.Weight};{m.Role}");
@@ -118,11 +119,11 @@ namespace Phoenix.Repositories
                 sw.Close();
             }
         }
-      
+
 
         public void LoadFromFile()
         {
-            _members.Clear();
+            members.Clear();
 
             if (!File.Exists("Members.txt"))
                 return;
@@ -149,9 +150,9 @@ namespace Phoenix.Repositories
                         // tjekker om Teamname passer med en af vores enums// 
                         string raw = parts[11]?.Trim();
                         if (string.IsNullOrEmpty(raw))
-                        if (raw.Contains(".")) raw = raw.Split('.').Last();
+                            if (raw.Contains(".")) raw = raw.Split('.').Last();
 
-                        bool parsed =Enum.TryParse<Team.TeamName>(raw, true, out var teamType);
+                        bool parsed = Enum.TryParse<Team.TeamName>(raw, true, out var teamType);
                         if (!parsed)
                         {  // håndter fejelen kast exception
                             throw new InvalidEnumArgumentException($"Ugyldigt teamnavn: '{raw}' er ikke en gyldig TeamName.");
@@ -161,18 +162,18 @@ namespace Phoenix.Repositories
                         ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[13]);
 
                         Member m = new Member(id, firstName, lastName, birthDate, address, mail, phoneNumber1, phoneNumber2, rank, judoPass, judoLicens, teamType, weight, role);
-                        _members.Add(m);
+                        members.Add(m);
                     }
                 }
 
             }
         }
 
-        }
-
     }
 
+}
 
 
-  
-    
+
+
+
