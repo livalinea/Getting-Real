@@ -6,26 +6,33 @@ using System.Threading.Tasks;
 
 namespace Phoenix
 {
-	internal class Team
+	public class Team
 	{
-		private string type;
+	
+		public TeamName TeamType { get; set; }
+		
+        public enum TeamName
+	    { 
+			Motorik,
+			Puslinge,
+			Junior,
+			Senior,
+			BJJ,
+            
+        }
+       
 
-		public string Type
-		{
-			get { return type; }
-			set { type = value; }
-		}
-
-		// Backing collections for members and coaches
-		private readonly List<Member> members;
+        // Backing collections for members and coaches
+        private readonly List<Member> members;
 		private readonly List<Member> coaches;
 		private readonly List<Member> ascoaches;
 
 		// Price for the team (matches UML)
 		private double price;
+        
 
-		// Read-only views for external callers
-		public IReadOnlyList<Member> Members => members.AsReadOnly();
+        // Read-only views for external callers
+        public IReadOnlyList<Member> Members => members.AsReadOnly();
 		public IReadOnlyList<Member> Coaches => coaches.AsReadOnly();
 		public IReadOnlyList<Member> AsCoaches => ascoaches.AsReadOnly();
 
@@ -37,18 +44,21 @@ namespace Phoenix
 			set => price = value;
 		}
 
+
 		// Constructor
-		public Team(string type)
+		public Team(TeamName teamType)
 		{
-			this.type = type;
+			
+			TeamType = teamType;
 			members = new List<Member>();
 			coaches = new List<Member>();
 			ascoaches = new List<Member>();
 			price = 0.0;
 		}
 
-		// Methods
-		public int CountMembers()
+
+        // Methods
+        public int CountMembers()
 		{
 			return members.Count + coaches.Count;
 		}
@@ -70,6 +80,11 @@ namespace Phoenix
             if (s == null) throw new ArgumentNullException(nameof(s));
             ascoaches.Add(s);
         }
+        public override string ToString()
+        {
+            return TeamType.ToString(); // eller hvad du vil vise
+        }
+
 
     }
 }

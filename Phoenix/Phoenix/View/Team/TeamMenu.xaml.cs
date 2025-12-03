@@ -14,30 +14,34 @@ using System.Windows.Shapes;
 
 namespace Phoenix
 {
-
-    public partial class AddTeamMember : UserControl
+    /// <summary>
+    /// Interaction logic for TeamMenu.xaml
+    /// </summary>
+    public partial class TeamMenu : UserControl
     {
-        MainWindow mainWindow;
-        public AddTeamMember(string holdnavn, MainWindow mW)
+        private MainWindow mainWindow;
+
+        public TeamMenu(MainWindow mW)
         {
             InitializeComponent();
 
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
-
-            TeamTitle.Text = holdnavn;
             mainWindow = mW;
         }
+
         private void BackButton(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowTeamMenu();
-            //teamMenu.Show();
-            //this.Close();
+           mainWindow.ShowMainMenu();
         }
 
-        private void Searchfield_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Searchfield.Text = "";
+            //MainWindow mW = (MainWindow)Application.Current.MainWindow; 
+            string holdnavn = (sender as Button).Content.ToString();
+            mainWindow.ShowTeamList(holdnavn);
+            //mainWindow = new TeamViewer(holdnavn);
+
         }
     }
 }

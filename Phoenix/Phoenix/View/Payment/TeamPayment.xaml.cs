@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phoenix.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,7 @@ namespace Phoenix
     public partial class TeamPayment : UserControl
     {
         MainWindow mainWindow;
+        private TeamRepository teamRepository;
         public TeamPayment(string holdnavn, MainWindow mw)
         {
             InitializeComponent();
@@ -28,7 +30,9 @@ namespace Phoenix
 
             TeamTitle.Text = holdnavn;
             mainWindow = mw;
-          
+            var teamRepo = new TeamRepository();
+
+            this.Loaded += TeamPaymentLoaded;
         }
 
         private void BackButton(object sender, RoutedEventArgs e)
@@ -36,8 +40,32 @@ namespace Phoenix
             mainWindow.ShowPaymentMenu();
             //teamMenu.Show();
 
-
         }
 
+        private void RegPayment_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedMember = HoldMedlemListe.SelectedItem as Member;
+
+            if (selectedMember == null)
+            {
+                MessageBox.Show("Vælg først et medlem i listen.");
+                return;
+            }
+
+            mainWindow.ShowAddPayment(TeamTitle.Text, selectedMember);
+        }
+        private void TeamPaymentLoaded(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext is Phoenix.ViewModels.TeamViewModel vm &&
+                vm.SelectedTeam != null)
+            {
+                var allPeople = vm.SelectedTeam.Coaches
+                    .Concat(vm.SelectedTeam.AsCoaches)
+                    .Concat(vm.SelectedTeam.Members)
+                    .ToList();
+
+                HoldMedlemListe.ItemsSource = allPeople;
+            }
+        }
     }
 }
