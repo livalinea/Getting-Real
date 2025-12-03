@@ -10,9 +10,6 @@
 
 	<ItemGroup>
 	  <Compile Remove="AddMemberInfo.xaml.cs" />
-	  <Compile Remove="Member.cs" />
-	  <Compile Remove="Payment.cs" />
-	  <Compile Remove="Team.cs" />
 	</ItemGroup>
 
 	<ItemGroup>
