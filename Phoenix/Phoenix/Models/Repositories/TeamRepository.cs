@@ -9,7 +9,7 @@ namespace Phoenix.Repositories
     public class TeamRepository
     {
         
-            private readonly List<Team> teams = new();
+        private readonly List<Team> teams = new();
 
         public IReadOnlyList<Team> Teams => teams.AsReadOnly();
 

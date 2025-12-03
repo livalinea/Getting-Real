@@ -14,38 +14,38 @@ namespace Phoenix.Repositories
 
         // medlemmer relateret til betalinger
         private readonly List<Member> paymentMembers = new();
-        private const string FilePath = "Payments.txt";
+        private string filePath = "Payments.txt";
 
         public PaymentRepository()
         {
-            LoadFromFile();
+            loadFromFile();
         } 
-        internal IReadOnlyList<Payment> Payments => payments.AsReadOnly();
-        internal IReadOnlyList<Member> PaymentMembers => paymentMembers.AsReadOnly();
+        public IReadOnlyList<Payment> Payments => payments.AsReadOnly();
+        public IReadOnlyList<Member> PaymentMembers => paymentMembers.AsReadOnly();
 
-        internal void AddPayment(Payment p)
+        public void AddPayment(Payment p)
         {
             if (p == null) throw new ArgumentNullException(nameof(p));
 
             payments.Add(p);
-            SaveToFile();
+            saveToFile();
         }
 
-        internal void AddPaymentMember(Member m)
+        public void AddPaymentMember(Member m)
         {
             if (m == null) throw new ArgumentNullException(nameof(m));
             if (!paymentMembers.Any(x => x.MemberID == m.MemberID))
                 paymentMembers.Add(m);
         }
 
-        internal IEnumerable<Payment> GetAllPayments() => payments;
+        public IEnumerable<Payment> GetAllPayments() => payments;
 
-        internal IEnumerable<Member> GetPaymentMembers() => paymentMembers;
+        public IEnumerable<Member> GetPaymentMembers() => paymentMembers;
 
 
-        private void SaveToFile()
+        private void saveToFile()
         {
-            using (var sw = new StreamWriter(FilePath))
+            using (var sw = new StreamWriter(filePath))
             {
                 foreach (var p in payments)
                 {
@@ -58,14 +58,14 @@ namespace Phoenix.Repositories
                 }
             }
         }
-        private void LoadFromFile()
+        private void loadFromFile()
         {
-            if (!File.Exists(FilePath))
+            if (!File.Exists(filePath))
                 return;
 
             payments.Clear();
 
-            foreach (var line in File.ReadLines(FilePath))
+            foreach (var line in File.ReadLines(filePath))
             {
                 if (string.IsNullOrWhiteSpace(line))
                     continue;
@@ -92,7 +92,7 @@ namespace Phoenix.Repositories
                 payments.Add(payment);
             }
         }
-        internal void PrintPayments()
+        public void PrintPayments()
         {
             foreach (var payment in payments)
             {
@@ -108,7 +108,7 @@ namespace Phoenix.Repositories
             }
         }
         // viser medlemer med ID, Navn og Role
-        internal void PrintPaymentMembers()
+        public void PrintPaymentMembers()
         {
             foreach (var member in paymentMembers)
             {

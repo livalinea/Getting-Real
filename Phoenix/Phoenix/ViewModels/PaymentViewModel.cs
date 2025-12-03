@@ -12,67 +12,67 @@ namespace Phoenix
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        private string memberName;
+        private string _memberName;
         public string MemberName
         {
-            get => memberName;
+            get => _memberName;
             set
             {
-                memberName = value;
+                _memberName = value;
                 OnPropertyChanged();
             }
         }
-        private string teamName;
+        private string _teamName;
         public string TeamName
         { 
-            get => teamName;
+            get => _teamName;
             set
             {  
-                teamName = value;
+                _teamName = value;
                 OnPropertyChanged();
             }
         }
-        private string description;
+        private string _description;
         public string Description
         {
-            get => description;
+            get => _description;
             set
             {
-                description = value;
+                _description = value;
                 OnPropertyChanged();
             }
         }
-        private string paymentDate;
+        private string _paymentDate;
         public string PaymentDate
         {
-            get => paymentDate;
+            get => _paymentDate;
             set
             {
-                paymentDate = value;
+                _paymentDate = value;
                 OnPropertyChanged();
             }
         }
-        private string amount;
+        private string _amount;
         public string Amount
         {
-            get => amount;
+            get => _amount;
             set
             {
-                amount = value;
+                _amount = value;
                 OnPropertyChanged();
             }
         }
-        private bool hasJudoPass;
+        private bool _hasJudoPass;
         public bool HasJudoPass
         {
-            get => hasJudoPass;
+            get => _hasJudoPass;
             set
             {
-                hasJudoPass = value;
+                _hasJudoPass = value;
                 OnPropertyChanged();
             }
         }
