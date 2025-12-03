@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Phoenix
 {
-    internal class Payment
+    public class Payment
     {
         // identifikator for betalingen
         public int PaymentID { get; }

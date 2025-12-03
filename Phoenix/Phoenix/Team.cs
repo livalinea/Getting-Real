@@ -8,8 +8,6 @@ namespace Phoenix
 {
 	public class Team
 	{
-	
-
 		public TeamName TeamType { get; set; }
 		
 
@@ -22,18 +20,12 @@ namespace Phoenix
 			BJJ,
             
         }
-       
-
-
 
         // Backing collections for members and coaches
         private readonly List<Member> members;
 		private readonly List<Member> coaches;
 		private readonly List<Member> ascoaches;
 
-		// Price for the team (matches UML)
-		private double price;
-        
 
         // Read-only views for external callers
         public IReadOnlyList<Member> Members => members.AsReadOnly();
@@ -42,24 +34,25 @@ namespace Phoenix
 
 		// Computed properties
 		public int NumMembers => members.Count;
-		public double Price
+
+        // Price for the team (matches UML)
+        private double _price;
+
+        public double Price
 		{
-			get => price;
-			set => price = value;
+			get => _price;
+			set => _price = value;
 		}
 
 		// Constructor
 		public Team(TeamName teamType)
 		{
-			
 			TeamType = teamType;
 			members = new List<Member>();
 			coaches = new List<Member>();
 			ascoaches = new List<Member>();
-			price = 0.0;
+			_price = 0.0;
 		}
-
-        
 
 
         // Methods

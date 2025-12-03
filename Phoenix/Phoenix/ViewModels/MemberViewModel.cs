@@ -16,35 +16,34 @@ namespace Phoenix.ViewModels
         private MemberRepository memberRepo;
 
         public ObservableCollection<Member> Members { get; set; }
+
         public ObservableCollection<Member> FilteredMembers { get; set; }
 
-
-
-        private string searchText = "Søg efter et navn";
+        private string _searchText = "Søg efter et navn";
         public string SearchText
         {
             get 
             {
-                return searchText;
+                return _searchText;
             } 
             set 
             { 
-                searchText = value; OnPropertyChanged(nameof(SearchText));
+                _searchText = value; OnPropertyChanged(nameof(SearchText));
                 FilterMembers();
             } 
         }
-        private Member selectedMember;
+
+        private Member _selectedMember;
         public Member SelectedMember
         {
             get 
             { 
-                return selectedMember; 
+                return _selectedMember; 
             }
             set
             {
-                selectedMember = value;
+                _selectedMember = value;
                 OnPropertyChanged(nameof(SelectedMember));
-
             }
 
         }
@@ -55,11 +54,8 @@ namespace Phoenix.ViewModels
             Members = new ObservableCollection<Member>(memberRepo.GetAll());
 
             FilteredMembers = new ObservableCollection<Member>(Members);
-           
-
+      
         }
-
-
 
         private void FilterMembers()
         {
@@ -103,7 +99,5 @@ namespace Phoenix.ViewModels
         }
 
     }
-
-
-  }
+}
 

@@ -13,13 +13,13 @@ namespace Phoenix.ViewModels
         
             public event PropertyChangedEventHandler? PropertyChanged;
 
-            private Team selectedTeam;
+            private Team _selectedTeam;
             public Team SelectedTeam
             {
-                get => selectedTeam;
+                get => _selectedTeam;
                 set
                 {
-                    selectedTeam = value;
+                    _selectedTeam = value;
                     LoadMemberList();
 
                     OnPropertyChanged(nameof(SelectedTeam));
@@ -29,29 +29,29 @@ namespace Phoenix.ViewModels
                     OnPropertyChanged(nameof(AsCoachName));
             }
             }
-        private Member selectedMember;
+        private Member _selectedMember;
         public Member SelectedMember
         {
             get
             {
-                return selectedMember;
+                return _selectedMember;
             }
             set
             {
-                selectedMember = value;
+                _selectedMember = value;
                 OnPropertyChanged(nameof(SelectedMember));
 
             }
 
         }
 
-        private ObservableCollection<Member> teamMembers;
+        private ObservableCollection<Member> _teamMembers;
             public ObservableCollection<Member> TeamMembers
             {
-                get => teamMembers;
+                get => _teamMembers;
                 set
                 {
-                    teamMembers = value;
+                    _teamMembers = value;
                     OnPropertyChanged(nameof(TeamMembers));
                     OnPropertyChanged(nameof(MemberCount));
                 }
@@ -83,10 +83,9 @@ namespace Phoenix.ViewModels
                     TeamMembers = new ObservableCollection<Member>();
             }
 
-            protected void OnPropertyChanged(string propertyName)
+            private void OnPropertyChanged(string propertyName)
             {
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }
-

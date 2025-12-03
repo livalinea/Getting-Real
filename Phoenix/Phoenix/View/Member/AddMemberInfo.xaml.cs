@@ -74,8 +74,8 @@ namespace Phoenix
                                         "Fejl i telefonnummer",
                                         MessageBoxButton.OK,
                                         MessageBoxImage.Warning);
-                        return;
                         phone2 = tempphone2;
+                        return;
                     }
                 }
 

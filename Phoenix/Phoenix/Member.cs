@@ -12,67 +12,60 @@ namespace Phoenix
         Member,
         Coach,
         AsCoach,
-   
-
 	}
     public class Member
     {
         public int MemberID { get; internal set; }
        
         public string FirstName { get; set; }
+
         public string LastName { get; set; }
-       
-        private int age;
+
+        private int _age;
         public int Age
         {
             get
             {
                 var today = DateTime.Today;
-                int calculatedAge = today.Year - BirthDate.Year;
+               _age = today.Year - BirthDate.Year;
 
-                DateTime nextBirthday = BirthDate.AddYears(calculatedAge);
+                DateTime nextBirthday = BirthDate.AddYears(_age);
                 if (today < nextBirthday)
                 {
-                    calculatedAge = calculatedAge - 1;
+                    _age = _age - 1;
                 }
-                return calculatedAge;
+                return _age;
             }
-            set { age = value; }
+            set { _age = value; }
         }
-        private DateTime birthDate;
+        private DateTime _birthDate;
 
         public DateTime BirthDate
         {
-            get { return birthDate; }
-            set { birthDate = value; }
+            get { return _birthDate; }
+            set { _birthDate = value; }
         }
-        private string address;
+        private string _address;
 
         public string Address
         {
-            get { return address; }
-            set { address = value; }
+            get { return _address; }
+            set { _address = value; }
         }
-        private string mail;
-
-        public string Mail
-        {
-            get { return mail; }
-            set { mail = value; }
-        }
+        public string Mail { get; set; }
 
 
-        private int phoneNumber1;
-        private int phoneNumber2;
+        private int _phoneNumber1;
+        private int _phoneNumber2;
 
         public int PhoneNumber1
         {
-            get { return phoneNumber1; }
+            get { return _phoneNumber1; }
             set
             {
                if (value.ToString().Length == 8)
                 {
-                    phoneNumber1 = value;
+                    _phoneNumber1 = value;
                 }
                 else
                 {
@@ -83,16 +76,16 @@ namespace Phoenix
 
         public int PhoneNumber2
         {
-            get { return phoneNumber2; }
+            get { return _phoneNumber2; }
             set
             {
                 if (value == 0)            // tillad tomt nr. 2
                 {
-                    phoneNumber2 = 0;
+                    _phoneNumber2 = 0;
                 }
                 else if (value.ToString().Length == 8)
                 {
-                    phoneNumber2 = value;
+                    _phoneNumber2 = value;
                 }
                 else
                 {
@@ -100,30 +93,31 @@ namespace Phoenix
                 }
             }
         }
-        private DateTime regDate;
+        private DateTime _regDate;
 
         public DateTime RegDate
         {
-            get { return regDate; }
-            set { regDate = DateTime.Today; }
+            get { return _regDate; }
+            set { _regDate = DateTime.Today; }
         }
-        private string rank;
+
+        private string _rank;
 
         public string Rank
         {
-            get { return rank; }
-            set { rank = value; }
+            get { return _rank; }
+            set { _rank = value; }
         }
-        private bool judoPass;
+        private bool _judoPass;
 
         public bool JudoPass
         {
-            get { return judoPass; }
-            set { judoPass = value; }
+            get { return _judoPass; }
+            set { _judoPass = value; }
         }
         private bool judoLicens;
 
-        public bool JudoLicens
+        public bool _JudoLicens
         {
             get { return judoLicens; }
             set { judoLicens = value; }
@@ -131,19 +125,19 @@ namespace Phoenix
       
         public Team.TeamName Team { get; set; }
 
-        private double weight;
+        private double _weight;
 
         public double Weight
         {
-            get { return weight; }
-            set { weight = value; }
+            get { return _weight; }
+            set { _weight = value; }
         }
-        private ClubRole role;
+        private ClubRole _role;
 
         public ClubRole Role
         {
-            get { return role; }
-            set { role = value; }
+            get { return _role; }
+            set { _role = value; }
         }
 
 
@@ -160,7 +154,7 @@ namespace Phoenix
             PhoneNumber2 = phoneNumber2;
             Rank = rank;
             JudoPass = judoPass;
-            JudoLicens = judoLicens;
+            _JudoLicens = judoLicens;
             Team = team;
             Weight = weight;
             Role = role;
