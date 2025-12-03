@@ -1,4 +1,5 @@
-﻿using Phoenix.Models.Repositories;
+﻿using Phoenix.Models;
+using Phoenix.Models.Repositories;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using static Phoenix.Team;
+using static Phoenix.Models.Team;
 
 namespace Phoenix.Repositories
 {

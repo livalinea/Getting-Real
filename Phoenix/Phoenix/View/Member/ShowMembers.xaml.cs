@@ -1,4 +1,5 @@
-﻿using Phoenix.ViewModels;
+﻿using Phoenix.Models;
+using Phoenix.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -1,4 +1,5 @@
-﻿using Phoenix.Repositories;
+﻿using Phoenix.Models;
+using Phoenix.Repositories;
 using Phoenix.ViewModels;
 using System.CodeDom;
 using System.Text;
