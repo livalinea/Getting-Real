@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Phoenix
+namespace Phoenix.Models.Repositories
 {
     public interface IRepository
     {

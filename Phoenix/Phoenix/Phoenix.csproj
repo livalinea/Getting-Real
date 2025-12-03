@@ -9,6 +9,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="AddMemberInfo.xaml.cs" />
+	  <Compile Remove="Member.cs" />
+	  <Compile Remove="Payment.cs" />
+	  <Compile Remove="Team.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<None Remove="Billeder\BackArrow.png" />
 		<None Remove="Billeder\logo judo.jpg" />
 		<None Remove="Billeder\logo.ico" />

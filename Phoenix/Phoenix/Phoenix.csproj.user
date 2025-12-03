@@ -11,7 +11,7 @@
     <Compile Update="View\Member\ShowMembers.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="MainMenu.xaml.cs">
+    <Compile Update="View\MainMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="View\Payment\PaymentMenu.xaml.cs">
