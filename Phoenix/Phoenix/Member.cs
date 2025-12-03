@@ -16,7 +16,6 @@ namespace Phoenix
     public class Member
     {
         public int MemberID { get; internal set; }
-       
         public string FirstName { get; set; }
 
         public string LastName { get; set; }

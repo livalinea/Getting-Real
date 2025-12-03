@@ -92,7 +92,6 @@ namespace Phoenix.ViewModels
             OnPropertyChanged(nameof(FilteredMembers));
         }
        
-
         private void OnPropertyChanged(string prop)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));

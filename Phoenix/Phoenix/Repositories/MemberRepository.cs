@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Reflection.PortableExecutable;
@@ -39,6 +40,20 @@ namespace Phoenix.Repositories
             return _members
                .Where(m => m.Team == team)
                .ToList();
+            /*
+             * Dette svarer til følgende og er en LINQ;
+            var result = new List<Member>();
+            foreach (var m in _members)
+            { 
+             if (m.Team == team)
+              { 
+                result.Add(m); 
+              }
+            }
+            return result;
+            }*/
+
+
 
         }
 
@@ -130,14 +145,16 @@ namespace Phoenix.Repositories
                         string rank = parts[8];
                         bool judoPass = bool.Parse(parts[9]);
                         bool judoLicens = bool.Parse(parts[10]);
+                        // tjekker om Teamname passer med en af vores enums// 
                         string raw = parts[11]?.Trim();
-                        if (string.IsNullOrEmpty(raw)) ; // fallback
-
-                        // Fjern evt. "Phoenix.Team.TeamName.Junior"
+                        if (string.IsNullOrEmpty(raw))
                         if (raw.Contains(".")) raw = raw.Split('.').Last();
 
-                        if (!Enum.TryParse<Team.TeamName>(raw, true, out var teamType))
-                            teamType = Team.TeamName.Junior; // fallback
+                        bool parsed =Enum.TryParse<Team.TeamName>(raw, true, out var teamType);
+                        if (!parsed)
+                        {  // håndter fejelen kast exception
+                            throw new InvalidEnumArgumentException($"Ugyldigt teamnavn: '{raw}' er ikke en gyldig TeamName.");
+                        }
 
                         double weight = double.Parse(parts[12]);
                         ClubRole role = (ClubRole)Enum.Parse(typeof(ClubRole), parts[13]);

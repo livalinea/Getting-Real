@@ -10,7 +10,6 @@ namespace Phoenix
 	{
 		public TeamName TeamType { get; set; }
 		
-
         public enum TeamName
 	    { 
 			Motorik,
