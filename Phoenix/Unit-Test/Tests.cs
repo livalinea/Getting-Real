@@ -10,7 +10,7 @@ namespace Unit_Test
         [TestMethod]
         public void UC02_registrer_medlem()
         {
-            var file = "members.txt";
+            var file = "Members.txt";
 
             if (File.Exists(file)) File.Delete(file);
             try
@@ -42,7 +42,6 @@ namespace Unit_Test
                 repo.Add(member);
 
                 var repoFile = new MemberRepository();
-                repo.SaveToFile(member);
                 var get = repo.GetByID(1);
                 var all = repoFile.GetAll().ToList();
                 //var all = repo.GetAll().ToList();
@@ -71,7 +70,10 @@ namespace Unit_Test
                 Assert.IsNotNull(value: get.Team, "TeamType skulle være puslinge");
                 Assert.AreEqual(teamName.TeamType, get.Team);
             }
-            finally { }
+            finally 
+            {
+                if (File.Exists(file)) File.Delete(file);
+            }
         }
     }
 }
