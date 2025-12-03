@@ -41,6 +41,12 @@ namespace Phoenix
                     team.Coaches
                         .Concat(team.AsCoaches)
                         .Concat(team.Members))
+                .OrderBy(m =>
+                    m.Role == ClubRole.Coach ? 0 :
+                    m.Role == ClubRole.AsCoach ? 1 : 2)
+                .ThenBy(m => m.Team)
+                .ThenBy(m => m.FirstName)
+                .ThenBy(m => m.LastName)
                 .ToList();
 
             HoldMedlemListe.ItemsSource = allPeople;
