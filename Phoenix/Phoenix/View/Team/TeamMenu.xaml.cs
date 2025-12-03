@@ -39,7 +39,7 @@ namespace Phoenix
         {
             //MainWindow mW = (MainWindow)Application.Current.MainWindow; 
             string holdnavn = (sender as Button).Content.ToString();
-            mainWindow.ShowTeamViewer(holdnavn);
+            mainWindow.ShowTeamList(holdnavn);
             //mainWindow = new TeamViewer(holdnavn);
 
         }

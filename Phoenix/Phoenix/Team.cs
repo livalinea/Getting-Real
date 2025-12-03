@@ -48,6 +48,7 @@ namespace Phoenix
 			set => price = value;
 		}
 
+
 		// Constructor
 		public Team(TeamName teamType)
 		{

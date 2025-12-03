@@ -1,5 +1,6 @@
 ﻿using Phoenix.Repositories;
 using Phoenix.ViewModels;
+using System.CodeDom;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -77,11 +78,11 @@ public void ShowMainMenu()
         }
 
 
-        public void ShowTeamViewer(string holdnavn)
-        {
-            var teamViewer = new TeamViewer(holdnavn, this);
-            MainContent.Content = teamViewer;
-        }
+        //public void ShowTeamViewer(string holdnavn)
+        //{
+        //    var teamViewer = new TeamViewer(holdnavn, this, teamType);
+        //    MainContent.Content = teamViewer;
+        //}
 
       
 
@@ -100,6 +101,10 @@ public void ShowMainMenu()
                     MainContent.Content = teamList;
                 }
 
+            }
+            else
+            {
+                throw new ArgumentException("kunne ikke udføre");
             }
         }
 

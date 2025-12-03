@@ -38,13 +38,14 @@ namespace Phoenix
                 mainWindow = mW;
 
                 this.teamRepository = mW.teamRepository;
-                if(!Enum.TryParse<Team.TeamName>(holdnavn, true, out var teamType))
-        {
+
+                if (!Enum.TryParse<Team.TeamName>(holdnavn, true, out var teamType))
+                {
                     MessageBox.Show($"Kunne ikke parse '{holdnavn}' til TeamName");
                     return;
                 }
 
-                selectedTeam = teamRepository.GetTeam(teamType);
+                    selectedTeam = teamRepository.GetTeam(teamType);
                 if (selectedTeam != null)
                 {
                     this.DataContext = new TeamViewModel(selectedTeam);
