@@ -15,25 +15,31 @@ using System.Windows.Shapes;
 namespace Phoenix
 {
     /// <summary>
-    /// Interaction logic for SeeMemberInfo.xaml
+    /// Interaction logic for PaymentMenu.xaml
     /// </summary>
-    public partial class SeeMemberInfo : UserControl
+    public partial class PaymentMenu : UserControl
     {
         MainWindow mainWindow;
-
-        public SeeMemberInfo(MainWindow mW)
+        public PaymentMenu( MainWindow mW)
         {
             InitializeComponent();
-
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
-
             mainWindow = mW;
+          
+
         }
         private void BackButton(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowTeamMenu();
-
+            mainWindow.ShowMainMenu();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string holdnavn = (sender as Button).Content.ToString();
+            mainWindow.ShowTeamPayment(holdnavn);
+        }
+
+       
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Phoenix.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,46 +16,42 @@ using System.Windows.Shapes;
 namespace Phoenix
 {
     /// <summary>
-    /// Interaction logic for TeamViewer.xaml
+    /// Interaction logic for TeamPayment.xaml
     /// </summary>
-    public partial class TeamViewer : UserControl
+    public partial class TeamPayment : UserControl
     {
         MainWindow mainWindow;
-
-        public TeamViewer(string holdnavn, MainWindow mW)
+        private TeamRepository teamRepository;
+        public TeamPayment(string holdnavn, MainWindow mw)
         {
             InitializeComponent();
-
             string url = "https://impro.usercontent.one/appid/oneComWsb/domain/phoenixjudo.dk/media/phoenixjudo.dk/onewebmedia/F%C3%B8nix-logo_collection_Logo%20horisontal%20lille-10.png?etag=%22855d9-670d96f6%22&sourceContentType=image%2Fpng&ignoreAspectRatio&resize=555%2B336";
             logo.Source = new BitmapImage(new Uri(url, UriKind.Absolute));
 
             TeamTitle.Text = holdnavn;
-            mainWindow = mW;
-            //mainWindow = mW;
-            //this.Title = holdnavn;
-        }
-
-        private void Label_TextInput(object sender, TextCompositionEventArgs e)
-        {
-
+            mainWindow = mw;
+            var teamRepo = new TeamRepository();
         }
 
         private void BackButton(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowTeamMenu();
+            mainWindow.ShowPaymentMenu();
             //teamMenu.Show();
-            //this.Close();
-        }
 
-        private void Editorremove_Click(object sender, RoutedEventArgs e)
-        {
-            mainWindow.ShowAddTeamMember(holdnavn: TeamTitle.Text);
 
         }
 
-        private void SeeList_Click(object sender, RoutedEventArgs e)
+        private void RegPayment_Click(object sender, RoutedEventArgs e)
         {
-            mainWindow.ShowTeamList(holdnavn: TeamTitle.Text);
+            var selectedMember = HoldMedlemListe.SelectedItem as Member;
+
+            if (selectedMember == null)
+            {
+                MessageBox.Show("Vælg først et medlem i listen.");
+                return;
+            }
+
+            mainWindow.ShowAddPayment(TeamTitle.Text, selectedMember);
         }
     }
 }

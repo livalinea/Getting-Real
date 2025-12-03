@@ -17,13 +17,11 @@ namespace Phoenix
 	}
     public class Member
     {
-        public int MemberID { get; }
-        private string name;
-        public string Name
-        {
-            get { return name; }
-            set { name = value; }
-        }
+        public int MemberID { get; internal set; }
+       
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+       
         private int age;
         public int Age
         {
@@ -62,20 +60,43 @@ namespace Phoenix
             get { return mail; }
             set { mail = value; }
         }
-        private int phoneNumber;
 
-        public int PhoneNumber
+
+        private int phoneNumber1;
+        private int phoneNumber2;
+
+        public int PhoneNumber1
         {
-            get { return phoneNumber; }
+            get { return phoneNumber1; }
             set
             {
-                if (value.ToString().Length == 8)
+               if (value.ToString().Length == 8)
                 {
-                    phoneNumber = value;
+                    phoneNumber1 = value;
                 }
                 else
                 {
-                    throw new ValidationException("Error");
+                    throw new ValidationException("Telefonnummer 1 skal være 8 cifre.");
+                }
+            }
+        }
+
+        public int PhoneNumber2
+        {
+            get { return phoneNumber2; }
+            set
+            {
+                if (value == 0)            // tillad tomt nr. 2
+                {
+                    phoneNumber2 = 0;
+                }
+                else if (value.ToString().Length == 8)
+                {
+                    phoneNumber2 = value;
+                }
+                else
+                {
+                    throw new ValidationException("Telefonnummer 2 skal være 8 cifre.");
                 }
             }
         }
@@ -100,13 +121,16 @@ namespace Phoenix
             get { return judoPass; }
             set { judoPass = value; }
         }
-        private Team teamType;
+        private bool judoLicens;
 
-        public Team TeamType
+        public bool JudoLicens
         {
-            get { return teamType; }
-            set { teamType = value; }
+            get { return judoLicens; }
+            set { judoLicens = value; }
         }
+      
+        public Team.TeamName Team { get; set; }
+
         private double weight;
 
         public double Weight
@@ -123,25 +147,25 @@ namespace Phoenix
         }
 
 
-        public Member(int memberID, string name, DateTime birthDate, string address, string mail, string rank, bool judoPass, Team teamType, double weight, ClubRole role)
+        public Member(int memberID, string firstName, string lastName, DateTime birthDate, string address, string mail, int phoneNumber1, int phoneNumber2, string rank, bool judoPass, bool judoLicens, Team.TeamName team, double weight, ClubRole role)
+
         {
             MemberID = memberID;
-            Name = name;
+            FirstName = firstName;
+            LastName = lastName;
             BirthDate = birthDate;
             Address = address;
             Mail = mail;
+            PhoneNumber1 = phoneNumber1;
+            PhoneNumber2 = phoneNumber2;
             Rank = rank;
             JudoPass = judoPass;
-            TeamType = teamType;
+            JudoLicens = judoLicens;
+            Team = team;
             Weight = weight;
             Role = role;
-            
+          
         }
-
-
-
-
-
 
     }
 }

@@ -1,0 +1,201 @@
+﻿<UserControl x:Class="Phoenix.AddMemberInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Phoenix"
+        mc:Ignorable="d"
+        MinHeight="480" MinWidth="720">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <LinearGradientBrush.RelativeTransform>
+                    <TransformGroup>
+                        <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                        <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                        <RotateTransform Angle="-90" CenterX="0.5" CenterY="0.5"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </LinearGradientBrush.RelativeTransform>
+                <GradientStop Color="#FFFDE2CE"/>
+                <GradientStop Color="White" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- header -->
+        <Grid Grid.Row="0">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0.5,0" EndPoint="0.5,1">
+                    <LinearGradientBrush.RelativeTransform>
+                        <TransformGroup>
+                            <ScaleTransform CenterY="0.5" CenterX="0.5"/>
+                            <SkewTransform CenterX="0.5" CenterY="0.5"/>
+                            <RotateTransform Angle="90" CenterX="0.5" CenterY="0.5"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </LinearGradientBrush.RelativeTransform>
+                    <GradientStop Color="#FFFFDEBC"/>
+                    <GradientStop Color="#FFFF8D66" Offset="1"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+
+            <TextBlock x:Name="AddMemberInfomation" Text="Tilføj medlem"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       FontSize="36" FontWeight="Bold" Foreground="White"/>
+        </Grid>
+
+        <!-- back button -->
+        <Button Click="BackButton" Background="Transparent" BorderThickness="0"
+                Margin="40,0,0,0" Height="40" Width="40" Grid.Row="0"
+                HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
+        </Button>
+
+        <!-- lower section wrapped in ViewBox -->
+        <!--//<Viewbox Grid.Row="1" Stretch="Uniform" StretchDirection="Both">-->
+        <Grid Grid.Row="1" Margin="20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="120"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="Foreground" Value="#FFA30B0B"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,6,10,6"/>
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="FontFamily" Value="Franklin Gothic Book"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                        <Setter Property="Height" Value="26"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Label Grid.Row="0" Grid.Column="0" x:Name="IDMember" Content="ID" FontSize="18"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="IdField" Width="127" IsReadOnly="True" Background="{x:Null}" BorderBrush="{x:Null}"/>
+
+                <Label Grid.Row="1" Grid.Column="0" x:Name="Firstname" Content="Fornavn:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="FirstnamField" Width="198"/>
+
+                <Label Grid.Row="2" Grid.Column="0" x:Name="Lastname" Content="Efternavn:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="LastnameField" Width="198"/>
+
+                <Label Grid.Row="3" Grid.Column="0" x:Name="Birthdate" Content="Fødselsdag:"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="BirthDateField" Width="198"/>
+
+                <Label Grid.Row="4" Grid.Column="0" x:Name="Adress" Content="Adresse:"/>
+                <TextBox Grid.Row="4" Grid.Column="1" x:Name="AdressField" Width="198"/>
+
+                <Label Grid.Row="5" Grid.Column="0" x:Name="Email" Content="Mail:"/>
+                <TextBox Grid.Row="5" Grid.Column="1" x:Name="EmailField" Width="198"/>
+
+                <Label Grid.Row="6" Grid.Column="0" x:Name="TelephoneNumber1" Content="Tlf.1:"/>
+                <TextBox Grid.Row="6" Grid.Column="1" x:Name="TelephoneNumber1Field" Width="127"/>
+
+                <Label Grid.Row="7" Grid.Column="0" x:Name="TelephoneNumber2" Content="Tlf.2:"/>
+                <TextBox Grid.Row="7" Grid.Column="1" x:Name="TelephoneNumber2Field" Width="127"/>
+
+                <Label Grid.Row="8" Grid.Column="0" x:Name="Role" Content="Rolle:"/>
+                <ComboBox Grid.Row="8" Grid.Column="1" x:Name="RoleComboBox" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="30,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" MinWidth="100"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid.Resources>
+                    <Style TargetType="Label">
+                        <Setter Property="FontFamily" Value="Franklin Gothic Demi"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="Foreground" Value="#FFA30B0B"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Right"/>
+                        <Setter Property="Margin" Value="0,6,10,6"/>
+                    </Style>
+                    <Style TargetType="TextBox">
+                        <Setter Property="FontFamily" Value="Franklin Gothic Book"/>
+                        <Setter Property="FontSize" Value="16"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                        <Setter Property="Height" Value="26"/>
+                    </Style>
+                </Grid.Resources>
+
+                <Label Grid.Row="0" Grid.Column="0" x:Name="Team" Content="Hold:"/>
+                <ComboBox Grid.Row="0" Grid.Column="1" x:Name="TeamComboBox" Width="127" FontFamily="Franklin Gothic Book" FontSize="16" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                <Label Grid.Row="1" Grid.Column="0" x:Name="Rank" Content="KYU:"/>
+                <TextBox Grid.Row="1" Grid.Column="1" x:Name="RankField" Width="127"/>
+
+                <Label Grid.Row="2" Grid.Column="0" x:Name="Weight" Content="Vægt:"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="WeightField" Width="127"/>
+
+                <Label Grid.Row="3" Grid.Column="0" x:Name="JudoPass" Content="Judopas:"/>
+                <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content="Ja" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="YesToJudoPass" VerticalAlignment="Center" Margin="5,0,15,0"/>
+                    <Label Content="Nej" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="NoToJudoPass" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <Label Grid.Row="4" Grid.Column="0" x:Name="JudoLicens" Content="JudoLicens:"/>
+                <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Label Content="Ja" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="YesToJudoLicens" VerticalAlignment="Center" Margin="5,0,15,0"/>
+                    <Label Content="Nej" FontSize="18" Margin="0,0,0,0" HorizontalAlignment="Left"/>
+                    <CheckBox x:Name="NoToJudoLicens" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                </StackPanel>
+
+                <Button x:Name="SaveMember" Content="Gem medlem"
+                Grid.Row="5" Grid.Column="1" Margin="0,20,0,0"
+                Height="52" Width="149"
+                HorizontalAlignment="Left" VerticalAlignment="Top"
+                Background="#FF906048" Foreground="#FFF4F4F4"
+                FontFamily="Franklin Gothic Book" FontSize="18"
+                Click="SaveMember_Click"/>
+            </Grid>
+        </Grid>
+    </Grid>
+    </UserControl>
+       
