@@ -9,10 +9,8 @@ namespace Phoenix
 	public class Team
 	{
 	
-
 		public TeamName TeamType { get; set; }
 		
-
         public enum TeamName
 	    { 
 			Motorik,
@@ -23,8 +21,6 @@ namespace Phoenix
             
         }
        
-
-
 
         // Backing collections for members and coaches
         private readonly List<Member> members;
@@ -59,8 +55,6 @@ namespace Phoenix
 			ascoaches = new List<Member>();
 			price = 0.0;
 		}
-
-        
 
 
         // Methods

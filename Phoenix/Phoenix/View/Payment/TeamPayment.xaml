@@ -63,12 +63,11 @@
             </Button>
         </Grid>
 
-
         <Viewbox Grid.Row="1" 
                  StretchDirection="Both" Stretch="Uniform" 
                  HorizontalAlignment="Center" VerticalAlignment="Center" 
                  MaxWidth="1200" MaxHeight="800">
-            <Grid Width="720" Height="400" Margin="30,20,30,20">
+            <Grid Grid.Row="1"  Width="720" Height="400" Margin="30,20,30,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="500"/>
                     <ColumnDefinition Width="202"/>
@@ -79,35 +78,24 @@
                     <TextBlock Text="Betalinger" 
                                FontFamily="Franklin Gothic Demi" FontWeight="Bold" 
                                Foreground="#FFA30B0B" FontSize="20" Height="27" />
-
-                   
-
-
                     <ListView x:Name="HoldMedlemListe" ItemsSource="{Binding TeamMembers}" SelectedItem="{Binding SelectedMember, Mode=TwoWay}"
-                              Height="281" Width="474" HorizontalAlignment="Left">
+                              HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" HorizontalAlignment="Left" FontFamily="Franklin Gothic Book" FontSize="16">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MemberID}" Width="50"/>
                                 <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
                                 <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
-                                <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team.TeamType}" Width="80"/>
+                                <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team}" Width="80"/>
+                                <GridViewColumn Header="Rolle" DisplayMemberBinding="{Binding Role}" Width="80"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
                 </StackPanel>
-
-
+                <!--Knapperne -->
                 <StackPanel Grid.Column="1" VerticalAlignment="Top" Margin="0,47,0,0">
 
-                    <Button x:Name="RegPayment" Content="Registrer betaling" 
-                            Height="62" Width="202" Margin="0,0,0,30"
-                            Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" 
-                            FontFamily="Franklin Gothic Book" FontSize="18" Click="RegPayment_Click"/>
-
-                    <Button x:Name="SeeList" Content="Hent samlet liste" 
-                            Height="62" Width="202" 
-                            Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" 
-                            FontFamily="Franklin Gothic Book" FontSize="18"/>
+                    <Button x:Name="RegPayment" Content="Registrer betaling"  Height="62" Width="202" Margin="0,0,0,30"  Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4"  FontFamily="Franklin Gothic Book" FontSize="18" Click="RegPayment_Click"/>
+                    <Button x:Name="SeeList" Content="Hent samlet liste"  Height="62" Width="202"  Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4"   FontFamily="Franklin Gothic Book" FontSize="18"/>
                 </StackPanel>
             </Grid>
         </Viewbox>

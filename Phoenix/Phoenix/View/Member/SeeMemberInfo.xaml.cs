@@ -108,6 +108,7 @@ namespace Phoenix
                 YesToJudoLicens.IsEnabled = true;
                 NoToJudoLicens.IsEnabled = true;
             }
+
             else
             {
                 // GEM ændringerne
@@ -132,19 +133,46 @@ namespace Phoenix
                 SelectedMember.LastName = LastnameLabel.Text;
                 SelectedMember.Address = AdressLabel.Text;
                 SelectedMember.Mail = EmailLabel.Text;
-                // hvis PhoneNumber er string/int: tilpas til din Member-klasse
-                // SelectedMember.PhoneNumber = TelephoneNumber1Label.Text;
+
+                if (int.TryParse(TelephoneNumber1Label.Text, out int newPhone1))
+                {
+                    SelectedMember.PhoneNumber1 = newPhone1;
+                }
+                else
+                {
+                    MessageBox.Show("Hovedtelefonnummeret skal kun indeholde tal.",
+                                    "Fejl i telefonnummer",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Warning);
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(TelephoneNumber2Label.Text))
+                {
+                    // Hvis feltet er tomt, sæt den fx til 0 (eller lad den være)
+                    SelectedMember.PhoneNumber2 = 0;
+                }
+                else if (int.TryParse(TelephoneNumber2Label.Text, out int newPhone2))
+                {
+                    SelectedMember.PhoneNumber2 = newPhone2;
+                }
+                else
+                {
+                    MessageBox.Show("Ekstra telefonnummer må kun indeholde tal.",
+                                    "Fejl i telefonnummer",
+                                    MessageBoxButton.OK,
+                                    MessageBoxImage.Warning);
+                    return;
+                }
 
                 if (TeamComboBox.SelectedItem is Team.TeamName newTeam)
                     SelectedMember.Team = newTeam;
-
 
                 if (RoleComboBox.SelectedItem is ClubRole newRole)
                     SelectedMember.Role = newRole;
 
                 SelectedMember.JudoPass = YesToJudoPass.IsChecked == true;
                 SelectedMember.JudoLicens = YesToJudoLicens.IsChecked == true;
-
                 mainWindow.memberRepository.Update(SelectedMember);
 
                 MessageBox.Show("Medlemsoplysninger gemt.");

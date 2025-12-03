@@ -42,77 +42,43 @@
                     <GradientStop Color="#FFFF8D66" Offset="1"/>
                 </LinearGradientBrush>
             </Grid.Background>
+            <!--Indholdet i headeren-->
+            <TextBlock x:Name="TeamTitle"  Text="Placeholder" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="36"  FontWeight="Bold" Foreground="White"/>
 
-            <TextBlock x:Name="TeamTitle"
-                       Text="Placeholder"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontSize="36"
-                       FontWeight="Bold"
-                       Foreground="White"/>
-
-            <Button Click="BackButton"
-                    Background="Transparent"
-                    BorderThickness="0"
-                    Margin="20,0,0,0"
-                    Height="40" Width="40"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Center">
+            <Button Click="BackButton"  Background="Transparent"  BorderThickness="0"  Margin="20,0,0,0" Height="40" Width="40" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Image x:Name="BackArrow" Source="/Billeder/BackArrow.png" Stretch="Uniform"/>
             </Button>
         </Grid>
+        <Grid Grid.Row="1"  Margin="30,20,30,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
 
+            </Grid.ColumnDefinitions>
 
-        <Viewbox Grid.Row="1" 
-                 StretchDirection="Both" Stretch="Uniform" 
-                 HorizontalAlignment="Center" VerticalAlignment="Center" 
-                 MaxWidth="1200" MaxHeight="800">
-            <Grid Width="720" Height="400" Margin="30,20,30,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="660"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="0,0,20,0">
+                <TextBlock Text="Medlemsliste"  FontFamily="Franklin Gothic Demi" FontWeight="Bold" Foreground="#FFA30B0B" FontSize="20" Height="27" Width="564" HorizontalAlignment="Center" Margin="0,0,0,0"/>
 
-                <StackPanel Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,20,0">
-
-                    <TextBlock Text="Medlemsliste" 
-                               FontFamily="Franklin Gothic Demi" FontWeight="Bold" 
-                               Foreground="#FFA30B0B" FontSize="20" Height="27" Width="564" HorizontalAlignment="Left" Margin="0,0,0,0"/>
-
-                    
-
-            <ListView x:Name="HoldMedlemListe"
-                      Height="281" Width="564" 
+                <ListView x:Name="HoldMedlemListe"
+                      HorizontalAlignment="Center" HorizontalContentAlignment="Stretch" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Height="200"
                   ItemsSource="{Binding TeamMembers}"
-               SelectedItem="{Binding SelectedMember, Mode=TwoWay}">
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MemberID}" Width="50"/>
-                        <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
-                        <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
-                        <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team}" Width="80"/>
-                    </GridView>
-                    
-                </ListView.View>
-            </ListView>
-            <!-- Tilføj/fjern knapper under listen -->
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center">
+               SelectedItem="{Binding SelectedMember, Mode=TwoWay}" FontFamily="Franklin Gothic Book" FontSize="16">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="ID" DisplayMemberBinding="{Binding MemberID}" Width="100"/>
+                            <GridViewColumn Header="Navn" DisplayMemberBinding="{Binding FirstName}" Width="100"/>
+                            <GridViewColumn Header="Alder" DisplayMemberBinding="{Binding Age}" Width="100"/>
+                            <GridViewColumn Header="Hold" DisplayMemberBinding="{Binding Team}" Width="120"/>
+                            <GridViewColumn Header="Rolle" DisplayMemberBinding="{Binding Role}" Width="150"/>
+                        </GridView>
 
-                <Button Content="Fjern valgt medlem" Click="RemoveMember_Click" Margin="5"  Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
+                    </ListView.View>
+                </ListView>
+                <!-- fjern knappen under listen -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,0" HorizontalAlignment="Center">
+                    <Button Content="Fjern valgt medlem" Click="RemoveMember_Click" Margin="5"  Height="62" Width="202" Background="#FF906048" BorderBrush="{x:Null}" Foreground="#FFF4F4F4" FontFamily="Franklin Gothic Book" FontSize="18"/>
+                </StackPanel>
             </StackPanel>
-
-        </StackPanel>
-
-            </Grid>
-        </Viewbox>
-
-        <Image Grid.Row="1" Grid.ColumnSpan="2"
-               x:Name="logo"
-               Source="/logo judo.jpg"
-               Height="80"
-               HorizontalAlignment="Right"
-               VerticalAlignment="Bottom"
-               Margin="0,0,30,10"
-               Opacity="0.8"/>
+        </Grid>
+        <Image Grid.Row="1" Grid.Column="0"   x:Name="logo" Source="/logo judo.jpg" Height="80" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="0,0,30,10"  Opacity="0.8"/>
     </Grid>
 </UserControl>

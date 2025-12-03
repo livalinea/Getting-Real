@@ -12,16 +12,14 @@ namespace Phoenix
         Member,
         Coach,
         AsCoach,
-   
 
 	}
     public class Member
     {
         public int MemberID { get; internal set; }
-       
         public string FirstName { get; set; }
         public string LastName { get; set; }
-       
+      
         private int age;
         public int Age
         {
@@ -47,7 +45,6 @@ namespace Phoenix
             set { birthDate = value; }
         }
         private string address;
-
         public string Address
         {
             get { return address; }
