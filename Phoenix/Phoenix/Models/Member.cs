@@ -114,12 +114,12 @@ namespace Phoenix.Models
             get { return _judoPass; }
             set { _judoPass = value; }
         }
-        private bool judoLicens;
+        private bool _judoLicens;
 
-        public bool _JudoLicens
+        public bool JudoLicens
         {
-            get { return judoLicens; }
-            set { judoLicens = value; }
+            get { return _judoLicens; }
+            set { _judoLicens = value; }
         }
       
         public Team.TeamName Team { get; set; }
@@ -153,7 +153,7 @@ namespace Phoenix.Models
             PhoneNumber2 = phoneNumber2;
             Rank = rank;
             JudoPass = judoPass;
-            _JudoLicens = judoLicens;
+            JudoLicens = judoLicens;
             Team = team;
             Weight = weight;
             Role = role;

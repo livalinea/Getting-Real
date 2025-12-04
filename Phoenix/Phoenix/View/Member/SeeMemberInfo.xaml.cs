@@ -44,8 +44,8 @@ namespace Phoenix
 
             YesToJudoPass.IsChecked = SelectedMember.JudoPass;
             NoToJudoPass.IsChecked = !SelectedMember.JudoPass;
-            YesToJudoLicens.IsChecked = SelectedMember._JudoLicens;
-            NoToJudoLicens.IsChecked = !SelectedMember._JudoLicens;
+            YesToJudoLicens.IsChecked = SelectedMember.JudoLicens;
+            NoToJudoLicens.IsChecked = !SelectedMember.JudoLicens;
 
             SetEditing(false);
 
@@ -173,7 +173,7 @@ namespace Phoenix
                     SelectedMember.Role = newRole;
 
                 SelectedMember.JudoPass = YesToJudoPass.IsChecked == true;
-                SelectedMember._JudoLicens = YesToJudoLicens.IsChecked == true;
+                SelectedMember.JudoLicens = YesToJudoLicens.IsChecked == true;
                 mainWindow.memberRepository.Update(SelectedMember);
 
                 MessageBox.Show("Medlemsoplysninger gemt.");

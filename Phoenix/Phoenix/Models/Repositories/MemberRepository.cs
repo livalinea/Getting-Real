@@ -100,7 +100,7 @@ namespace Phoenix.Repositories
                 Selected.RegDate = member.RegDate;
                 Selected.Rank = member.Rank;
                 Selected.JudoPass = member.JudoPass;
-                Selected._JudoLicens = member._JudoLicens;
+                Selected.JudoLicens = member.JudoLicens;
                 Selected.Team = member.Team;
                 Selected.Weight = member.Weight;
                 Selected.Role = member.Role;
@@ -114,7 +114,7 @@ namespace Phoenix.Repositories
                 foreach (Member m in _members)
                 {
                     // Gem som en linje med semikolon-separerede værdier
-                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.PhoneNumber1};{m.PhoneNumber2};{m.Rank};{m.JudoPass};{m._JudoLicens};{m.Team};{m.Weight};{m.Role}");
+                    sw.WriteLine($"{m.MemberID};{m.FirstName};{m.LastName};{m.BirthDate:yyyy-MM-dd};{m.Address};{m.Mail};{m.PhoneNumber1};{m.PhoneNumber2};{m.Rank};{m.JudoPass};{m.JudoLicens};{m.Team};{m.Weight};{m.Role}");
                 }
                 sw.Close();
             }

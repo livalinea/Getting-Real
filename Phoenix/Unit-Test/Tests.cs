@@ -18,8 +18,6 @@ namespace Unit_Test
                 // Arrange
                 var repo = new MemberRepository();
                 var teamName = new Team(Team.TeamName.Puslinge);
-                //var memberList = new List<Member>();
-
 
                 var member = new Member(
                     memberID: 1,
