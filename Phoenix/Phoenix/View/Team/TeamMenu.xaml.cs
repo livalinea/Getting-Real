@@ -37,10 +37,10 @@ namespace Phoenix
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindow mW = (MainWindow)Application.Current.MainWindow; 
+            MainWindow mW = (MainWindow)Application.Current.MainWindow; 
             string holdnavn = (sender as Button).Content.ToString();
-            mainWindow.ShowTeamList(holdnavn);
-            //mainWindow = new TeamViewer(holdnavn);
+            mainWindow.ShowTeamViewer(holdnavn);
+           
 
         }
     }

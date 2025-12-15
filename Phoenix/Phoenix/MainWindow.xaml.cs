@@ -77,11 +77,11 @@ namespace Phoenix
         }
 
 
-        //public void ShowTeamViewer(string holdnavn)
-        //{
-        //    var teamViewer = new TeamViewer(holdnavn, this, teamType);
-        //    MainContent.Content = teamViewer;
-        //}
+        public void ShowTeamViewer(string holdnavn)
+        {
+            var teamViewer = new TeamViewer(holdnavn, this);
+            MainContent.Content = teamViewer;
+        }
 
         public void ShowTeamList(string holdnavn)
         {
